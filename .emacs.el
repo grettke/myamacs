@@ -229,3 +229,52 @@ Attribution: URL `https://www.emacswiki.org/emacs/SwitchingBuffers#toc5'"
 (global-set-key (kbd "H-N") #'gcr-vc-next-action)
 
 ;; Row 0: Ctrl...
+
+;;;; To Process
+
+(defun amacsrecenter-line-near-top-fn ()
+  "Move current line near top"
+  (interactive)
+  (let ((recenter-positions '(5)))
+    (recenter-top-bottom)))
+;;; Occurrence
+
+(defun amacs-occur-mode-hook-fn ()
+  (occur-rename-buffer t))
+(add-hook 'occur-mode-hook #'amacs-occur-mode-hook-fn)
+(define-key occur-mode-map (kbd "n") #'next-logical-line)
+(define-key occur-mode-map (kbd "p") #'previous-logical-line)
+(add-hook 'occur-mode-find-occurrence-hook #'amacs-recenter-line-near-top)
+
+(defun amacs-occur-dwim ()
+  "Call `occur' with a mostly sane default.
+
+Attribution Oleh Krehel (abo-abo): URL `http://oremacs.com/2015/01/26/occur-dwim/'"
+  (interactive)
+  (push (if (region-active-p)
+            (buffer-substring-no-properties
+             (region-beginning)
+             (region-end))
+          (let ((sym (thing-at-point 'symbol)))
+            (when (stringp sym)
+              (regexp-quote sym))))
+        regexp-history)
+  (call-interactively 'occur)
+  (other-window 1))
+
+(defun amacs-create-non-existent-directory ()
+  "Attribution URL: `https://iqbalansari.github.io/blog/2014/12/07/automatically-create-parent-directories-on-visiting-a-new-file-in-emacs/'"
+  (let ((parent-directory (file-name-directory buffer-file-name)))
+    (when (and (not (file-exists-p parent-directory))
+			   (y-or-n-p (format "Directory `%s' does not exist. Create it?" parent-directory)))
+      (make-directory parent-directory t))))
+
+(add-to-list 'find-file-not-found-functions
+             #'amacs-create-non-existent-directory)
+
+(mapcar (lambda (f) (add-to-list 'desktop-clear-preserve-buffers f))
+        '(".emacs.el"))
+
+(setq enable-recursive-minibuffers t)
+
+(minibuffer-depth-indicate-mode)
