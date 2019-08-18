@@ -48,6 +48,19 @@ URL `https://www.emacswiki.org/emacs/SwitchingBuffers#toc5'"
     (org-edit-src-exit))
   (vc-next-action nil))
 
+(defun gcr-beginning-of-line-dwim ()
+  "Alternate point between start of line and first character on line.
+Toggles between moving point to the first non-whitespace
+character, and the start of the line. 
+
+Attribution:
+URL `http://www.wilfred.me.uk/'"
+  (interactive)
+  (let ((start-position (point)))
+    (move-beginning-of-line nil)
+    (when (= (point) start-position)
+      (back-to-indentation))))
+
 ;;;; Occur
 
 (define-key occur-mode-map (kbd "n") #'next-logical-line)
@@ -135,6 +148,8 @@ URL `http://oremacs.com/2015/01/26/occur-dwim/'"
 
 ;; Row 2: A...
 
+(global-set-key (kbd "C-a") #'gcr-beginning-of-line-dwim)
+
 (global-set-key (kbd "A-s") #'shell)
 
 (global-set-key (kbd "A-d") #'vc-diff)
@@ -147,7 +162,6 @@ URL `http://oremacs.com/2015/01/26/occur-dwim/'"
 (global-set-key (kbd "A-l") #'gcr-switch-to-previous-buffer)
 
 ;; Row 1: Z...
-
 
 ;; Row 0: Ctrl...
 
