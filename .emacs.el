@@ -1,10 +1,16 @@
 ;; -*- lexical-binding: t; no-byte-compile: t; coding: utf-8 -*-
 
-;;;;
+;;;; Auroramacs
 
 (load-file "~/src/amacs/.emacs.el")
 
-;;;; macOS Keys
+;;;; Packages
+
+(require 'thingatpt)
+
+;;;; macOS
+
+;; TODO Correct these to my new layout
 
 (setq ns-control-modifier 'control)
 (setq ns-command-modifier 'meta)
@@ -13,147 +19,35 @@
 (setq ns-right-command-modifier 'alt)
 (setq ns-right-alternate-modifier 'hyper)
 
-;;;; Helper Functions
+;;;; Utility Functions
 
-(defun gcr-dot-sp ()
+(defun gcr-recenter-line-near-top()
+  "Move current line near top"
   (interactive)
-  (gcr-ins-evt ?\.)
-  (gcr-ins-evt ?\s))
+  (let ((recenter-positions '(5)))
+    (recenter-top-bottom)))
 
-(defun gcr-dot ()
+;;;; Occur
+
+(define-key occur-mode-map (kbd "n") #'next-logical-line)
+(define-key occur-mode-map (kbd "p") #'previous-logical-line)
+(add-hook 'occur-mode-find-occurrence-hook #'gcr-recenter-line-near-top)
+
+(defun gcr-occur-dwim ()
+  "Call `occur' on thing and goto results.
+
+URL `http://oremacs.com/2015/01/26/occur-dwim/'"
   (interactive)
-  (gcr-ins-evt ?\.))
-
-(defun gcr-semi-sp ()
-  (interactive)
-  (gcr-ins-evt ?\;)
-  (gcr-ins-evt ?\s))
-
-(defun gcr-semi ()
-  (interactive)
-  (gcr-ins-evt ?\;))
-
-(defun gcr-comma-sp ()
-  (interactive)
-  (gcr-ins-evt ?\,)
-  (gcr-ins-evt ?\s))
-
-(defun gcr-comma ()
-  (interactive)
-  (gcr-ins-evt ?\,))
-
-(defun gcr-em-dash ()
-  "Insert a EM-DASH.
-
-- \"best limited to two appearances per sentence\"
-- \"can be used in place of commas to enhance readability.
-   Note, however, that dashes are always more emphatic than
-   commas\"
-- \"can replace a pair of parentheses. Dashes are considered
-   less formal than parentheses; they are also more intrusive.
-   If you want to draw attention to the parenthetical content,
-   use dashes. If you want to include the parenthetical content
-   more subtly, use parentheses.\"
-  - \"Note that when dashes are used in place of parentheses,
-     surrounding punctuation should be omitted.\"
-- \"can be used in place of a colon when you want to emphasize
-   the conclusion of your sentence. The dash is less formal than
-   the colon.\"
-- \"Two em dashes can be used to indicate missing portions of a
-   word, whether unknown or intentionally omitted.\"
-  - \"When an entire word is missing, either two or three em
-     dashes can be used. Whichever length you choose, use it
-     consistently throughout your document. Surrounding punctuation
-     should be placed as usual.\"
-- \"The em dash is typically used without spaces on either side,
-   and that is the style used in this guide. Most newspapers,
-   however, set the em dash off with a single space on each side.\"
-
-Source: URL `https://www.thepunctuationguide.com/em-dash.html'"
-  (interactive)
-  (gcr-ins-evt ?—))
-
-(defun gcr-en-dash ()
-  "Insert a EN-DASH.
-
-- \"is used to represent a span or range of numbers, dates,
-   or time. There should be no space between the en dash and
-   the adjacent material. Depending on the context, the en
-   dash is read as “to” or “through.”\"
-  - \"If you introduce a span or range with words such as
-     'from' or 'between', do not use the en dash.\"
-- \"is used to report scores or results of contests.\"
-- \"an also be used between words to represent conflict,
-   connection, or direction.\"
-- \"When a compound adjective is formed with an element that
-   is itself an open compound or hyphenated compound, some
-   writers replace the customary hyphen with an en dash. This
-   is an aesthetic choice more than anything.
-
-Source: URL `https://www.thepunctuationguide.com/en-dash.html'"
-  (interactive)
-  (gcr-ins-evt ?–))
-
-(defun gcr-hyphen ()
-  "Insert a HYPHEN
-
-- \"For most writers, the hyphen’s primary function is the
-   formation of certain compound terms. The hyphen is also
-   used for word division [in typesetting].
-- \"Compound terms are those that consist of more than one
-   word but represent a single item or idea.\"
-
-Source: URL `https://www.thepunctuationguide.com/hyphen.html'"
-
-  (interactive)
-  (gcr-ins-evt ?-))
-
-(defun gcr-untabify ()
-  "Unless tab mode enabled untabify the region or buffer.
-
-URL: `http://emacsredux.com/blog/2013/03/27/indent-region-or-buffer/'"
-  (interactive)
-  (unless indent-tabs-mode
-    (save-excursion
-      (if (region-active-p)
-        (progn
-          (untabify (region-beginning) (region-end))
-          (message "Untabified region."))
-      (progn
-        (untabify (point-min) (point-max))
-        (message "Untabified buffer."))))))
-
-(defun gcr-ins-evt (char)
-  "Generate a kepy event while inserting CHAR. 
-
-Unlike using `insert' generates a key event so buffer and modes 
-and maybe more react as though it is real input from the user typing
-at the keyboard."
-  (cl-flet ((do-insert
-             () (if (bound-and-true-p org-mode)
-                    (org-self-insert-command 1)
-                  (self-insert-command 1))))
-    (setq last-command-event char)
-    (do-insert)))
-
-(defun gcr-vc-next-action ()
-  "If in org source block, exit it before `vc-next-action'."
-  (interactive)
-  (when (condition-case nil
-            (org-src-edit-buffer-p)
-          (error nil))
-    (org-edit-src-exit))
-  (vc-next-action nil))
-
-(defun gcr-switch-to-previous-buffer ()
-  "Switch to most recent buffer. Repeated calls toggle back and forth between the most recent two buffers.
-
-Attribution: URL `http://pragmaticemacs.com/emacs/toggle-between-most-recent-buffers/'
-
-Attribution: URL `https://www.emacswiki.org/emacs/SwitchingBuffers#toc5'"
-  (interactive)
-  (switch-to-buffer (other-buffer (current-buffer) 1)))
-
+  (push (if (region-active-p)
+            (buffer-substring-no-properties
+             (region-beginning)
+             (region-end))
+          (let ((sym (thing-at-point 'symbol)))
+            (when (stringp sym)
+              (regexp-quote sym))))
+        regexp-history)
+  (call-interactively 'occur)
+  (other-window 1))
 
 ;;;; Org2Blog
 
@@ -163,14 +57,17 @@ Attribution: URL `https://www.emacswiki.org/emacs/SwitchingBuffers#toc5'"
 (require 'hydra)
 (add-to-list 'load-path "~/src/xml-rpc")
 (require 'xml-rpc)
-(add-to-list 'load-path "~/src/org-make-toc")
-(require 'org-make-toc)
 (add-to-list 'load-path "~/src/dash")
 (require 'dash)
+(add-to-list 'load-path "~/src/s")
+(require 's)
+(add-to-list 'load-path "~/src/org-make-toc")
+(require 'org-make-toc)
 
 (add-to-list 'load-path "~/src/org2blog")
 (require 'org2blog)
 (add-hook 'org-mode-hook #'owp-maybe-start)
+;; TODO Set up these shortcuts
 (defun gcr-org2blog/wp-mode-hook-fn ()
   (local-set-key (kbd "s-(") #'owp-user-interface)
   (local-set-key (kbd "s-)") #'owp-complete))
@@ -205,11 +102,12 @@ Attribution: URL `https://www.emacswiki.org/emacs/SwitchingBuffers#toc5'"
 (global-set-key (kbd "-") #'gcr-hyphen)
 (global-set-key (kbd "H-M--") #'gcr-em-dash)
 (global-set-key (kbd "H-M-_") #'gcr-en-dash)
--–—
+
 ;; Row 3: Q...
 
 (global-set-key (kbd "H-e") #'eval-last-sexp)
 (global-set-key (kbd "H-i") #'gcr-switch-to-previous-buffer)
+;; TODO: Make this a lambda function
 (global-set-key (kbd "H-o") #'occur)
 (global-set-key (kbd "H-O") #'find-file)
 (global-set-key (kbd "H-|") #'gcr-untabify)
@@ -230,51 +128,3 @@ Attribution: URL `https://www.emacswiki.org/emacs/SwitchingBuffers#toc5'"
 
 ;; Row 0: Ctrl...
 
-;;;; To Process
-
-(defun amacsrecenter-line-near-top-fn ()
-  "Move current line near top"
-  (interactive)
-  (let ((recenter-positions '(5)))
-    (recenter-top-bottom)))
-;;; Occurrence
-
-(defun amacs-occur-mode-hook-fn ()
-  (occur-rename-buffer t))
-(add-hook 'occur-mode-hook #'amacs-occur-mode-hook-fn)
-(define-key occur-mode-map (kbd "n") #'next-logical-line)
-(define-key occur-mode-map (kbd "p") #'previous-logical-line)
-(add-hook 'occur-mode-find-occurrence-hook #'amacs-recenter-line-near-top)
-
-(defun amacs-occur-dwim ()
-  "Call `occur' with a mostly sane default.
-
-Attribution Oleh Krehel (abo-abo): URL `http://oremacs.com/2015/01/26/occur-dwim/'"
-  (interactive)
-  (push (if (region-active-p)
-            (buffer-substring-no-properties
-             (region-beginning)
-             (region-end))
-          (let ((sym (thing-at-point 'symbol)))
-            (when (stringp sym)
-              (regexp-quote sym))))
-        regexp-history)
-  (call-interactively 'occur)
-  (other-window 1))
-
-(defun amacs-create-non-existent-directory ()
-  "Attribution URL: `https://iqbalansari.github.io/blog/2014/12/07/automatically-create-parent-directories-on-visiting-a-new-file-in-emacs/'"
-  (let ((parent-directory (file-name-directory buffer-file-name)))
-    (when (and (not (file-exists-p parent-directory))
-			   (y-or-n-p (format "Directory `%s' does not exist. Create it?" parent-directory)))
-      (make-directory parent-directory t))))
-
-(add-to-list 'find-file-not-found-functions
-             #'amacs-create-non-existent-directory)
-
-(mapcar (lambda (f) (add-to-list 'desktop-clear-preserve-buffers f))
-        '(".emacs.el"))
-
-(setq enable-recursive-minibuffers t)
-
-(minibuffer-depth-indicate-mode)
