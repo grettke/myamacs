@@ -96,33 +96,32 @@ URL `http://oremacs.com/2015/01/26/occur-dwim/'"
 
 ;; Row 4: 1...
 
-(global-set-key (kbd "H-1") #'delete-other-windows)
-(global-set-key (kbd "-") #'gcr-hyphen)
-(global-set-key (kbd "H-M--") #'gcr-em-dash)
-(global-set-key (kbd "H-M-_") #'gcr-en-dash)
+(global-set-key (kbd "H-A-1") #'help)
+(global-set-key (kbd "H-A-3") #'kmacro-start-macro-or-insert-counter)
+(global-set-key (kbd "H-A-4") #'kmacro-end-or-call-macro)
+(global-set-key (kbd "H-A-5") #'kmacro-name-last-macro)
+(global-set-key (kbd "H-A-6") #'insert-kbd-macro)
 
 ;; Row 3: Q...
 
-(global-set-key (kbd "H-e") #'eval-last-sexp)
-(global-set-key (kbd "H-i") #'gcr-switch-to-previous-buffer)
-;; TODO: Make this a lambda function
-(global-set-key (kbd "H-o") #'occur)
-(global-set-key (kbd "H-O") #'find-file)
-(global-set-key (kbd "H-|") #'gcr-untabify)
+;; (global-set-key (kbd "H-i") #'gcr-switch-to-previous-buffer)
+;; ;; TODO: Make this a lambda function
+;; (global-set-key (kbd "H-o") #'occur)
+;; (global-set-key (kbd "H-O") #'find-file)
 
 ;; Row 2: A...
 
-(global-set-key (kbd "H-h") #'other-window)
-(global-set-key (kbd "H-j") #'switch-to-buffer)
-(global-set-key (kbd "H-k") #'execute-extended-command)
-(global-set-key (kbd "H-K") #'kill-current-buffer)
-(global-set-key (kbd "H-l") #'goto-line)
-(global-set-key (kbd "H-L") #'shell)
+;; (global-set-key (kbd "H-h") #'other-window)
+;; (global-set-key (kbd "H-j") #'switch-to-buffer)
+;; (global-set-key (kbd "H-k") #'execute-extended-command)
+;; (global-set-key (kbd "H-K") #'kill-current-buffer)
+;; (global-set-key (kbd "H-l") #'goto-line)
+;; (global-set-key (kbd "H-L") #'shell)
 
 ;; Row 1: Z...
 
-(global-set-key (kbd "H-b") #'ibuffer)
-(global-set-key (kbd "H-N") #'gcr-vc-next-action)
+;; (global-set-key (kbd "H-b") #'ibuffer)
+;; (global-set-key (kbd "H-N") #'gcr-vc-next-action)
 
 ;; Row 0: Ctrl...
 
