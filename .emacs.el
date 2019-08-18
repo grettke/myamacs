@@ -25,6 +25,29 @@
   (let ((recenter-positions '(5)))
     (recenter-top-bottom)))
 
+(defun gcr-switch-to-previous-buffer ()
+  "Switch to most recent buffer. 
+
+Repeated calls toggle back and forth between the most recent two
+buffers.
+
+Attribution: 
+URL `http://pragmaticemacs.com/emacs/toggle-between-most-recent-buffers/'
+
+Attribution: 
+URL `https://www.emacswiki.org/emacs/SwitchingBuffers#toc5'"
+  (interactive)
+  (switch-to-buffer (other-buffer (current-buffer) 1)))
+
+(defun gcr-vc-next-action ()
+  "When in Org source block exit it first."
+  (interactive)
+  (when (condition-case nil
+            (org-src-edit-buffer-p)
+          (error nil))
+    (org-edit-src-exit))
+  (vc-next-action nil))
+
 ;;;; Occur
 
 (define-key occur-mode-map (kbd "n") #'next-logical-line)
@@ -104,24 +127,27 @@ URL `http://oremacs.com/2015/01/26/occur-dwim/'"
 
 ;; Row 3: Q...
 
-;; (global-set-key (kbd "H-i") #'gcr-switch-to-previous-buffer)
-;; ;; TODO: Make this a lambda function
-;; (global-set-key (kbd "H-o") #'occur)
-;; (global-set-key (kbd "H-O") #'find-file)
+(global-set-key (kbd "A-r") #'vc-revert)
+
+(global-set-key (kbd "A-o") #'gcr-occur-dwim)
+(global-set-key (kbd "A-O") #'find-file)
+(global-set-key (kbd "H-A-o") #'kill-current-buffer)
 
 ;; Row 2: A...
 
-;; (global-set-key (kbd "H-h") #'other-window)
-;; (global-set-key (kbd "H-j") #'switch-to-buffer)
-;; (global-set-key (kbd "H-k") #'execute-extended-command)
-;; (global-set-key (kbd "H-K") #'kill-current-buffer)
-;; (global-set-key (kbd "H-l") #'goto-line)
-;; (global-set-key (kbd "H-L") #'shell)
+(global-set-key (kbd "A-s") #'shell)
+
+(global-set-key (kbd "A-d") #'vc-diff)
+(global-set-key (kbd "A-f") #'gcr-vc-next-action)
+
+(global-set-key (kbd "A-j") #'switch-to-buffer)
+(global-set-key (kbd "A-J") #'buffer-menu)
+(global-set-key (kbd "H-A-j") #'ibuffer)
+(global-set-key (kbd "A-k") #'execute-extended-command)
+(global-set-key (kbd "A-l") #'gcr-switch-to-previous-buffer)
 
 ;; Row 1: Z...
 
-;; (global-set-key (kbd "H-b") #'ibuffer)
-;; (global-set-key (kbd "H-N") #'gcr-vc-next-action)
 
 ;; Row 0: Ctrl...
 
