@@ -61,6 +61,16 @@ URL `http://www.wilfred.me.uk/'"
     (when (= (point) start-position)
       (back-to-indentation))))
 
+(defun gcr-unfill-paragraph (&optional region)
+  "Takes a multi-line paragraph and makes it into a single line of text.
+Attribuation: 
+URL https://github.com/sachac/.emacs.d/blob/gh-pages/Sacha.org#unfill-paragraph"
+  (interactive (progn
+                 (barf-if-buffer-read-only)
+                 (list t)))
+  (let ((fill-column (point-max)))
+    (fill-paragraph nil region)))
+
 ;;;; Occur
 
 (define-key occur-mode-map (kbd "n") #'next-logical-line)
@@ -141,6 +151,8 @@ URL `http://oremacs.com/2015/01/26/occur-dwim/'"
 ;; Row 3: Q...
 
 (global-set-key (kbd "A-r") #'vc-revert)
+
+(global-set-key (kbd "H-A-u") #'gcr-unfill-paragraph)
 
 (global-set-key (kbd "A-o") #'gcr-occur-dwim)
 (global-set-key (kbd "A-O") #'find-file)
