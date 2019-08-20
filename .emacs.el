@@ -71,6 +71,38 @@ URL https://github.com/sachac/.emacs.d/blob/gh-pages/Sacha.org#unfill-paragraph"
   (let ((fill-column (point-max)))
     (fill-paragraph nil region)))
 
+(defun gcr-1-window ()
+  "Work with this buffer in 1 window."
+  (interactive)
+  (delete-other-windows))
+
+(defun gcr-2-window ()
+  "Work with this buffer in 2 windows."
+  (interactive)
+  (delete-other-windows)
+  (split-window-right)
+  (balance-windows))
+
+(defun gcr-3-window ()
+  "Work with this buffer in 3 windows."
+  (interactive)
+  (delete-other-windows)
+  (split-window-below)
+  (split-window-below)
+  (balance-windows))
+
+(defun gcr-4-window ()
+  "Work with this buffer in 4 windows."
+  (interactive)
+  (delete-other-windows)
+  (split-window-right)
+  (split-window-below)
+  (call-interactively #'other-window)
+  (call-interactively #'other-window)
+  (split-window-below)
+  (call-interactively #'other-window)
+  (call-interactively #'other-window))
+
 ;;;; Occur
 
 (define-key occur-mode-map (kbd "n") #'next-logical-line)
@@ -142,15 +174,21 @@ URL `http://oremacs.com/2015/01/26/occur-dwim/'"
 
 ;; Row 4: 1...
 
+(global-set-key (kbd "A-H-1") #'gcr-1-window)
+(global-set-key (kbd "A-H-2") #'gcr-2-window)
+(global-set-key (kbd "A-H-3") #'gcr-3-window)
+(global-set-key (kbd "A-H-4") #'gcr-4-window)
+
+(global-set-key (kbd "A-1") #'windmove-left)
+(global-set-key (kbd "A-2") #'windmove-right
+(global-set-key (kbd "A-3") #'windmove-down)
+(global-set-key (kbd "A-4") #'windmove-up)
+
 (global-set-key (kbd "H-A-1") #'help)
 (global-set-key (kbd "H-A-3") #'kmacro-start-macro-or-insert-counter)
 (global-set-key (kbd "H-A-4") #'kmacro-end-or-call-macro)
 (global-set-key (kbd "H-A-5") #'kmacro-name-last-macro)
 (global-set-key (kbd "H-A-6") #'insert-kbd-macro)
-
-;; Row 3: Q...
-
-(global-set-key (kbd "A-r") #'vc-revert)
 
 (global-set-key (kbd "H-A-u") #'gcr-unfill-paragraph)
 
