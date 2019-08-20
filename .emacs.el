@@ -23,7 +23,8 @@
   (let ((recenter-positions '(5)))
     (recenter-top-bottom)))
 
-(defun gcr-switch-to-previous-buffer () (interactive)
+(defun gcr-switch-to-previous-buffer ()
+  (interactive)
   (switch-to-buffer (other-buffer (current-buffer) 1)))
 
 (defun gcr-vc-next-action ()
