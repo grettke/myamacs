@@ -174,13 +174,8 @@ URL `http://oremacs.com/2015/01/26/occur-dwim/'"
 
 ;; Row 4: 1...
 
-(global-set-key (kbd "A-H-1") #'gcr-1-window)
-(global-set-key (kbd "A-H-2") #'gcr-2-window)
-(global-set-key (kbd "A-H-3") #'gcr-3-window)
-(global-set-key (kbd "A-H-4") #'gcr-4-window)
-
 (global-set-key (kbd "A-1") #'windmove-left)
-(global-set-key (kbd "A-2") #'windmove-right
+(global-set-key (kbd "A-2") #'windmove-right)
 (global-set-key (kbd "A-3") #'windmove-down)
 (global-set-key (kbd "A-4") #'windmove-up)
 
@@ -195,6 +190,11 @@ URL `http://oremacs.com/2015/01/26/occur-dwim/'"
 (global-set-key (kbd "A-o") #'gcr-occur-dwim)
 (global-set-key (kbd "A-O") #'find-file)
 (global-set-key (kbd "H-A-o") #'kill-current-buffer)
+
+(global-set-key (kbd "A-p")
+                (lambda ()
+                  (interactive)
+                  (other-window -1))))
 
 ;; Row 2: A...
 
@@ -212,6 +212,8 @@ URL `http://oremacs.com/2015/01/26/occur-dwim/'"
 (global-set-key (kbd "A-l") #'gcr-switch-to-previous-buffer)
 
 ;; Row 1: Z...
+
+(global-set-key (kbd "A-n") #'other-window)
 
 ;; Row 0: Ctrl...
 
