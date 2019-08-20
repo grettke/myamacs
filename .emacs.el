@@ -174,11 +174,6 @@ URL `http://oremacs.com/2015/01/26/occur-dwim/'"
 
 ;; Row 4: 1...
 
-(global-set-key (kbd "A-1") #'windmove-left)
-(global-set-key (kbd "A-2") #'windmove-right)
-(global-set-key (kbd "A-3") #'windmove-down)
-(global-set-key (kbd "A-4") #'windmove-up)
-
 (global-set-key (kbd "H-A-1") #'help)
 (global-set-key (kbd "H-A-3") #'kmacro-start-macro-or-insert-counter)
 (global-set-key (kbd "H-A-4") #'kmacro-end-or-call-macro)
@@ -194,7 +189,7 @@ URL `http://oremacs.com/2015/01/26/occur-dwim/'"
 (global-set-key (kbd "A-p")
                 (lambda ()
                   (interactive)
-                  (other-window -1))))
+                  (other-window -1)))
 
 ;; Row 2: A...
 
@@ -214,6 +209,7 @@ URL `http://oremacs.com/2015/01/26/occur-dwim/'"
 ;; Row 1: Z...
 
 (global-set-key (kbd "A-n") #'other-window)
+(global-set-key (kbd "A-H-n") #'gcr-1-window)
 
 ;; Row 0: Ctrl...
 
