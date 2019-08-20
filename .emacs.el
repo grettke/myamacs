@@ -170,6 +170,8 @@ URL `http://oremacs.com/2015/01/26/occur-dwim/'"
 
 ;;;; Keybindings
 
+;; Maintain every default keybinding.
+
 ;; Row 5: F1...
 
 ;; Row 4: 1...
@@ -193,7 +195,7 @@ URL `http://oremacs.com/2015/01/26/occur-dwim/'"
 
 ;; Row 2: A...
 
-(global-set-key (kbd "C-a") #'gcr-beginning-of-line-dwim)
+(global-set-key (kbd "A-a") #'gcr-beginning-of-line-dwim)
 
 (global-set-key (kbd "A-s") #'shell)
 
