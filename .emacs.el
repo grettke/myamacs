@@ -4,6 +4,11 @@
 
 (load-file "~/src/amacs/.emacs.el")
 
+;;;; Standalone Configurations
+
+(load-file "~/src/myamacs/org-mode.el")
+(load-file "~/src/myamacs/gcr-org2blog.el")
+
 ;;;; Packages
 
 (require 'thingatpt)
@@ -106,11 +111,6 @@
         regexp-history)
   (call-interactively 'occur)
   (other-window 1))
-
-;;;; Different Configurations
-
-(load-file "~/src/myamacs/org-mode.el")
-(load-file "~/src/myamacs/gcr-org2blog.el")
 
 ;;;; Keymaps
 
