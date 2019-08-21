@@ -18,7 +18,7 @@
   (add-to-list 'load-path "~/src/org2blog")
   (require 'org2blog))
 
-(add-hook 'org-mode-hook #'org2blog-maybe-start)
+(add-hook 'org-mode-hook #'owp-maybe-start)
 
 (defun gcr-org2blog/wp-mode-hook-fn ()
   (local-set-key (kbd "s-(") #'org2blog-user-interface)
@@ -32,9 +32,11 @@
 
 (setq org2blog/wp-track-posts nil)
 
-(defun gcr-owp-pp-hook-fn (p)
+(defun gcr-owp-pp-post-result (p)
   (lambda (p) (pp p)))
-(add-hook 'org2blog/wp-after-new-post-or-page-functions #'gcr-owp-pp-hook-fn)
+(add-hook 'org2blog/wp-after-new-post-or-page-functions #'gcr-owp-pp-post-result)
+
+(add-hook 'org-mode-hook #'owp-maybe-start)
 
 (require 'auth-source)
 (let* ((credentials (auth-source-user-and-password "wisdomandwonder"))
