@@ -20,6 +20,7 @@
 ;;;; Utility Functions
 
 (defun gcr-recenter-line-near-top()
+  (interactive)
   (let ((recenter-positions '(5)))
     (recenter-top-bottom)))
 
@@ -35,6 +36,7 @@
   (vc-next-action nil))
 
 (defun gcr-beginning-of-line-dwim ()
+  (interactive)
   (let ((start-position (point)))
     (move-beginning-of-line nil)
     (when (= (point) start-position)
@@ -52,6 +54,7 @@
 (add-hook 'occur-mode-find-occurrence-hook #'gcr-recenter-line-near-top)
 
 (defun gcr-occur-dwim ()
+  (interactive)
   (push (if (region-active-p)
             (buffer-substring-no-properties
              (region-beginning)
@@ -65,7 +68,7 @@
 
 ;;;; Different Configurations
 
-(load-file "gcr-org2blog.el")
+(load-file "~/src/myamacs/gcr-org2blog.el")
 
 ;;;; Keymaps
 
@@ -78,11 +81,17 @@
 (global-set-key (kbd "A-~") #'kmacro-start-macro-or-insert-counter)
 (global-set-key (kbd "A-`") #'kmacro-end-or-call-macro)
 
+;; Row 3: Q...
+
 (global-set-key (kbd "A-q") #'gcr-unfill-paragraph)
 
 (global-set-key (kbd "A-p") (lambda () (interactive) (other-window -1)))
 
 ;; Row 2: A...
+
+(global-set-key (kbd "C-a") #'gcr-beginning-of-line-dwim)
+
+(global-set-key (kbd "M-s o") #'gcr-occur-dwim)
 
 (global-set-key (kbd "A-f") 'Control-X-prefix)
 
@@ -95,6 +104,8 @@
 (global-set-key (kbd "A-l") #'gcr-switch-to-previous-buffer)
 
 ;; Row 1: Z...
+
+(global-set-key (kbd "A-c") (kbd "C-c C-c"))
 
 (global-set-key (kbd "A-n") #'other-window)
 
