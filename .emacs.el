@@ -47,6 +47,47 @@
   (let ((fill-column (point-max)))
     (fill-paragraph nil region)))
 
+(defun gcr-replace-string ()
+  (interactive)
+  (save-excursion
+	(goto-char (point-min))
+	(call-interactively 'replace-string)))
+
+(defun gcr-timestamp ()
+  "Produces a full ISO 8601 format timestamp."
+  (interactive)
+  (let* ((timestamp-without-timezone (format-time-string "%Y-%m-%dT%T"))
+         (timezone-name-in-numeric-form (format-time-string "%z"))
+         (timezone-utf-offset
+          (concat (substring timezone-name-in-numeric-form 0 3)
+                  ":"
+                  (substring timezone-name-in-numeric-form 3 5)))
+         (timestamp (concat timestamp-without-timezone
+                            timezone-utf-offset)))
+    timestamp))
+
+(defun gcr-insert-timestamp ()
+  "Inserts a full ISO 8601 format timestamp."
+  (interactive)
+  (insert (gcr-timestamp)))
+
+(defun gcr-timestamp-no-colons ()
+  "Produces a full ISO 8601 format timestamp with colons replaced by hyphens."
+  (interactive)
+  (let* ((timestamp (gcr-timestamp))
+         (timestamp-no-colons (replace-regexp-in-string ":" "-" timestamp)))
+    timestamp-no-colons))
+
+(defun gcr-insert-timestamp-no-colons ()
+  "Inserts a full ISO 8601 format timestamp with colons replaced by hyphens."
+  (interactive)
+  (insert (gcr-timestamp-no-colons)))
+
+(defun help/insert-datestamp ()
+  "Produces and inserts a partial ISO 8601 format timestamp."
+  (interactive)
+  (insert (format-time-string "%F")))
+
 ;;;; Occur
 
 (define-key occur-mode-map (kbd "n") #'next-logical-line)
@@ -68,6 +109,7 @@
 
 ;;;; Different Configurations
 
+(load-file "~/src/org-mode.el")
 (load-file "~/src/myamacs/gcr-org2blog.el")
 
 ;;;; Keymaps
@@ -85,11 +127,15 @@
 
 (global-set-key (kbd "A-q") #'gcr-unfill-paragraph)
 
+(global-set-key (kbd "A-r") #'gcr-replace-string)
+
 (global-set-key (kbd "A-p") (lambda () (interactive) (other-window -1)))
 
 ;; Row 2: A...
 
 (global-set-key (kbd "C-a") #'gcr-beginning-of-line-dwim)
+
+(global-set-key (kbd "A-s") #'shell)
 
 (global-set-key (kbd "M-s o") #'gcr-occur-dwim)
 
