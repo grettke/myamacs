@@ -31,4 +31,4 @@
 
 (gcr-display-system-info)
 
-(load-file "./org-mode-literate-configuration.el")
+(load-file "~/src/myamacs/org-mode-literate-configuration.el")

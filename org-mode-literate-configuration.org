@@ -1,11 +1,11 @@
-#+PROPERTY: header-args :tangle "./.org-mode-fundamentals.emacs.el" :results output silent
+#+PROPERTY: header-args :tangle "./org-mode-literate-configuration.el" :results output silent
 #+OPTIONS: toc:3
 
 Never compile this.
 
 #+NAME: org_gcr_2017-07-21_mara_495928F4-D984-4DE8-9513-C94FEFD9CDB0
 #+BEGIN_SRC emacs-lisp :comments no
-;; -*- no-byte-compile: t; -*-
+;; -*- lexical-binding: t; no-byte-compile: t; coding: utf-8 -*-
 #+END_SRC
 
 * Org-Mode Fundamentals
@@ -86,6 +86,27 @@ Help configure Org-Mode.
 
 #+NAME: org_gcr_2017-05-12_mara_21BEDC86-D1A3-43FC-85AC-8FF54D161E2F
 #+BEGIN_SRC emacs-lisp
+
+(defun gcr--org-timestamp ()
+  "Produces a full ISO 8601 format timestamp."
+  (interactive)
+  (let* ((timestamp-without-timezone (format-time-string "%Y-%m-%dT%T"))
+         (timezone-name-in-numeric-form (format-time-string "%z"))
+         (timezone-utf-offset
+          (concat (substring timezone-name-in-numeric-form 0 3)
+                  ":"
+                  (substring timezone-name-in-numeric-form 3 5)))
+         (timestamp (concat timestamp-without-timezone
+                            timezone-utf-offset)))
+    timestamp))
+
+(defun gcr--org-timestamp-no-colons ()
+  "Produces a full ISO 8601 format timestamp with colons replaced by hyphens."
+  (interactive)
+  (let* ((timestamp (gcr--org-timestamp))
+         (timestamp-no-colons (replace-regexp-in-string ":" "-" timestamp)))
+    timestamp-no-colons))
+
 (defun help/set-org-babel-default-header-args (property value)
   "Easily set system header arguments in org mode.
 
@@ -244,7 +265,7 @@ Make sure that =ID= is always unique, portable, and easy to maintain by
 
 #+NAME: org_gcr_2017-05-12_mara_8F2F5DAE-40B9-490D-8523-BABCAA913A71
 #+BEGIN_SRC emacs-lisp
-(setq org-id-prefix (concat "org_" (user-real-login-name) "_" (gcr-timestamp-no-colonss) "_" (system-name)))
+(setq org-id-prefix (concat "org_" (user-real-login-name) "_" (gcr--org-timestamp-no-colons) "_" (system-name)))
 (setq org-id-method 'uuid)
 #+END_SRC
 

@@ -32,7 +32,9 @@
 
 (setq org2blog/wp-track-posts nil)
 
-(add-hook 'org2blog/wp-after-new-post-or-page-functions (lambda (p) (pp p)))
+(defun gcr-owp-pp-hook-fn (p)
+  (lambda (p) (pp p)))
+(add-hook 'org2blog/wp-after-new-post-or-page-functions #'gcr-owp-pp-hook-fn)
 
 (require 'auth-source)
 (let* ((credentials (auth-source-user-and-password "wisdomandwonder"))
