@@ -109,7 +109,7 @@
 
 ;;;; Different Configurations
 
-(load-file "~/src/org-mode.el")
+(load-file "~/src/myamacs/org-mode.el")
 (load-file "~/src/myamacs/gcr-org2blog.el")
 
 ;;;; Keymaps

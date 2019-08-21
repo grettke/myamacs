@@ -13,7 +13,7 @@
   (interactive)
   (message "<<<ECM Information>>>\nThis buffer file: %s\nAs Of: %s\nOrg-Version: %s\nOrg-Git-Version:%s\nEmacs-Version: %s\nNoweb wrap start and stop delimeters: '%s' and '%s'\norg-babel-default-header-args:\n"
            buffer-file-name
-           (help/get-timestamp)
+           (gcr-timestamp)
            (org-version)
            (org-git-version)
            (emacs-version)
@@ -23,3 +23,4 @@
 
 (gcr-display-system-info)
 
+(load-file "./org-mode-literate-configuration.el")
