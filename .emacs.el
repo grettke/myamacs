@@ -9,6 +9,7 @@
 (load-file "~/src/myamacs/org-mode.el")
 (load-file "~/src/myamacs/gcr-org2blog.el")
 (load-file "~/src/myamacs/development.el")
+(load-file "~/src/myamacs/modes.el")
 
 ;;;; Packages
 
@@ -112,6 +113,10 @@
         regexp-history)
   (call-interactively 'occur)
   (other-window 1))
+
+;;;; Operations
+
+(put #'narrow-to-region 'disabled nil)
 
 ;;;; Keymaps
 
