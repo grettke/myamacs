@@ -4,12 +4,11 @@
 
 (load-file "~/src/amacs/.emacs.el")
 
-;;;; Standalone Configurations
+;;;; Early Configurations
 
 (load-file "~/src/myamacs/org-mode.el")
 (load-file "~/src/myamacs/gcr-org2blog.el")
 (load-file "~/src/myamacs/development.el")
-(load-file "~/src/myamacs/modes.el")
 
 ;;;; Packages
 
@@ -117,6 +116,10 @@
 ;;;; Operations
 
 (put #'narrow-to-region 'disabled nil)
+
+;;;; Later Configurations
+
+(load-file "~/src/myamacs/modes.el")
 
 ;;;; Keymaps
 
