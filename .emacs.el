@@ -8,6 +8,7 @@
 
 (load-file "~/src/myamacs/org-mode.el")
 (load-file "~/src/myamacs/gcr-org2blog.el")
+(load-file "~/src/myamacs/development.el")
 
 ;;;; Packages
 
