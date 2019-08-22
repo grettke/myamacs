@@ -13,6 +13,7 @@
 ;;;; Packages
 
 (require 'thingatpt)
+(require 'zone)
 
 ;;;; macOS
 
@@ -25,76 +26,76 @@
 
 ;;;; Utility Functions
 
-(defun gcr-recenter-line-near-top()
+(load-file "~/src/myamacs/logging.el")
+(load-file "~/src/myamacs/utility.el")
+
+;;;; Operations
+
+(put #'narrow-to-region 'disabled nil)
+
+(defun gcr-create-non-existent-directory ()
+  (let ((parent-directory (file-name-directory buffer-file-name)))
+    (when (and (not (file-exists-p parent-directory))
+             (y-or-n-p (format "Directory `%s' does not exist. Create it?" parent-directory)))
+      (make-directory parent-directory t))))
+(add-to-list 'find-file-not-found-functions
+             #'gcr-create-non-existent-directory)
+
+;;; Content
+
+(setq-default indent-tabs-mode nil)
+
+(defun gcr-untabify-buffer ()
   (interactive)
-  (let ((recenter-positions '(5)))
-    (recenter-top-bottom)))
+  (unless indent-tabs-mode
+    (save-excursion (untabify (point-min) (point-max)))))
 
-(defun gcr-switch-to-previous-buffer ()
-  (interactive)
-  (switch-to-buffer (other-buffer (current-buffer) 1)))
-
-(defun gcr-vc-next-action ()
-  (interactive)
-  "Maybe close Org source block before calling `vc-next-action'."
-  (when (condition-case nil (org-src-edit-buffer-p) (error nil))
-    (org-edit-src-exit))
-  (vc-next-action nil))
-
-(defun gcr-beginning-of-line-dwim ()
-  (interactive)
-  (let ((start-position (point)))
-    (move-beginning-of-line nil)
-    (when (= (point) start-position)
-      (back-to-indentation))))
-
-(defun gcr-unfill-paragraph (&optional region)
-  (interactive (progn (barf-if-buffer-read-only) (list t)))
-  (let ((fill-column (point-max)))
-    (fill-paragraph nil region)))
-
-(defun gcr-replace-string ()
+(defun gcr-untabify-dwim ()
   (interactive)
   (save-excursion
-	(goto-char (point-min))
-	(call-interactively 'replace-string)))
+    (cond ((region-active-p) (untabify (region-beginning) (region-end))
+           (message "Untabified selected region."))
+          (t (gcr-untabify-buffer)
+             (message "Untabified buffer.")))))
 
-(defun gcr-timestamp ()
-  "Produces a full ISO 8601 format timestamp."
+(defun gcr-indent-buffer ()
+  "Indent the currently visited buffer.""
   (interactive)
-  (let* ((timestamp-without-timezone (format-time-string "%Y-%m-%dT%T"))
-         (timezone-name-in-numeric-form (format-time-string "%z"))
-         (timezone-utf-offset
-          (concat (substring timezone-name-in-numeric-form 0 3)
-                  ":"
-                  (substring timezone-name-in-numeric-form 3 5)))
-         (timestamp (concat timestamp-without-timezone
-                            timezone-utf-offset)))
-    timestamp))
+  (indent-region (point-min) (point-max)))
 
-(defun gcr-insert-timestamp ()
-  "Inserts a full ISO 8601 format timestamp."
+(defun gcr-indent-region-or-buffer ()
+  "Indent a region if selected, otherwise the whole buffer.""
   (interactive)
-  (insert (gcr-timestamp)))
+  (save-excursion
+    (if (region-active-p)
+        (progn
+          (indent-region (region-beginning) (region-end))
+          (message "Indented selected region."))
+      (progn
+        (gcr-indent-buffer)
+        (message "Indented buffer.")))))
 
-(defun gcr-timestamp-no-colons ()
-  "Produces a full ISO 8601 format timestamp with colons replaced by hyphens."
+(defvar gcr-delete-trailing-whitespace-p t)
+
+(defun gcr-delete-trailing-whitespace ()
   (interactive)
-  (let* ((timestamp (gcr-timestamp))
-         (timestamp-no-colons (replace-regexp-in-string ":" "-" timestamp)))
-    timestamp-no-colons))
+  (when gcr-delete-trailing-whitespace-p
+    (let ((first-part-start (point-min))
+          (first-part-end (point-at-bol))
+          (second-part-start (point-at-eol))
+          (second-part-end (point-max)))
+      (delete-trailing-whitespace first-part-start first-part-end)
+      (delete-trailing-whitespace second-part-start second-part-end))))
 
-(defun gcr-insert-timestamp-no-colons ()
-  "Inserts a full ISO 8601 format timestamp with colons replaced by hyphens."
+(defun gcr-file-save-hook-fn ()
   (interactive)
-  (insert (gcr-timestamp-no-colons)))
+  (gcr-untabify-buffer)
+  (gcr-indent-buffer)
+  (gcr-delete-trailing-whitespace))
 
-(defun help/insert-datestamp ()
-  "Produces and inserts a partial ISO 8601 format timestamp."
-  (interactive)
-  (insert (format-time-string "%F")))
+(add-hook 'before-save-hook #'gcr-file-save-hook-fn)
 
-;;;; Occur
+;; Occur
 
 (define-key occur-mode-map (kbd "n") #'next-logical-line)
 (define-key occur-mode-map (kbd "p") #'previous-logical-line)
@@ -113,10 +114,6 @@
   (call-interactively 'occur)
   (other-window 1))
 
-;;;; Operations
-
-(put #'narrow-to-region 'disabled nil)
-
 ;;;; Later Configurations
 
 (load-file "~/src/myamacs/modes.el")
@@ -134,6 +131,8 @@
 
 ;; Row 3: Q...
 
+(global-set-key [(alt shift ?i)] #'windmove-up)
+
 (global-set-key (kbd "A-q") #'gcr-unfill-paragraph)
 
 (global-set-key (kbd "A-r") #'gcr-replace-string)
@@ -150,13 +149,16 @@
 
 (global-set-key (kbd "A-f") 'Control-X-prefix)
 
-(global-set-key (kbd "A-j") #'switch-to-buffer)
+(global-set-key [(alt ?j)] #'switch-to-buffer)
+(global-set-key [(alt shift ?j)] #'windmove-left)
 
-(global-set-key (kbd "A-k") #'execute-extended-command)
+(global-set-key [(alt ?k)] #'execute-extended-command)
+(global-set-key [(alt shift ?k)] #'windmove-down)
+
+(global-set-key [(alt ?l)] #'gcr-switch-to-previous-buffer)
+(global-set-key [(alt shift ?l)] #'windmove-right)
 
 (global-set-key (kbd "A-;") #'eval-expression)
-
-(global-set-key (kbd "A-l") #'gcr-switch-to-previous-buffer)
 
 ;; Row 1: Z...
 
