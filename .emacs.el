@@ -89,14 +89,15 @@
 
 ;; Row 4: 1...
 
-(global-set-key (kbd "A-~") #'kmacro-start-macro-or-insert-counter)
-(global-set-key (kbd "A-`") #'kmacro-end-or-call-macro)
-
 ;; Row 3: Q...
 
 (global-set-key [(alt shift ?i)] #'windmove-up)
 
 (global-set-key (kbd "A-q") #'gcr-unfill-paragraph)
+
+(global-set-key (kbd "A-w") #'kmacro-start-macro-or-insert-counter)
+
+(global-set-key (kbd "A-e") #'kmacro-end-or-call-macro)
 
 (global-set-key (kbd "A-r") #'gcr-replace-string)
 
