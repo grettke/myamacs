@@ -1,5 +1,11 @@
 ;; -*- lexical-binding: t; no-byte-compile: t; coding: utf-8 -*-
 
+(defun gcr--kill (it)
+  "Add IT to the kill ring."
+  (interactive)
+  (kill-new it)
+  (message "Killed: %s" it))
+
 (defun gcr-recenter-line-near-top()
   (interactive)
   (let ((recenter-positions '(5)))
@@ -51,12 +57,12 @@
 (defun gcr-move-file (new-location)
   "Write this file to NEW-LOCATION, and delete the old one."
   (interactive
-(list (if buffer-file-name
-                         (read-file-name "Move file to: ")
-                       (read-file-name "Move file to: "
-                                       default-directory
-                                       (expand-file-name (file-name-nondirectory (buffer-name))
-                                                         default-directory)))))
+   (list (if buffer-file-name
+             (read-file-name "Move file to: ")
+           (read-file-name "Move file to: "
+                           default-directory
+                           (expand-file-name (file-name-nondirectory (buffer-name))
+                                             default-directory)))))
   (when (file-exists-p new-location)
     (delete-file new-location))
   (let ((old-location (buffer-file-name)))
@@ -218,3 +224,45 @@ Attribution: Udyant Wig <udyantw@gmail.com>"
 (defun gcr-occur-non-ascii ()
   (interactive)
   (occur "[^[:ascii:]]"))
+
+(defun gcr-untabify-buffer ()
+  (interactive)
+  (unless indent-tabs-mode
+    (save-excursion (untabify (point-min) (point-max)))))
+
+(defun gcr-untabify-dwim ()
+  (interactive)
+  (save-excursion
+    (cond ((region-active-p) (untabify (region-beginning) (region-end))
+           (message "Untabified selected region."))
+          (t (gcr-untabify-buffer)
+             (message "Untabified buffer.")))))
+
+(defun gcr-indent-buffer ()
+  "Indent the currently visited buffer."
+  (interactive)
+  (indent-region (point-min) (point-max)))
+
+(defun gcr-indent-region-or-buffer ()
+  "Indent a region if selected, otherwise the whole buffer."
+  (interactive)
+  (save-excursion
+    (if (region-active-p)
+        (progn
+          (indent-region (region-beginning) (region-end))
+          (message "Indented selected region."))
+      (progn
+        (gcr-indent-buffer)
+        (message "Indented buffer.")))))
+
+(defvar gcr-delete-trailing-whitespace-p t)
+
+(defun gcr-delete-trailing-whitespace ()
+  (interactive)
+  (when gcr-delete-trailing-whitespace-p
+    (let ((first-part-start (point-min))
+          (first-part-end (point-at-bol))
+          (second-part-start (point-at-eol))
+          (second-part-end (point-max)))
+      (delete-trailing-whitespace first-part-start first-part-end)
+      (delete-trailing-whitespace second-part-start second-part-end))))

@@ -53,48 +53,6 @@
 (setq-default indent-tabs-mode nil)
 (setq tab-width 4)
 
-(defun gcr-untabify-buffer ()
-  (interactive)
-  (unless indent-tabs-mode
-    (save-excursion (untabify (point-min) (point-max)))))
-
-(defun gcr-untabify-dwim ()
-  (interactive)
-  (save-excursion
-    (cond ((region-active-p) (untabify (region-beginning) (region-end))
-           (message "Untabified selected region."))
-          (t (gcr-untabify-buffer)
-             (message "Untabified buffer.")))))
-
-(defun gcr-indent-buffer ()
-  "Indent the currently visited buffer."
-  (interactive)
-  (indent-region (point-min) (point-max)))
-
-(defun gcr-indent-region-or-buffer ()
-  "Indent a region if selected, otherwise the whole buffer."
-  (interactive)
-  (save-excursion
-    (if (region-active-p)
-        (progn
-          (indent-region (region-beginning) (region-end))
-          (message "Indented selected region."))
-      (progn
-        (gcr-indent-buffer)
-        (message "Indented buffer.")))))
-
-(defvar gcr-delete-trailing-whitespace-p t)
-
-(defun gcr-delete-trailing-whitespace ()
-  (interactive)
-  (when gcr-delete-trailing-whitespace-p
-    (let ((first-part-start (point-min))
-          (first-part-end (point-at-bol))
-          (second-part-start (point-at-eol))
-          (second-part-end (point-max)))
-      (delete-trailing-whitespace first-part-start first-part-end)
-      (delete-trailing-whitespace second-part-start second-part-end))))
-
 (add-hook 'before-save-hook #'gcr-untabify-buffer)
 (add-hook 'before-save-hook #'gcr-indent-buffer)
 (add-hook 'before-save-hook #'gcr-delete-trailing-whitespace)
@@ -121,7 +79,7 @@
 ;;;; Later Configurations
 
 (load-file "~/src/myamacs/modes.el")
-(load-file "~/src/user-interfaces.el")
+(load-file "~/src/myamacs/user-interfaces.el")
 
 ;;;; Keymaps
 
@@ -174,3 +132,4 @@
 (global-set-key (kbd "A-n") #'other-window)
 
 ;; Row 0: Ctrl...
+

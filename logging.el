@@ -1,16 +1,16 @@
 ;; -*- lexical-binding: t; no-byte-compile: t; coding: utf-8 -*-
 
 (defun gcr-log-entry ()
-  "Produces and inserts a compact datestamp with full year and maybe a log message."
+  "Compact datestamp with full year and maybe a log message."
   (interactive)
   (let* ((stamp (format-time-string "%Y%m%dT%H%M"))
          (msg (s-trim (read-string "Log message? (hit return to leave blank): ")))
          (str (or (and (s-blank? msg) stamp)
                  (s-concat stamp "-" (s-replace " " "-" msg)))))
-    (insert str)))
+    (gcr--kill str)))
 
 (defun gcr-timestamp-make ()
-  "Produces a full ISO 8601 format timestamp."
+  "Full ISO 8601 format timestamp."
   (interactive)
   (let* ((timestamp-without-timezone (format-time-string "%Y-%m-%dT%T"))
          (timezone-name-in-numeric-form (format-time-string "%z"))
@@ -23,58 +23,53 @@
     timestamp))
 
 (defun gcr-timestamp-datestamp ()
-  "Produces and inserts a partial ISO 8601 format timestamp."
+  "Partial ISO 8601 format timestamp."
   (interactive)
-  (insert (format-time-string "%F")))
-
-(defun gcr-timestamp-make-org-seconds ()
-  (interactive)
-  (let ((current-prefix-arg '(16)))
-    (call-interactively 'org-time-stamp)))
+  (gcr--kill (format-time-string "%F")))
 
 (defun gcr-timestamp-datestamp-us ()
-  "Produces and inserts a US datestamp."
+  "US datestamp."
   (interactive)
-  (insert (format-time-string "%m/%d/%y")))
+  (gcr--kill (format-time-string "%m/%d/%y")))
 
 (defun gcr-timestamp-datestamp-us-full-year-and-dashes ()
-  "Produces and inserts a US datestamp with full year and dashes."
+  "US datestamp with full year and dashes."
   (interactive)
-  (insert (format-time-string "%m-%d-%Y")))
+  (gcr--kill (format-time-string "%m-%d-%Y")))
 
 (defun gcr-timestamp-datestamp-us-full-year ()
-  "Produces and inserts a US datestamp with full year."
+  "US datestamp with full year."
   (interactive)
-  (insert (format-time-string "%m/%d/%Y")))
+  (gcr--kill (format-time-string "%m/%d/%Y")))
 
 (defun gcr-timestamp-datestamp-us-words ()
-  "Produces and inserts a US datestamp using words."
+  "US datestamp using words."
   (interactive)
-  (insert (format-time-string "%A %B %d, %Y")))
+  (gcr--kill (format-time-string "%A %B %d, %Y")))
 
 (defun gcr-timestamp-hour-seconds ()
-  "Produces and inserts a Hour:Minute timestamp"
+  "Hour:Minute timestamp"
   (interactive)
-  (insert (format-time-string "%H:%M")))
+  (gcr--kill (format-time-string "%H:%M")))
 
 (defun gcr-timestamp-org-datestamp ()
-  "Produces and inserts an Org-Mode timestamp."
+  "Org-Mode timestamp."
   (interactive)
-  (insert (format "<%s>"(format-time-string "%F"))))
+  (gcr--kill (format "<%s>"(format-time-string "%F"))))
 
 (defun gcr-timestamp-jekyll ()
-  "Insert Jekyll timestamp"
+  "Jekyll timestamp"
   (interactive)
-  (insert (format-time-string "%Y-%m-%d %H:%M:%S %z")))
+  (gcr--kill (format-time-string "%Y-%m-%d %H:%M:%S %z")))
 
-(defun gcr-timestamp-insert-8601 ()
-  "Inserts a full ISO 8601 format timestamp."
+(defun gcr-timestamp-8601 ()
+  "Full ISO 8601 format timestamp."
   (interactive)
-  (insert (gcr-timestamp-make)))1
+  (gcr--kill (gcr-timestamp-make)))
 
-(defun gcr-timestamp-insert-8601-no-colons ()
-  "Produces a full ISO 8601 format timestamp with colons replaced by hyphens."
+(defun gcr-timestamp-8601-no-colons ()
+  "Full ISO 8601 format timestamp with colons replaced by hyphens."
   (interactive)
   (let* ((timestamp (gcr-timestamp-make))
          (timestamp-no-colons (replace-regexp-in-string ":" "-" timestamp)))
-    timestamp-no-colons))
+    (gcr--kill timestamp-no-colons)))
