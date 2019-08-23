@@ -105,6 +105,8 @@
 
 (global-set-key (kbd "A-p") (lambda () (interactive) (other-window -1)))
 
+(global-set-key (kbd "A-o") #'find-file)
+
 ;; Row 2: A...
 
 (global-set-key (kbd "C-a") #'gcr-beginning-of-line-dwim)
