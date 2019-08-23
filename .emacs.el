@@ -121,6 +121,7 @@
 ;;;; Later Configurations
 
 (load-file "~/src/myamacs/modes.el")
+(load-file "~/src/user-interfaces.el")
 
 ;;;; Keymaps
 
@@ -140,6 +141,8 @@
 (global-set-key (kbd "A-q") #'gcr-unfill-paragraph)
 
 (global-set-key (kbd "A-r") #'gcr-replace-string)
+
+(global-set-key (kbd "A-t") #'gcr-ui-date)
 
 (global-set-key (kbd "A-p") (lambda () (interactive) (other-window -1)))
 

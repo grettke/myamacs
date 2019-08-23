@@ -49,7 +49,7 @@
   (set-buffer-file-coding-system 'unix 't) )
 
 (defun gcr-move-file (new-location)
-  "Write this file to NEW-LOCATION, and delete the old one.""
+  "Write this file to NEW-LOCATION, and delete the old one."
   (interactive
 (list (if buffer-file-name
                          (read-file-name "Move file to: ")
@@ -67,7 +67,7 @@
       (delete-file old-location))))
 
 (defun gcr-rename-current-buffer-file ()
-  "Renames current buffer and file it is visiting.""
+  "Renames current buffer and file it is visiting."
   (interactive)
   (let ((name (buffer-name))
         (filename (buffer-file-name)))
@@ -84,13 +84,13 @@
                    name (file-name-nondirectory new-name)))))))
 
 (defun gcr-sort-lines-ignore-case ()
-  "Sort lines ignoring case.""
+  "Sort lines ignoring case."
   (interactive)
   (let ((sort-fold-case t))
     (call-interactively 'sort-lines)))
 
 (defun gcr-delete-this-buffer-and-file ()
-  "Deletes file connected to this buffer and kills this buffer.""
+  "Deletes file connected to this buffer and kills this buffer."
   (interactive)
   (let ((filename (buffer-file-name))
         (buffer (current-buffer))

@@ -9,11 +9,6 @@
                  (s-concat stamp "-" (s-replace " " "-" msg)))))
     (insert str)))
 
-(defun gcr-timestamp-make-org-seconds ()
-  (interactive)
-  (let ((current-prefix-arg '(16)))
-    (call-interactively 'org-time-stamp)))
-
 (defun gcr-timestamp-make ()
   "Produces a full ISO 8601 format timestamp."
   (interactive)
@@ -26,6 +21,16 @@
          (timestamp (concat timestamp-without-timezone
                             timezone-utf-offset)))
     timestamp))
+
+(defun gcr-timestamp-datestamp ()
+  "Produces and inserts a partial ISO 8601 format timestamp."
+  (interactive)
+  (insert (format-time-string "%F")))
+
+(defun gcr-timestamp-make-org-seconds ()
+  (interactive)
+  (let ((current-prefix-arg '(16)))
+    (call-interactively 'org-time-stamp)))
 
 (defun gcr-timestamp-datestamp-us ()
   "Produces and inserts a US datestamp."
@@ -62,19 +67,14 @@
   (interactive)
   (insert (format-time-string "%Y-%m-%d %H:%M:%S %z")))
 
-(defun gcr-timestamp-insert ()
+(defun gcr-timestamp-insert-8601 ()
   "Inserts a full ISO 8601 format timestamp."
   (interactive)
-  (insert (gcr-timestamp-make)))
+  (insert (gcr-timestamp-make)))1
 
-(defun gcr-timestamp-insert-no-colons ()
+(defun gcr-timestamp-insert-8601-no-colons ()
   "Produces a full ISO 8601 format timestamp with colons replaced by hyphens."
   (interactive)
   (let* ((timestamp (gcr-timestamp-make))
          (timestamp-no-colons (replace-regexp-in-string ":" "-" timestamp)))
     timestamp-no-colons))
-
-(defun gcr-timestamp-insert-datestamp ()
-  "Produces and inserts a partial ISO 8601 format timestamp."
-  (interactive)
-  (insert (format-time-string "%F")))
