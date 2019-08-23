@@ -1,10 +1,11 @@
 ;; -*- lexical-binding: t; no-byte-compile: t; coding: utf-8 -*-
 
 (defun gcr--kill (it)
-  "Add IT to the kill ring."
+  "Add IT to the kill ring then return IT."
   (interactive)
   (kill-new it)
-  (message "Killed: %s" it))
+  (message "Killed: %s" it)
+  it)
 
 (defun gcr-recenter-line-near-top()
   (interactive)
