@@ -42,3 +42,7 @@
   (remove-hook 'before-save-hook #'gcr-indent-buffer))
 
 (add-hook 'conf-unix-mode-hook #'gcr-conf-unix-mode-hook-fn)
+
+;;;; BibTeX
+
+(load-file "~/src/myamacs/bibtex.el")
