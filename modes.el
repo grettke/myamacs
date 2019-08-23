@@ -23,6 +23,22 @@
 (defun gcr-general-lisp-mode-hook-fn ()
   (gcr-general-lisp-prettify))
 
-(mapcar 
+(mapcar
  (lambda (mode) (add-hook mode #'gcr-general-lisp-mode-hook-fn))
  amacs-lisp-modes)
+
+;;;; Shell-script
+
+(defun gcr-shell-script-mode-hook-fn ()
+  (interactive)
+  (setq sh-basic-offset 2))
+
+(add-hook 'sh-mode-hook #'gcr-shell-script-mode-hook-fn)
+
+;;;; Conf
+
+(defun gcr-conf-unix-mode-hook-fn ()
+  (interactive)
+  (remove-hook 'before-save-hook #'gcr-indent-buffer))
+
+(add-hook 'conf-unix-mode-hook #'gcr-conf-unix-mode-hook-fn)

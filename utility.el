@@ -214,3 +214,7 @@ Attribution: Udyant Wig <udyantw@gmail.com>"
     (help-mode)
     (setq buffer-read-only t)
     (goto-char (point-min))))
+
+(defun gcr-occur-non-ascii ()
+  (interactive)
+  (occur "[^[:ascii:]]"))

@@ -6,7 +6,7 @@
 
 ;;;; Early Configurations
 
-(load-file "~/src/myamacs/org-mode.el")
+(load-file "~/src/myamacs/org-mode-ecm.el")
 (load-file "~/src/myamacs/gcr-org2blog.el")
 (load-file "~/src/myamacs/development.el")
 
@@ -43,7 +43,15 @@
 
 ;;; Content
 
+(defun gcr-warn-if-utf-8-bom ()
+  (let ((name (symbol-name buffer-file-coding-system)))
+    (when (string-match-p "utf-8-with-signature" name)
+      (warn "This UTF-8 file has a BOM."))))
+
+(add-hook 'find-file-hook #'gcr-warn-if-utf-8-bom)
+
 (setq-default indent-tabs-mode nil)
+(setq tab-width 4)
 
 (defun gcr-untabify-buffer ()
   (interactive)
@@ -59,12 +67,12 @@
              (message "Untabified buffer.")))))
 
 (defun gcr-indent-buffer ()
-  "Indent the currently visited buffer.""
+  "Indent the currently visited buffer."
   (interactive)
   (indent-region (point-min) (point-max)))
 
 (defun gcr-indent-region-or-buffer ()
-  "Indent a region if selected, otherwise the whole buffer.""
+  "Indent a region if selected, otherwise the whole buffer."
   (interactive)
   (save-excursion
     (if (region-active-p)
@@ -87,13 +95,9 @@
       (delete-trailing-whitespace first-part-start first-part-end)
       (delete-trailing-whitespace second-part-start second-part-end))))
 
-(defun gcr-file-save-hook-fn ()
-  (interactive)
-  (gcr-untabify-buffer)
-  (gcr-indent-buffer)
-  (gcr-delete-trailing-whitespace))
-
-(add-hook 'before-save-hook #'gcr-file-save-hook-fn)
+(add-hook 'before-save-hook #'gcr-untabify-buffer)
+(add-hook 'before-save-hook #'gcr-indent-buffer)
+(add-hook 'before-save-hook #'gcr-delete-trailing-whitespace)
 
 ;; Occur
 
