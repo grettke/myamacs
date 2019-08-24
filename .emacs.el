@@ -112,6 +112,8 @@
 
 (global-set-key (kbd "A-o") #'find-file)
 
+(global-set-key (kbd "A-\\") #'gcr-indent-buffer)
+
 ;; Row 2: A...
 
 (global-set-key (kbd "C-a") #'gcr-beginning-of-line-dwim)
