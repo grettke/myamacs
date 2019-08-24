@@ -539,25 +539,25 @@ Attribution: URL `https://lists.gnu.org/archive/html/emacs-orgmode/2015-01/msg00
 ;; [[file:~/src/help/help.org::org_gcr_2018-03-15_mara_05415B89-71CA-4176-80EF-FB36F2D97F20][org_gcr_2018-03-15_mara_05415B89-71CA-4176-80EF-FB36F2D97F20]]
 (defun help/prettify-org-mode ()
   (interactive)
-  (setq prettify-symbols-alist (help/alist-set "#+NAME\:" ?╭ prettify-symbols-alist))
-  (setq prettify-symbols-alist (help/alist-set "#+name\:" ?╭ prettify-symbols-alist))
-  (setq prettify-symbols-alist (help/alist-set "#+BEGIN_SRC" ?├ prettify-symbols-alist))
-  (setq prettify-symbols-alist (help/alist-set "#+begin_src" ?├ prettify-symbols-alist))
-  (setq prettify-symbols-alist (help/alist-set "#+END_SRC" ?╰ prettify-symbols-alist))
-  (setq prettify-symbols-alist (help/alist-set "#+end_src" ?╰
-                                               prettify-symbols-alist))
-  (setq prettify-symbols-alist (help/alist-set "#+BEGIN_EXAMPLE" ?💡
-                                               prettify-symbols-alist))
-  (setq prettify-symbols-alist (help/alist-set "#+begin_example" ?💡
-                                               prettify-symbols-alist))
-  (setq prettify-symbols-alist (help/alist-set "#+END_EXAMPLE" ?💡
-                                               prettify-symbols-alist))
-  (setq prettify-symbols-alist (help/alist-set "#+end_example" ?💡
-                                               prettify-symbols-alist))
-  (setq prettify-symbols-alist (help/alist-set "#+BEGIN_QUOTE" ?🗣 prettify-symbols-alist))
-  (setq prettify-symbols-alist (help/alist-set "#+begin_quote" ?🗣 prettify-symbols-alist))
-  (setq prettify-symbols-alist (help/alist-set "#+END_QUOTE" ?🗣 prettify-symbols-alist))
-  (setq prettify-symbols-alist (help/alist-set "#+end_quote" ?🗣 prettify-symbols-alist))
+  (setq prettify-symbols-alist (gcr-alist-set "#+NAME\:" ?╭ prettify-symbols-alist))
+  (setq prettify-symbols-alist (gcr-alist-set "#+name\:" ?╭ prettify-symbols-alist))
+  (setq prettify-symbols-alist (gcr-alist-set "#+BEGIN_SRC" ?├ prettify-symbols-alist))
+  (setq prettify-symbols-alist (gcr-alist-set "#+begin_src" ?├ prettify-symbols-alist))
+  (setq prettify-symbols-alist (gcr-alist-set "#+END_SRC" ?╰ prettify-symbols-alist))
+  (setq prettify-symbols-alist (gcr-alist-set "#+end_src" ?╰
+                                              prettify-symbols-alist))
+  (setq prettify-symbols-alist (gcr-alist-set "#+BEGIN_EXAMPLE" ?💡
+                                              prettify-symbols-alist))
+  (setq prettify-symbols-alist (gcr-alist-set "#+begin_example" ?💡
+                                              prettify-symbols-alist))
+  (setq prettify-symbols-alist (gcr-alist-set "#+END_EXAMPLE" ?💡
+                                              prettify-symbols-alist))
+  (setq prettify-symbols-alist (gcr-alist-set "#+end_example" ?💡
+                                              prettify-symbols-alist))
+  (setq prettify-symbols-alist (gcr-alist-set "#+BEGIN_QUOTE" ?🗣 prettify-symbols-alist))
+  (setq prettify-symbols-alist (gcr-alist-set "#+begin_quote" ?🗣 prettify-symbols-alist))
+  (setq prettify-symbols-alist (gcr-alist-set "#+END_QUOTE" ?🗣 prettify-symbols-alist))
+  (setq prettify-symbols-alist (gcr-alist-set "#+end_quote" ?🗣 prettify-symbols-alist))
   (help/prettify-org-mode-names))
 (add-hook 'org-mode-hook #'help/prettify-org-mode)
 
