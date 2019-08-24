@@ -1,3 +1,9 @@
+#+PROPERTY: header-args :tangle "./bibtex.el" :results output silent
+
+#+BEGIN_SRC emacs-lisp :comments no
+;; -*- lexical-binding: t; no-byte-compile: t; coding: utf-8 -*-
+#+END_SRC
+
 * BibTeX
   :PROPERTIES:
   :ID:       org_gcr_2018-09-19T12-32-27-05-00_cosmicality:5B76D1FD-35D2-43F4-8CFB-B434671BEF29
@@ -16,14 +22,14 @@
 
   #+name: org_gcr_2018-11-13T18-00-23-06-00_cosmicality_32B5EE79-9019-4210-B45F-71B2781CEB4E
   #+begin_src emacs-lisp
-(defun help/bibtex-calculate-new-reference-key ()
+(defun gcr-bibtex-calculate-new-reference-key ()
   (interactive)
   (bibtex-clean-entry))
-(defun help/bibtex-maybe-troublesome-mode-disable
+(defun gcr-bibtex-maybe-troublesome-mode-disable
     (interactive)
   (aggressive-indent-mode 'toggle)
   (visual-line-mode 't))
-(defun help/bibtex-maybe-troublesome-mode-enable
+(defun gcr-bibtex-maybe-troublesome-mode-enable
     (interactive)
   (aggressive-indent-mode nil)
   (visual-line-mode nil))
@@ -33,27 +39,27 @@
 
   #+name: org_gcr_2018-11-13T18-00-23-06-00_cosmicality_62AAF44B-D738-4732-BD54-1111BCD6BB6E
   #+begin_src emacs-lisp
-(defhydra help/bibtex (:color blue :hint nil)
+(defhydra gcr-bibtex (:color blue :hint nil)
   "
 _c_ Clean Entry _C_ Clean Entry & Create New Reference
 _f_ Reindent Field _F_ Reindent Buffer/Region
 _m_ Disable Unhelpful Modes _M_ Enable Unhelpful Modes
 "
   ("c" bibtex-clean-entry)
-  ("C" help/bibtex-calculate-new-reference-key)
+  ("C" gcr-bibtex-calculate-new-reference-key)
   ("f" bibtex-fill-entry)
   ("F" bibtex-reformat)
-  ("m" help/bibtex-maybe-troublesome-mode-disable)
-  ("M" help/bibtex-maybe-troublesome-mode-enable))
+  ("m" gcr-bibtex-maybe-troublesome-mode-disable)
+  ("M" gcr-bibtex-maybe-troublesome-mode-enable))
   #+end_src
 
   Mode hook and key bindings.
 
   #+name: org_gcr_2018-11-13T18-00-23-06-00_cosmicality_3B76ECF1-3D55-4066-BCC1-1436E41D5C2D
   #+begin_src emacs-lisp
-(defun help/bibtex-mode-hook-fn ()
-  (key-chord-define-local "hh" #'help/bibtex/body))
-(add-hook 'bibtex-mode-hook #'help/bibtex-mode-hook-fn)
+(defun gcr-bibtex-mode-hook-fn ()
+  (key-chord-define-local "hh" #'gcr-bibtex/body))
+(add-hook 'bibtex-mode-hook #'gcr-bibtex-mode-hook-fn)
   #+end_src
 
 ** Entry Format Definition

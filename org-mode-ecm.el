@@ -30,5 +30,3 @@
   (pp org-babel-default-header-args))
 
 (gcr-display-system-info)
-
-(load-file "~/src/myamacs/org-mode-literate-configuration.el")

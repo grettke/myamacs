@@ -6,9 +6,13 @@
 
 ;;;; Early Configurations
 
-(load-file "~/src/myamacs/org-mode-ecm.el")
-(load-file "~/src/myamacs/gcr-org2blog.el")
 (load-file "~/src/myamacs/mydevelopment.el")
+
+;;; Org mode
+
+(load-file "~/src/myamacs/org-mode-ecm.el")
+(load-file "~/src/myamacs/org-mode-literate-fundamental-configuration.el")
+(load-file "~/src/myamacs/org2blog-config.el")
 
 ;;;; Packages
 
