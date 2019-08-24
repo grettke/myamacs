@@ -18,7 +18,16 @@
 
 (defun gcr-vc-next-action ()
   (interactive)
-  "Maybe close Org source block before calling `vc-next-action'."
+  "Maybe close Org source block before calling `vc-next-action'.
+
+Configure the system to successfully use ~vc-next-action~ while
+editing a Source-Block. Before perfoming the edit, check if it is
+Org-Mode and exit the Source-Block Buffer (SBB). If this system
+stays in the SBB when calling ~vc-next-action~ the entire
+contents of the buffer are escaped as Org-Mode source code upon
+returning to the source buffer (this). Do the same thing before
+any version control modes that would result in the same
+condition."
   (when (condition-case nil (org-src-edit-buffer-p) (error nil))
     (org-edit-src-exit))
   (vc-next-action nil))
@@ -69,8 +78,8 @@
   (let ((old-location (buffer-file-name)))
     (write-file new-location t)
     (when (and old-location
-             (file-exists-p new-location)
-             (not (string-equal old-location new-location)))
+               (file-exists-p new-location)
+               (not (string-equal old-location new-location)))
       (delete-file old-location))))
 
 (defun gcr-rename-current-buffer-file ()

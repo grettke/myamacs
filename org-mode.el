@@ -140,14 +140,6 @@ Attribution: URL `https://lists.gnu.org/archive/html/emacs-orgmode/2015-01/msg00
         (org-set-property prop val))))
 ;; org_gcr_2017-05-12_mara_1F938B98-B056-4381-833C-2C9B835B1C23 ends here
 
-;; [[file:~/src/help/help.org::org_gcr_2017-05-12_mara_8CE235AC-A7C4-48DF-8C97-46CC7F31CDF4][org_gcr_2017-05-12_mara_8CE235AC-A7C4-48DF-8C97-46CC7F31CDF4]]
-(use-package org-table-sticky-header
-             :ensure t
-             :config
-             (add-hook 'org-mode-hook #'org-table-sticky-header-mode)
-             (diminish 'org-table-sticky-header-mode))
-;; org_gcr_2017-05-12_mara_8CE235AC-A7C4-48DF-8C97-46CC7F31CDF4 ends here
-
 ;; [[file:~/src/help/help.org::org_gcr_2018-05-17T22-08-31-05-00_mara_AE590C3B-9E70-4694-A2B1-B4EA164D36FB][org_gcr_2018-05-17T22-08-31-05-00_mara_AE590C3B-9E70-4694-A2B1-B4EA164D36FB]]
 (setq org-table-export-default-format "orgtbl-to-tsv")
 ;; org_gcr_2018-05-17T22-08-31-05-00_mara_AE590C3B-9E70-4694-A2B1-B4EA164D36FB ends here
@@ -261,8 +253,7 @@ Attribution: URL `https://lists.gnu.org/archive/html/emacs-orgmode/2015-01/msg00
 ;; org_gcr_2017-05-12_mara_40EE32EF-D461-4A4C-BDDA-5203A0EB5279 ends here
 
 ;; [[file:~/src/help/help.org::org_gcr_2017-05-12_mara_065D8A70-E573-4204-B75B-B69F81926188][org_gcr_2017-05-12_mara_065D8A70-E573-4204-B75B-B69F81926188]]
-(when (display-graphic-p)
-  (use-package org-mouse))
+(require 'org-mouse)
 ;; org_gcr_2017-05-12_mara_065D8A70-E573-4204-B75B-B69F81926188 ends here
 
 ;; [[file:~/src/help/help.org::org_gcr_2017-05-12_mara_BD01DD8A-9BA2-4240-8B63-6479D1C868CC][org_gcr_2017-05-12_mara_BD01DD8A-9BA2-4240-8B63-6479D1C868CC]]
@@ -376,9 +367,8 @@ Attribution: URL `https://lists.gnu.org/archive/html/emacs-orgmode/2015-01/msg00
 ;; org_gcr_2017-05-12_mara_7CFE23CC-8EBC-46F3-889F-BF36EC45D6CA ends here
 
 ;; [[file:~/src/help/help.org::org_gcr_2017-05-12_mara_711B4205-DC28-4A35-B620-23AFD46E3973][org_gcr_2017-05-12_mara_711B4205-DC28-4A35-B620-23AFD46E3973]]
-(help/on-gui
- (define-key org-mode-map (kbd "<return>") #'org-return-indent)
- (define-key org-mode-map (kbd "C-M-<return>") #'newline))
+(define-key org-mode-map (kbd "<return>") #'org-return-indent)
+(define-key org-mode-map (kbd "C-M-<return>") #'newline)
 ;; org_gcr_2017-05-12_mara_711B4205-DC28-4A35-B620-23AFD46E3973 ends here
 
 ;; [[file:~/src/help/help.org::org_gcr_2017-05-12_mara_1A8FB05F-FF18-45DD-BFC4-89E76C366B9F][org_gcr_2017-05-12_mara_1A8FB05F-FF18-45DD-BFC4-89E76C366B9F]]
@@ -388,17 +378,17 @@ Attribution: URL `https://lists.gnu.org/archive/html/emacs-orgmode/2015-01/msg00
 ;; org_gcr_2017-05-12_mara_1A8FB05F-FF18-45DD-BFC4-89E76C366B9F ends here
 
 ;; [[file:~/src/help/help.org::org_gcr_2017-05-12_mara_6BA97DBC-AE5D-4C60-AD03-EF150686A03F][org_gcr_2017-05-12_mara_6BA97DBC-AE5D-4C60-AD03-EF150686A03F]]
-(progn
-  (key-chord-define org-mode-map "y7" #'org-shifleft)
-  (key-chord-define org-mode-map "Y&" #'org-shifup))
-(progn
-  (key-chord-define org-mode-map "u8" #'org-shiftmetaleft)
-  (key-chord-define org-mode-map "U*" #'org-shiftmetaup)
-  (key-chord-define org-mode-map "i9" #'org-shiftmetaright)
-  (key-chord-define org-mode-map "I(" #'org-shiftmetadown))
-(progn
-  (key-chord-define org-mode-map "o0" #'org-shiftright)
-  (key-chord-define org-mode-map "O)" #'org-shiftdown))
+;; (progn
+;;   (key-chord-define org-mode-map "y7" #'org-shifleft)
+;;   (key-chord-define org-mode-map "Y&" #'org-shifup))
+;; (progn
+;;   (key-chord-define org-mode-map "u8" #'org-shiftmetaleft)
+;;   (key-chord-define org-mode-map "U*" #'org-shiftmetaup)
+;;   (key-chord-define org-mode-map "i9" #'org-shiftmetaright)
+;;   (key-chord-define org-mode-map "I(" #'org-shiftmetadown))
+;; (progn
+;;   (key-chord-define org-mode-map "o0" #'org-shiftright)
+;;   (key-chord-define org-mode-map "O)" #'org-shiftdown))
 ;; org_gcr_2017-05-12_mara_6BA97DBC-AE5D-4C60-AD03-EF150686A03F ends here
 
 ;; [[file:~/src/help/help.org::org_gcr_2019-02-22T23-11-36-06-00_cosmicality_138EE053-3BAE-45F5-B19B-B8FB19580AF3][org_gcr_2019-02-22T23-11-36-06-00_cosmicality_138EE053-3BAE-45F5-B19B-B8FB19580AF3]]
@@ -463,70 +453,70 @@ Attribution: URL `https://lists.gnu.org/archive/html/emacs-orgmode/2015-01/msg00
 ;; org_gcr_2017-07-12_mara_97C70CDA-DFBF-4422-942A-00E732D3AB6A ends here
 
 ;; [[file:~/src/help/help.org::org_gcr_2017-05-12_mara_90AA8396-E8A0-439C-A1E4-373E90C4DC84][org_gcr_2017-05-12_mara_90AA8396-E8A0-439C-A1E4-373E90C4DC84]]
-(defhydra help/hydra/right-side/org-mode (:color blue
-                                                 :hint nil)
-  "
-Org-Mode: (_q_uit)
-Row 4: _1_ SHA-1-hash _2_ display images _3_ hide images _4_ id-create _8_ ltx/noindent
-Row 3: _w_ ob-clip-formatted _e_ edit field  _E_ list entities _r_ help/org-refile _R_ insert \"refile\"  _t_oggle macro marker ATT_R_HTML 4 table export format _u_tf2xtx  _p_ copy-reg-2-property
-Row 2: _a_ archive-subtree _s_ sort _S_ lobigst _d_ g2s-b/hd _g_ goto _k_ ob-check-src-blk _l_ lint _L_ insert inline task
-Row 1: _z_ insert-superscript _Z_ insert-subscript _x_ tangled file permissions _c_ org-fill-para _C_ount words _b_ swtch2sessn _B_ NOrg2Blog _n_ n2sbtre _m_ mark-subtree"
+;; (defhydra help/hydra/right-side/org-mode (:color blue
+;;                                                  :hint nil)
+;;   "
+;; Org-Mode: (_q_uit)
+;; Row 4: _1_ SHA-1-hash _2_ display images _3_ hide images _4_ id-create _8_ ltx/noindent
+;; Row 3: _w_ ob-clip-formatted _e_ edit field  _E_ list entities _r_ help/org-refile _R_ insert \"refile\"  _t_oggle macro marker ATT_R_HTML 4 table export format _u_tf2xtx  _p_ copy-reg-2-property
+;; Row 2: _a_ archive-subtree _s_ sort _S_ lobigst _d_ g2s-b/hd _g_ goto _k_ ob-check-src-blk _l_ lint _L_ insert inline task
+;; Row 1: _z_ insert-superscript _Z_ insert-subscript _x_ tangled file permissions _c_ org-fill-para _C_ount words _b_ swtch2sessn _B_ NOrg2Blog _n_ n2sbtre _m_ mark-subtree"
 
-  ("q" org-babel-switch-to-session-with-code)
+;;   ("q" org-babel-switch-to-session-with-code)
 
-  ;; Row 4
-  ("1" org-babel-sha1-hash)
-  ("2" org-display-inline-images)
-  ("3" org-remove-inline-images)
-  ("4" org-id-get-create)
-  ("8" (lambda () (interactive) (insert "@@latex:\\noindent{}@@")))
+;;   ;; Row 4
+;;   ("1" org-babel-sha1-hash)
+;;   ("2" org-display-inline-images)
+;;   ("3" org-remove-inline-images)
+;;   ("4" org-id-get-create)
+;;   ("8" (lambda () (interactive) (insert "@@latex:\\noindent{}@@")))
 
-  ;; Row 3
-  ("w" ox-clip-formatted-copy)
-  ("e" org-table-edit-field)
-  ("W" help/org-mark-subtree/kill-ring-save)
-  ("E" org-entities-help)
-  ("r" help/org-refile)
-  ("R" (lambda () (interactive) (insert "(refile)")))
-  ("t" help/org-toggle-macro-markers)
-  ("R" (lambda () (interactive) (insert "#+ATTR_HTML: :border 2 :rules all :frame border")))
-  ("u" org-utf-to-xetex-insert-or-wrap-with-macro)
-  ("p" my-org-region-to-property)
+;;   ;; Row 3
+;;   ("w" ox-clip-formatted-copy)
+;;   ("e" org-table-edit-field)
+;;   ("W" help/org-mark-subtree/kill-ring-save)
+;;   ("E" org-entities-help)
+;;   ("r" help/org-refile)
+;;   ("R" (lambda () (interactive) (insert "(refile)")))
+;;   ("t" help/org-toggle-macro-markers)
+;;   ("R" (lambda () (interactive) (insert "#+ATTR_HTML: :border 2 :rules all :frame border")))
+;;   ("u" org-utf-to-xetex-insert-or-wrap-with-macro)
+;;   ("p" my-org-region-to-property)
 
-  ;; TODO
+;;   ;; TODO
 
-  ;; Row 2
-  ("a" org-archive-subtree-default)
-  ("s" org-sort)
-  ("S" org-babel-lob-ingest)
-  ("d" org-babel-goto-src-block-head)
-  ("g" org-goto)
-  ("i" org-babel-do-key-sequence-in-edit-buffer)
-  ("I" org-babel-insert-header-arg)
-  ("k" org-babel-check-src-block)
-  ("l" org-lint)
-  ("L" org-inlinetask-insert-task)
+;;   ;; Row 2
+;;   ("a" org-archive-subtree-default)
+;;   ("s" org-sort)
+;;   ("S" org-babel-lob-ingest)
+;;   ("d" org-babel-goto-src-block-head)
+;;   ("g" org-goto)
+;;   ("i" org-babel-do-key-sequence-in-edit-buffer)
+;;   ("I" org-babel-insert-header-arg)
+;;   ("k" org-babel-check-src-block)
+;;   ("l" org-lint)
+;;   ("L" org-inlinetask-insert-task)
 
-  ;; Row 1
-  ("z" help/org-insert-superscript)
-  ("Z" help/org-insert-subscript)
-  ("x" help/org-insert-tangle-mode-permission)
-  ("c" org-fill-paragraph)
-  ("C" help/org-count-words)
-  ("b" org-babel-switch-to-session)
-  ("B" o2b-gui/body)
-  ("n" org-narrow-to-subtree)
-  ("m" org-mark-subtree)
-  ("M" org-mark-element))
-(defun help/org-mark-subtree/kill-ring-save ()
-  ""
-  (interactive)
-  (call-interactively 'org-mark-subtree)
-  (call-interactively 'kill-ring-save))
-(key-chord-define org-mode-map "hh" #'help/hydra/right-side/org-mode/body)
-(defun help/org-insert-tangle-mode-permission ()
-  (interactive)
-  (insert ":tangle-mode (identity #o755)"))
+;;   ;; Row 1
+;;   ("z" help/org-insert-superscript)
+;;   ("Z" help/org-insert-subscript)
+;;   ("x" help/org-insert-tangle-mode-permission)
+;;   ("c" org-fill-paragraph)
+;;   ("C" help/org-count-words)
+;;   ("b" org-babel-switch-to-session)
+;;   ("B" o2b-gui/body)
+;;   ("n" org-narrow-to-subtree)
+;;   ("m" org-mark-subtree)
+;;   ("M" org-mark-element))
+;; (defun help/org-mark-subtree/kill-ring-save ()
+;;   ""
+;;   (interactive)
+;;   (call-interactively 'org-mark-subtree)
+;;   (call-interactively 'kill-ring-save))
+;; (key-chord-define org-mode-map "hh" #'help/hydra/right-side/org-mode/body)
+;; (defun help/org-insert-tangle-mode-permission ()
+;;   (interactive)
+;;   (insert ":tangle-mode (identity #o755)"))
 ;; org_gcr_2017-05-12_mara_90AA8396-E8A0-439C-A1E4-373E90C4DC84 ends here
 
 ;; [[file:~/src/help/help.org::org_gcr_2017-05-12_mara_B41A9D3F-254B-4E44-8585-380BF23D158D][org_gcr_2017-05-12_mara_B41A9D3F-254B-4E44-8585-380BF23D158D]]
@@ -538,8 +528,8 @@ Row 1: _z_ insert-superscript _Z_ insert-subscript _x_ tangled file permissions 
 ;; org_gcr_2017-05-12_mara_5DE43FD1-AEF3-40D0-8C67-1ACBB6EA8317 ends here
 
 ;; [[file:~/src/help/help.org::org_gcr_2017-05-12_mara_BF73D071-57B8-4DBA-93E9-5A1D532A6321][org_gcr_2017-05-12_mara_BF73D071-57B8-4DBA-93E9-5A1D532A6321]]
-(key-chord-define org-mode-map "<<" (lambda () (interactive) (insert "\\laquo{}")))
-(key-chord-define org-mode-map ">>" (lambda () (interactive) (insert "\\raquo{}")))
+;; (key-chord-define org-mode-map "<<" (lambda () (interactive) (insert "\\laquo{}")))
+;; (key-chord-define org-mode-map ">>" (lambda () (interactive) (insert "\\raquo{}")))
 ;; org_gcr_2017-05-12_mara_BF73D071-57B8-4DBA-93E9-5A1D532A6321 ends here
 
 ;; [[file:~/src/help/help.org::org_gcr_2018-06-21T13-13-25-05-00_mara_91DB03A0-F253-41EF-B3D7-820293D5AD94][org_gcr_2018-06-21T13-13-25-05-00_mara_91DB03A0-F253-41EF-B3D7-820293D5AD94]]
