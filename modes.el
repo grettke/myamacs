@@ -46,3 +46,7 @@
 ;;;; BibTeX
 
 (load-file "~/src/myamacs/bibtex.el")
+
+;;;; Htmlize
+
+(setq htmlize-output-type 'inline-css)

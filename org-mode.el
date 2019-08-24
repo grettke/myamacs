@@ -563,3 +563,30 @@
   (local-unset-key (kbd "C-j")))
 (add-hook 'org-mode-hook #'owp-maybe-start)
 ;; org_gcr_2019-01-14T09-58-00-06-00_cosmicality_9D450653-5C54-48DB-B0A9-24E8408B0CF2 ends here
+
+;; [[file:~/src/myamacs/org-mode.org::org_gcr_2017-05-12_mara_C74104AA-A25C-4BE8-A7DD-99DEA240FF73][org_gcr_2017-05-12_mara_C74104AA-A25C-4BE8-A7DD-99DEA240FF73]]
+(eval-after-load "ox" '(require 'ox-koma-letter))
+;; org_gcr_2017-05-12_mara_C74104AA-A25C-4BE8-A7DD-99DEA240FF73 ends here
+
+;; [[file:~/src/myamacs/org-mode.org::org_gcr_2017-05-12_mara_8A241D12-24B3-4C4C-AC99-B55954611025][org_gcr_2017-05-12_mara_8A241D12-24B3-4C4C-AC99-B55954611025]]
+(eval-after-load "ox-koma-letter"
+  '(progn
+     (add-to-list 'org-latex-classes
+                  '("help-letter"
+                    "\\documentclass[12pt, pagesize, UScommercial9]{scrlttr2}"))
+
+     (setq org-koma-letter-default-class "help-letter")))
+;; org_gcr_2017-05-12_mara_8A241D12-24B3-4C4C-AC99-B55954611025 ends here
+
+;; [[file:~/src/myamacs/org-mode.org::org_gcr_2017-05-12_mara_33A83D5A-E541-474C-AA0D-2E039EC74CDD][org_gcr_2017-05-12_mara_33A83D5A-E541-474C-AA0D-2E039EC74CDD]]
+(setq org-koma-letter-class-option-file "KomaDefault")
+;; org_gcr_2017-05-12_mara_33A83D5A-E541-474C-AA0D-2E039EC74CDD ends here
+
+;; [[file:~/src/myamacs/org-mode.org::org_gcr_2017-05-12_mara_62E6542A-B340-470A-B7E0-2F4438EBBAE9][org_gcr_2017-05-12_mara_62E6542A-B340-470A-B7E0-2F4438EBBAE9]]
+(setq org-html-htmlize-output-type htmlize-output-type)
+;; org_gcr_2017-05-12_mara_62E6542A-B340-470A-B7E0-2F4438EBBAE9 ends here
+
+;; [[file:~/src/myamacs/org-mode.org::org_gcr_2017-05-12_mara_41F8B285-650A-4394-8ECD-85C81181DF14][org_gcr_2017-05-12_mara_41F8B285-650A-4394-8ECD-85C81181DF14]]
+(setq org-ascii-text-width 80)
+(setq org-ascii-global-margin 0)
+;; org_gcr_2017-05-12_mara_41F8B285-650A-4394-8ECD-85C81181DF14 ends here
