@@ -12,6 +12,7 @@
 
 (load-file "~/src/myamacs/org-mode-ecm.el")
 (load-file "~/src/myamacs/org-mode-literate-fundamental-configuration.el")
+(load-file "~/src/myamacs/org-mode.el")
 (load-file "~/src/myamacs/org2blog-config.el")
 
 ;;;; Packages
