@@ -1,7 +1,7 @@
 ;; -*- lexical-binding: t; no-byte-compile: t; coding: utf-8 -*-
 
-;; [[file:~/src/myamacs/org-mode-literate-configuration.org::org_gcr_2017-05-12_mara_71A4A257-9A13-457A-B504-888D8131A206][org_gcr_2017-05-12_mara_71A4A257-9A13-457A-B504-888D8131A206]]
-(load-file "~/src/help/.org-mode-ecm.emacs.el")
+;; [[file:~/src/myamacs/org-mode-literate-fundamental-configuration.org::org_gcr_2017-05-12_mara_71A4A257-9A13-457A-B504-888D8131A206][org_gcr_2017-05-12_mara_71A4A257-9A13-457A-B504-888D8131A206]]
+;; (load-file "~/src/help/.org-mode-ecm.emacs.el")
 ;; org_gcr_2017-05-12_mara_71A4A257-9A13-457A-B504-888D8131A206 ends here
 
 ;; [[file:~/src/myamacs/org-mode-literate-configuration.org::org_gcr_2017-05-12_mara_21BEDC86-D1A3-43FC-85AC-8FF54D161E2F][org_gcr_2017-05-12_mara_21BEDC86-D1A3-43FC-85AC-8FF54D161E2F]]

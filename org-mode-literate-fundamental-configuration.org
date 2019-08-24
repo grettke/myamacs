@@ -23,10 +23,10 @@ Never compile this.
 emacs --debug-init --no-init-file --no-splash --background-color white --foreground-color black --vertical-scroll-bars --eval '(switch-to-buffer "*Messages*")' --name FND-TEST --title FND-TEST --load ~/src/help/.org-mode-fundamentals.emacs.el &
   #+END_EXAMPLE
 
-  #+NAME: org_gcr_2017-05-12_mara_71A4A257-9A13-457A-B504-888D8131A206
-  #+BEGIN_SRC emacs-lisp
-(load-file "~/src/help/.org-mode-ecm.emacs.el")
-  #+END_SRC
+#+NAME: org_gcr_2017-05-12_mara_71A4A257-9A13-457A-B504-888D8131A206
+#+BEGIN_SRC emacs-lisp
+;; (load-file "~/src/help/.org-mode-ecm.emacs.el")
+#+END_SRC
 
 ** Literate Programming
    :PROPERTIES:
