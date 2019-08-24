@@ -130,6 +130,8 @@
 
 (global-set-key (kbd "A-f") 'Control-X-prefix)
 
+(global-set-key (kbd "A-h") 'fill-paragraph)
+
 (global-set-key [(alt ?j)] #'switch-to-buffer)
 (global-set-key [(alt shift ?j)] #'windmove-left)
 
