@@ -27,8 +27,6 @@
  (lambda (mode) (add-hook mode #'gcr-general-lisp-mode-hook-fn))
  amacs-lisp-modes)
 
-(global-eldoc-mode -1)
-
 ;;;; Shell-script
 
 (defun gcr-shell-script-mode-hook-fn ()
