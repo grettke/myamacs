@@ -1129,8 +1129,6 @@ Doctype—use the default.
   (local-unset-key (kbd "C-j")))
 (add-hook 'org-mode-hook #'owp-maybe-start)
 #+end_src
-
-
 ** Publishing
 :PROPERTIES:
 :ID:       org_gcr_2017-05-12_mara:0A4A1510-41F7-4469-87D1-156D44A06216
