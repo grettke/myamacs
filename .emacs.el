@@ -126,9 +126,10 @@
 
 (global-set-key (kbd "A-s") #'shell)
 
-(global-set-key (kbd "M-s o") #'gcr-occur-dwim)
-
 (global-set-key (kbd "A-f") 'Control-X-prefix)
+
+(global-set-key (kbd "A-g") #'gcr-occur-dwim)
+(global-set-key (kbd "M-s o") #'gcr-occur-dwim)
 
 (global-set-key (kbd "A-h") 'fill-paragraph)
 
