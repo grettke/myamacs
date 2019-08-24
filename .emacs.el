@@ -12,9 +12,11 @@
 
 (load-file "~/src/myamacs/org-mode-ecm.el")
 (load-file "~/src/myamacs/org-mode-literate-fundamental-configuration.el")
+(add-to-list 'load-path "~/src/htmlize")
+(require 'htmlize)
 (load-file "~/src/myamacs/org-mode.el")
-(load-file "~/src/myamacs/bibtex.el")
 (load-file "~/src/myamacs/org2blog-config.el")
+(load-file "~/src/myamacs/bibtex.el")
 
 ;;;; Packages
 
