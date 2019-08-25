@@ -18,8 +18,6 @@
 
 (add-hook 'org-mode-hook #'owp-maybe-start)
 
-(add-hook 'org2blog/wp-mode-hook #'gcr-org2blog/wp-mode-hook-fn)
-
 (setq org2blog/wp-use-wp-latex nil)
 
 (setq org2blog/wp-use-sourcecode-shortcode t)
