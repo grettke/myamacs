@@ -110,6 +110,9 @@
 
 ;; Row 4: 1...
 
+(global-set-key [(alt ?0)] #'owp-user-interface)
+(global-set-key [(alt ?9)] #'owp-complete)
+
 ;; Row 3: Q...
 
 (global-set-key [(alt shift ?i)] #'windmove-up)

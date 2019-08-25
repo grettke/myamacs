@@ -18,10 +18,6 @@
 
 (add-hook 'org-mode-hook #'owp-maybe-start)
 
-(defun gcr-org2blog/wp-mode-hook-fn ()
-  (local-set-key (kbd "s-(") #'org2blog-user-interface)
-  (local-set-key (kbd "s-)") #'org2blog-complete))
-
 (add-hook 'org2blog/wp-mode-hook #'gcr-org2blog/wp-mode-hook-fn)
 
 (setq org2blog/wp-use-wp-latex nil)
