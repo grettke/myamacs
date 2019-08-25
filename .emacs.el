@@ -135,14 +135,13 @@
 
 ;; Row 2: A...
 
-(global-set-key (kbd "C-a") #'gcr-beginning-of-line-dwim)
+(global-set-key (kbd "A-a") #'gcr-beginning-of-line-dwim)
 
 (global-set-key (kbd "A-s") #'shell)
 
 (global-set-key (kbd "A-f") 'Control-X-prefix)
 
 (global-set-key (kbd "A-g") #'gcr-occur-dwim)
-(global-set-key (kbd "M-s o") #'gcr-occur-dwim)
 
 (global-set-key [(alt ?j)] #'switch-to-buffer)
 (global-set-key [(alt shift ?j)] #'windmove-left)
