@@ -144,8 +144,6 @@
 (global-set-key (kbd "A-g") #'gcr-occur-dwim)
 (global-set-key (kbd "M-s o") #'gcr-occur-dwim)
 
-(global-set-key (kbd "A-h") 'fill-paragraph)
-
 (global-set-key [(alt ?j)] #'switch-to-buffer)
 (global-set-key [(alt shift ?j)] #'windmove-left)
 
