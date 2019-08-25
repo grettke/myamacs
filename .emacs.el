@@ -159,6 +159,8 @@
 
 (global-set-key (kbd "A-c") (kbd "C-c C-c"))
 
+(global-set-key (kbd "A-b") #'keyboard-quit)
+
 (global-set-key (kbd "A-n") #'other-window)
 
 ;; Row 0: Ctrl...
