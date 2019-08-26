@@ -16,8 +16,6 @@
   (add-to-list 'load-path "~/src/org2blog")
   (require 'org2blog))
 
-(add-hook 'org-mode-hook #'owp-maybe-start)
-
 (setq org2blog/wp-use-wp-latex nil)
 
 (setq org2blog/wp-use-sourcecode-shortcode t)
