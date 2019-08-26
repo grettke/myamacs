@@ -11,8 +11,7 @@
   (require 'dash)
   (add-to-list 'load-path "~/src/s")
   (require 's)
-  (add-to-list 'load-path "~/src/toc-org")
-  (require 'toc-org)
+  (add-to-list 'load-path "~/src/org-make-toc")
   (add-to-list 'load-path "~/src/org2blog")
   (require 'org2blog))
 
