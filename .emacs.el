@@ -35,6 +35,7 @@
 
 (require 'thingatpt)
 (require 'zone)
+(require 'subr-x)
 
 ;;;; macOS
 
