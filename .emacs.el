@@ -22,7 +22,7 @@
       org-version release)
      :error)))
 (load-file "~/src/myamacs/org-mode-literate-fundamental-configuration.el")
-;; Required by Org mode
+;; Required by Org mode and Org2Blog
 (add-to-list 'load-path "~/src/htmlize")
 (require 'htmlize)
 ;; Required for ox-koma-letter. Use a branch of the release tag.
