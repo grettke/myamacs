@@ -12,3 +12,6 @@
 (add-to-list 'load-path "~/src/org-utf-to-xetex")
 (require 'org-utf-to-xetex)
 (add-hook 'org-mode-hook #'org-utf-to-xetex-prettify)
+
+(add-to-list 'load-path "~/src/say")
+(require 'say)
