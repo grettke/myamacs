@@ -63,25 +63,17 @@
   (call-interactively 'occur)
   (other-window 1))
 
-;;;; Keymaps
+;;;; Key Bindings
 
-;;; Key Bindings
-
-;; Row 5: F1...
-
-;; Row 4: 1...
+;;; Row 4: 1...
 
 (global-set-key [(alt ?9)] #'owp-complete)
 (global-set-key [(alt ?0)] #'owp-user-interface)
 (global-set-key [(alt ?=)] #'say-mode)
 
-;; Row 3: Q...
-
-(global-set-key [(alt shift ?i)] #'windmove-up)
+;;; Row 3: Q...
 
 (global-set-key (kbd "A-q") #'gcr-unfill-paragraph)
-
-(global-set-key (kbd "A-w") #'kmacro-start-macro-or-insert-counter)
 
 (global-set-key (kbd "A-e") #'kmacro-end-or-call-macro)
 
@@ -95,7 +87,7 @@
 
 (global-set-key (kbd "A-\\") #'gcr-indent-buffer)
 
-;; Row 2: A...
+;;; Row 2: A...
 
 (global-set-key (kbd "A-a") #'gcr-beginning-of-line-dwim)
 
@@ -105,21 +97,18 @@
 
 (global-set-key (kbd "A-g") #'gcr-occur-dwim)
 
-(global-set-key [(alt ?j)] #'switch-to-buffer)
+(global-set-key (kbd "A-j") #'switch-to-buffer)
 
-(global-set-key [(alt ?k)] #'execute-extended-command)
+(global-set-key (kbd "A-k") #'execute-extended-command)
 
-(global-set-key [(alt ?l)] #'gcr-switch-to-previous-buffer)
+(global-set-key (kbd "A-l") #'gcr-switch-to-previous-buffer)
 
 (global-set-key (kbd "A-;") #'eval-expression)
 
-;; Row 1: Z...
+;;; Row 1: Z...
 
 (global-set-key (kbd "A-c") (kbd "C-c C-c"))
 
 (global-set-key (kbd "A-b") #'keyboard-quit)
 
 (global-set-key (kbd "A-n") #'other-window)
-
-;; Row 0: Ctrl...
-
