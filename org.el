@@ -12,5 +12,6 @@
 (load-file "~/src/myamacs/org-mode-literate-fundamental-configuration.el")
 (add-to-list 'load-path "~/src/htmlize")
 (require 'htmlize)
+;; Checkout the correct release here
 (add-to-list 'load-path "~/src/org-mode/contrib/lisp")
 (load-file "~/src/myamacs/org-mode.el")
