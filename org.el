@@ -9,7 +9,7 @@
               "version %s of Org mode to run predictably.")
       org-version release)
      :error)))
-(load-file "~/src/myamacs/org-mode-literate-fundamental-configuration.el")
+(load-file "~/src/myamacs/org-lp-fundamental-tgl.el")
 (add-to-list 'load-path "~/src/htmlize")
 (require 'htmlize)
 ;; Checkout the correct release here
