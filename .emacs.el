@@ -5,21 +5,16 @@
 (load-file "~/src/myamacs/org.el")
 (load-file "~/src/myamacs/org2blog.el")
 (load-file "~/src/myamacs/bibtex.el")
-
-;;;; Packages
+(load-file "~/src/maccadet/maccadet.el")
 
 (require 'thingatpt)
 (require 'zone)
 (require 'subr-x)
 
-;;;; macOS
-
-(load-file "~/src/maccadet/maccadet.el")
-
-;;;; Utility Functions
-
 (load-file "~/src/myamacs/logging.el")
 (load-file "~/src/myamacs/utility.el")
+(load-file "~/src/myamacs/modes.el")
+(load-file "~/src/myamacs/user-interfaces.el")
 
 ;;;; Operations
 
@@ -67,11 +62,6 @@
         regexp-history)
   (call-interactively 'occur)
   (other-window 1))
-
-;;;; Later Configurations
-
-(load-file "~/src/myamacs/modes.el")
-(load-file "~/src/myamacs/user-interfaces.el")
 
 ;;;; Keymaps
 
