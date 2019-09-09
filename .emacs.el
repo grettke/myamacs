@@ -6,7 +6,7 @@
 
 ;;;; Early Configurations
 
-(load-file "~/src/myamacs/mydevelopment.el")
+(load-file "~/src/myamacs/projects.el")
 
 ;;; Org mode
 
