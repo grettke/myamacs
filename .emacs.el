@@ -3,7 +3,7 @@
 (load-file "~/src/amacs/.emacs.el")
 (load-file "~/src/myamacs/projects.el")
 (load-file "~/src/myamacs/org.el")
-(load-file "~/src/myamacs/org2blog-config.el")
+(load-file "~/src/myamacs/org2blog.el")
 (load-file "~/src/myamacs/bibtex.el")
 
 ;;;; Packages
