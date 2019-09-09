@@ -14,4 +14,4 @@
 (require 'htmlize)
 ;; Checkout the correct release here
 (add-to-list 'load-path "~/src/org-mode/contrib/lisp")
-(load-file "~/src/myamacs/org-mode.el")
+(load-file "~/src/myamacs/org-mode-tgl.el")
