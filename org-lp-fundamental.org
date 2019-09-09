@@ -1,4 +1,4 @@
-#+PROPERTY: header-args :tangle "./org-mode-literate-fundamental-configuration.el" :results output silent
+#+PROPERTY: header-args :tangle "./org-lp-fundamental.el" :results output silent
 #+OPTIONS: toc:3
 
 Never compile this.
