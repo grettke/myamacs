@@ -106,13 +106,10 @@
 (global-set-key (kbd "A-g") #'gcr-occur-dwim)
 
 (global-set-key [(alt ?j)] #'switch-to-buffer)
-(global-set-key [(alt shift ?j)] #'windmove-left)
 
 (global-set-key [(alt ?k)] #'execute-extended-command)
-(global-set-key [(alt shift ?k)] #'windmove-down)
 
 (global-set-key [(alt ?l)] #'gcr-switch-to-previous-buffer)
-(global-set-key [(alt shift ?l)] #'windmove-right)
 
 (global-set-key (kbd "A-;") #'eval-expression)
 
