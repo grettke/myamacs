@@ -15,6 +15,7 @@
 (load-file "~/src/myamacs/utility.el")
 (load-file "~/src/myamacs/modes.el")
 (load-file "~/src/myamacs/user-interfaces.el")
+(load-file "~/src/myamacs/package.el")
 
 ;;;; Operations
 
