@@ -276,3 +276,10 @@ Attribution: Udyant Wig <udyantw@gmail.com>"
           (second-part-end (point-max)))
       (delete-trailing-whitespace first-part-start first-part-end)
       (delete-trailing-whitespace second-part-start second-part-end))))
+
+(defun gcr-open-in-textedit ()
+  "Open this buffer's file in TextEdit app."
+  (interactive)
+  (let ((file (buffer-file-name)))
+    (when file
+      (start-process "TextEdit" nil "open" "-e" file))))
