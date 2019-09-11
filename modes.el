@@ -46,7 +46,7 @@
 
 ;;;; BibTeX
 
-(load-file "~/src/myamacs/bibtex.el")
+(load-file "~/src/myamacs/bibtex-tgl.el")
 
 ;;;; Htmlize
 
