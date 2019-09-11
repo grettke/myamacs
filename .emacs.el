@@ -1,5 +1,7 @@
 ;; -*- lexical-binding: t; no-byte-compile: t; coding: utf-8 -*-
 
+;; (package-initialize)
+
 (load-file "~/src/amacs/.emacs.el")
 (load-file "~/src/myamacs/projects.el")
 (load-file "~/src/myamacs/org.el")
