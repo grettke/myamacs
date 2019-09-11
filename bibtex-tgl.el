@@ -19,18 +19,18 @@
 ;; org_gcr_2018-11-13T18-00-23-06-00_cosmicality_32B5EE79-9019-4210-B45F-71B2781CEB4E ends here
 
 ;; [[file:~/src/myamacs/bibtex.org::org_gcr_2018-11-13T18-00-23-06-00_cosmicality_62AAF44B-D738-4732-BD54-1111BCD6BB6E][org_gcr_2018-11-13T18-00-23-06-00_cosmicality_62AAF44B-D738-4732-BD54-1111BCD6BB6E]]
-(defhydra gcr-bibtex (:color blue :hint nil)
-  "
-_c_ Clean Entry _C_ Clean Entry & Create New Reference
-_f_ Reindent Field _F_ Reindent Buffer/Region
-_m_ Disable Unhelpful Modes _M_ Enable Unhelpful Modes
-"
-  ("c" bibtex-clean-entry)
-  ("C" gcr-bibtex-calculate-new-reference-key)
-  ("f" bibtex-fill-entry)
-  ("F" bibtex-reformat)
-  ("m" gcr-bibtex-maybe-troublesome-mode-disable)
-  ("M" gcr-bibtex-maybe-troublesome-mode-enable))
+;; (defhydra gcr-bibtex (:color blue :hint nil)
+;;   "
+;; _c_ Clean Entry _C_ Clean Entry & Create New Reference
+;; _f_ Reindent Field _F_ Reindent Buffer/Region
+;; _m_ Disable Unhelpful Modes _M_ Enable Unhelpful Modes
+;; "
+;;   ("c" bibtex-clean-entry)
+;;   ("C" gcr-bibtex-calculate-new-reference-key)
+;;   ("f" bibtex-fill-entry)
+;;   ("F" bibtex-reformat)
+;;   ("m" gcr-bibtex-maybe-troublesome-mode-disable)
+;;   ("M" gcr-bibtex-maybe-troublesome-mode-enable))
 ;; org_gcr_2018-11-13T18-00-23-06-00_cosmicality_62AAF44B-D738-4732-BD54-1111BCD6BB6E ends here
 
 ;; [[file:~/src/myamacs/bibtex.org::org_gcr_2018-11-13T18-00-23-06-00_cosmicality_3B76ECF1-3D55-4066-BCC1-1436E41D5C2D][org_gcr_2018-11-13T18-00-23-06-00_cosmicality_3B76ECF1-3D55-4066-BCC1-1436E41D5C2D]]

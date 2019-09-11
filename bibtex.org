@@ -40,18 +40,18 @@ Helper Hydra
 
 #+name: org_gcr_2018-11-13T18-00-23-06-00_cosmicality_62AAF44B-D738-4732-BD54-1111BCD6BB6E
 #+begin_src emacs-lisp
-(defhydra gcr-bibtex (:color blue :hint nil)
-  "
-_c_ Clean Entry _C_ Clean Entry & Create New Reference
-_f_ Reindent Field _F_ Reindent Buffer/Region
-_m_ Disable Unhelpful Modes _M_ Enable Unhelpful Modes
-"
-  ("c" bibtex-clean-entry)
-  ("C" gcr-bibtex-calculate-new-reference-key)
-  ("f" bibtex-fill-entry)
-  ("F" bibtex-reformat)
-  ("m" gcr-bibtex-maybe-troublesome-mode-disable)
-  ("M" gcr-bibtex-maybe-troublesome-mode-enable))
+;; (defhydra gcr-bibtex (:color blue :hint nil)
+;;   "
+;; _c_ Clean Entry _C_ Clean Entry & Create New Reference
+;; _f_ Reindent Field _F_ Reindent Buffer/Region
+;; _m_ Disable Unhelpful Modes _M_ Enable Unhelpful Modes
+;; "
+;;   ("c" bibtex-clean-entry)
+;;   ("C" gcr-bibtex-calculate-new-reference-key)
+;;   ("f" bibtex-fill-entry)
+;;   ("F" bibtex-reformat)
+;;   ("m" gcr-bibtex-maybe-troublesome-mode-disable)
+;;   ("M" gcr-bibtex-maybe-troublesome-mode-enable))
 #+end_src
 
 Mode hook and key bindings.
