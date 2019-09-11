@@ -9,10 +9,16 @@
   (require 'hydra)
   (add-to-list 'load-path "~/src/xml-rpc")
   (require 'xml-rpc)
-  ;; (add-to-list 'load-path "~/src/org-make-toc")
-  ;; (require 'org-make-toc)
   (add-to-list 'load-path "~/src/org2blog")
   (require 'org2blog))
+
+(when gcr-org2blog-local
+  (add-to-list 'load-path "~/src/s")
+  (require 's)
+  (add-to-list 'load-path "~/src/dash")
+  (require 'dash)
+  (add-to-list 'load-path "~/src/org-make-toc")
+  (require 'org-make-toc))
 
 (setq org2blog/wp-use-wp-latex nil)
 
