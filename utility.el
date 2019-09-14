@@ -283,3 +283,8 @@ Attribution: Udyant Wig <udyantw@gmail.com>"
   (let ((file (buffer-file-name)))
     (when file
       (start-process "TextEdit" nil "open" "-e" file))))
+
+(defun gcr-occur-non-ascii ()
+  "Find any non-ascii characters in the current buffer."
+  (interactive)
+  (occur "[^[:ascii:]]"))
