@@ -1,6 +1,6 @@
 ;; -*- lexical-binding: t; no-byte-compile: t; coding: utf-8 -*-
 
-(setq gcr-org2blog-local nil)
+(setq gcr-org2blog-local t)
 
 (when gcr-org2blog-local
   (add-to-list 'load-path "~/src/htmlize")
