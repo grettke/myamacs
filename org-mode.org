@@ -1016,13 +1016,6 @@ Because I only use this for Org-Mode.
 ;;   (insert ":tangle-mode (identity #o755)"))
 #+END_SRC
 
-Save all buffers before working with Exports.
-
-#+NAME: org_gcr_2017-05-12_mara_B41A9D3F-254B-4E44-8585-380BF23D158D
-#+BEGIN_SRC emacs-lisp
-(define-key org-mode-map (kbd "C-c C-e") #'gcr-safb-org-export-dispatch)
-#+END_SRC
-
 Make =s-l= do the same thing to leave the Source-Block-Buffer.
 
 #+NAME: org_gcr_2017-05-12_mara_5DE43FD1-AEF3-40D0-8C67-1ACBB6EA8317

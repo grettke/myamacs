@@ -496,10 +496,6 @@
 ;;   (insert ":tangle-mode (identity #o755)"))
 ;; org_gcr_2017-05-12_mara_90AA8396-E8A0-439C-A1E4-373E90C4DC84 ends here
 
-;; [[file:~/src/myamacs/org-mode.org::org_gcr_2017-05-12_mara_B41A9D3F-254B-4E44-8585-380BF23D158D][org_gcr_2017-05-12_mara_B41A9D3F-254B-4E44-8585-380BF23D158D]]
-(define-key org-mode-map (kbd "C-c C-e") #'gcr-safb-org-export-dispatch)
-;; org_gcr_2017-05-12_mara_B41A9D3F-254B-4E44-8585-380BF23D158D ends here
-
 ;; [[file:~/src/myamacs/org-mode.org::org_gcr_2017-05-12_mara_5DE43FD1-AEF3-40D0-8C67-1ACBB6EA8317][org_gcr_2017-05-12_mara_5DE43FD1-AEF3-40D0-8C67-1ACBB6EA8317]]
 (define-key org-src-mode-map (kbd "H-l") #'org-edit-src-exit)
 ;; org_gcr_2017-05-12_mara_5DE43FD1-AEF3-40D0-8C67-1ACBB6EA8317 ends here
