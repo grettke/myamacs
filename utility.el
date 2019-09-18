@@ -4,7 +4,6 @@
   "Add IT to the kill ring then return IT."
   (interactive)
   (kill-new it)
-  (message "Killed: %s" it)
   it)
 
 (defun gcr-recenter-line-near-top()
