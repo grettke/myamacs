@@ -7,7 +7,7 @@
          (interactive)
          (kill-buffer buf)
          (let ((origin-exists (get-buffer origin))
-               (value (gcr--kill (,fun))))
+               (value (gcr-kill-identity (,fun))))
            (cond (origin-exists
                   (with-current-buffer origin
                     (insert-before-markers value))

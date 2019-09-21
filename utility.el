@@ -1,6 +1,6 @@
 ;; -*- lexical-binding: t; no-byte-compile: t; coding: utf-8 -*-
 
-(defun gcr--kill (it)
+(defun gcr-kill-identity (it)
   "Add IT to the kill ring then return IT."
   (interactive)
   (kill-new it)
