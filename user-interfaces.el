@@ -14,7 +14,7 @@
                   (let ((minibuf (active-minibuffer-window)))
                     (if minibuf
                         (select-window minibuf)
-                      (switch-to-buffer origin))))
+                      (pop-to-buffer-same-window origin))))
                  (t (message "Can't insert %s: source buffer %s is closed."
                              value origin)))))
        (widget-insert ,keybefore)
@@ -32,7 +32,7 @@
          (title "Date Insert & Kill")
          (buf (format "*%s*" title)))
     (set-keymap-parent ui-keymap widget-keymap)
-    (switch-to-buffer buf)
+    (pop-to-buffer-same-window buf)
     (let ((inhibit-read-only t))
       (erase-buffer))
     (remove-overlays)
