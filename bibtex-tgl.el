@@ -4,40 +4,21 @@
 (require 'bibtex)
 ;; org_gcr_2018-09-19T12-32-27-05-00_cosmicality_4C483D43-7E0D-48E1-88D5-9353A0DBD83A ends here
 
-;; [[file:~/src/myamacs/bibtex.org::org_gcr_2018-11-13T18-00-23-06-00_cosmicality_32B5EE79-9019-4210-B45F-71B2781CEB4E][org_gcr_2018-11-13T18-00-23-06-00_cosmicality_32B5EE79-9019-4210-B45F-71B2781CEB4E]]
-(defun gcr-bibtex-calculate-new-reference-key ()
-  (interactive)
-  (bibtex-clean-entry))
-(defun gcr-bibtex-maybe-troublesome-mode-disable
-    (interactive)
-  (aggressive-indent-mode 'toggle)
-  (visual-line-mode 't))
-(defun gcr-bibtex-maybe-troublesome-mode-enable
-    (interactive)
-  (aggressive-indent-mode nil)
-  (visual-line-mode nil))
-;; org_gcr_2018-11-13T18-00-23-06-00_cosmicality_32B5EE79-9019-4210-B45F-71B2781CEB4E ends here
-
-;; [[file:~/src/myamacs/bibtex.org::org_gcr_2018-11-13T18-00-23-06-00_cosmicality_62AAF44B-D738-4732-BD54-1111BCD6BB6E][org_gcr_2018-11-13T18-00-23-06-00_cosmicality_62AAF44B-D738-4732-BD54-1111BCD6BB6E]]
-;; (defhydra gcr-bibtex (:color blue :hint nil)
-;;   "
-;; _c_ Clean Entry _C_ Clean Entry & Create New Reference
-;; _f_ Reindent Field _F_ Reindent Buffer/Region
-;; _m_ Disable Unhelpful Modes _M_ Enable Unhelpful Modes
-;; "
-;;   ("c" bibtex-clean-entry)
-;;   ("C" gcr-bibtex-calculate-new-reference-key)
-;;   ("f" bibtex-fill-entry)
-;;   ("F" bibtex-reformat)
-;;   ("m" gcr-bibtex-maybe-troublesome-mode-disable)
-;;   ("M" gcr-bibtex-maybe-troublesome-mode-enable))
-;; org_gcr_2018-11-13T18-00-23-06-00_cosmicality_62AAF44B-D738-4732-BD54-1111BCD6BB6E ends here
-
 ;; [[file:~/src/myamacs/bibtex.org::org_gcr_2018-11-13T18-00-23-06-00_cosmicality_3B76ECF1-3D55-4066-BCC1-1436E41D5C2D][org_gcr_2018-11-13T18-00-23-06-00_cosmicality_3B76ECF1-3D55-4066-BCC1-1436E41D5C2D]]
 (defun gcr-bibtex-mode-hook-fn ()
-  (key-chord-define-local "hh" #'gcr-bibtex/body))
+  (define-key bibtex-mode-map (kbd "H-c") #'bibtex-clean-entry)
+  (define-key bibtex-mode-map (kbd "H-q") #'bibtex-fill-entry)
+  (define-key bibtex-mode-map (kbd "H-i") #'bibtex-convert-alien)
+  (define-key bibtex-mode-map (kbd "H-\\") #'bibtex-reformat)
+  (define-key bibtex-mode-map (kbd "H-v e") #'bibtex-valid-entry)
+  (define-key bibtex-mode-map (kbd "H-v b") #'bibtex-validate)
+  (define-key bibtex-mode-map (kbd "H-s") #'bibtex-sort-buffer))
 (add-hook 'bibtex-mode-hook #'gcr-bibtex-mode-hook-fn)
 ;; org_gcr_2018-11-13T18-00-23-06-00_cosmicality_3B76ECF1-3D55-4066-BCC1-1436E41D5C2D ends here
+
+;; [[file:~/src/myamacs/bibtex.org::org_gcr_2019-09-21T13-17-01-05-00_cosmicality_F1E2B032-3B8E-4400-A732-5D86C227FBEA][org_gcr_2019-09-21T13-17-01-05-00_cosmicality_F1E2B032-3B8E-4400-A732-5D86C227FBEA]]
+(setq bibtex-maintain-sorted-entries 'crossref)
+;; org_gcr_2019-09-21T13-17-01-05-00_cosmicality_F1E2B032-3B8E-4400-A732-5D86C227FBEA ends here
 
 ;; [[file:~/src/myamacs/bibtex.org::org_gcr_2018-09-19T12-32-27-05-00_cosmicality_1CF3A243-94CC-4423-9BC3-35BAAA3C9A23][org_gcr_2018-09-19T12-32-27-05-00_cosmicality_1CF3A243-94CC-4423-9BC3-35BAAA3C9A23]]
 (setq bibtex-entry-format nil)
@@ -51,9 +32,17 @@
 (add-to-list 'bibtex-entry-format 'required-fields)
 ;; org_gcr_2018-09-19T12-32-27-05-00_cosmicality_1B324CB4-0390-43F2-9AE4-EDEC5D16614A ends here
 
+;; [[file:~/src/myamacs/bibtex.org::org_gcr_2019-09-21T13-17-01-05-00_cosmicality_B05EC235-C463-4AEE-9D80-85CC71B21A74][org_gcr_2019-09-21T13-17-01-05-00_cosmicality_B05EC235-C463-4AEE-9D80-85CC71B21A74]]
+(add-to-list 'bibtex-entry-format 'numerical-fields)
+;; org_gcr_2019-09-21T13-17-01-05-00_cosmicality_B05EC235-C463-4AEE-9D80-85CC71B21A74 ends here
+
 ;; [[file:~/src/myamacs/bibtex.org::org_gcr_2018-09-19T12-32-27-05-00_cosmicality_A0A4865A-E855-463C-8F55-43C47199CAD8][org_gcr_2018-09-19T12-32-27-05-00_cosmicality_A0A4865A-E855-463C-8F55-43C47199CAD8]]
 (add-to-list 'bibtex-entry-format 'whitespace)
 ;; org_gcr_2018-09-19T12-32-27-05-00_cosmicality_A0A4865A-E855-463C-8F55-43C47199CAD8 ends here
+
+;; [[file:~/src/myamacs/bibtex.org::org_gcr_2019-09-21T13-17-01-05-00_cosmicality_D45571E2-F5B7-4779-9042-DAAC0822511C][org_gcr_2019-09-21T13-17-01-05-00_cosmicality_D45571E2-F5B7-4779-9042-DAAC0822511C]]
+(add-to-list 'bibtex-entry-format 'inherit-booktitle)
+;; org_gcr_2019-09-21T13-17-01-05-00_cosmicality_D45571E2-F5B7-4779-9042-DAAC0822511C ends here
 
 ;; [[file:~/src/myamacs/bibtex.org::org_gcr_2018-09-19T12-32-27-05-00_cosmicality_21684BCC-04D4-4EE8-90E0-4F65764D1E26][org_gcr_2018-09-19T12-32-27-05-00_cosmicality_21684BCC-04D4-4EE8-90E0-4F65764D1E26]]
 (add-to-list 'bibtex-entry-format 'realign)

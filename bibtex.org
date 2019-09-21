@@ -12,46 +12,9 @@
 
 Load BibTeX mode.
 
-At some point I want to cut over to BibLaTeX.
-
 #+name: org_gcr_2018-09-19T12-32-27-05-00_cosmicality_4C483D43-7E0D-48E1-88D5-9353A0DBD83A
 #+begin_src emacs-lisp
 (require 'bibtex)
-#+end_src
-
-Helper functions.
-
-#+name: org_gcr_2018-11-13T18-00-23-06-00_cosmicality_32B5EE79-9019-4210-B45F-71B2781CEB4E
-#+begin_src emacs-lisp
-(defun gcr-bibtex-calculate-new-reference-key ()
-  (interactive)
-  (bibtex-clean-entry))
-(defun gcr-bibtex-maybe-troublesome-mode-disable
-    (interactive)
-  (aggressive-indent-mode 'toggle)
-  (visual-line-mode 't))
-(defun gcr-bibtex-maybe-troublesome-mode-enable
-    (interactive)
-  (aggressive-indent-mode nil)
-  (visual-line-mode nil))
-#+end_src
-
-Helper Hydra
-
-#+name: org_gcr_2018-11-13T18-00-23-06-00_cosmicality_62AAF44B-D738-4732-BD54-1111BCD6BB6E
-#+begin_src emacs-lisp
-;; (defhydra gcr-bibtex (:color blue :hint nil)
-;;   "
-;; _c_ Clean Entry _C_ Clean Entry & Create New Reference
-;; _f_ Reindent Field _F_ Reindent Buffer/Region
-;; _m_ Disable Unhelpful Modes _M_ Enable Unhelpful Modes
-;; "
-;;   ("c" bibtex-clean-entry)
-;;   ("C" gcr-bibtex-calculate-new-reference-key)
-;;   ("f" bibtex-fill-entry)
-;;   ("F" bibtex-reformat)
-;;   ("m" gcr-bibtex-maybe-troublesome-mode-disable)
-;;   ("M" gcr-bibtex-maybe-troublesome-mode-enable))
 #+end_src
 
 Mode hook and key bindings.
@@ -59,9 +22,23 @@ Mode hook and key bindings.
 #+name: org_gcr_2018-11-13T18-00-23-06-00_cosmicality_3B76ECF1-3D55-4066-BCC1-1436E41D5C2D
 #+begin_src emacs-lisp
 (defun gcr-bibtex-mode-hook-fn ()
-  (key-chord-define-local "hh" #'gcr-bibtex/body))
+  (define-key bibtex-mode-map (kbd "H-c") #'bibtex-clean-entry)
+  (define-key bibtex-mode-map (kbd "H-q") #'bibtex-fill-entry)
+  (define-key bibtex-mode-map (kbd "H-i") #'bibtex-convert-alien)
+  (define-key bibtex-mode-map (kbd "H-\\") #'bibtex-reformat)
+  (define-key bibtex-mode-map (kbd "H-v e") #'bibtex-valid-entry)
+  (define-key bibtex-mode-map (kbd "H-v b") #'bibtex-validate)
+  (define-key bibtex-mode-map (kbd "H-s") #'bibtex-sort-buffer))
 (add-hook 'bibtex-mode-hook #'gcr-bibtex-mode-hook-fn)
 #+end_src
+
+Automatically keep entries sorted alphabetically by name and when a crossref
+is present place them in alphabetical order directly below their parent entry.
+
+#+NAME: org_gcr_2019-09-21T13-17-01-05-00_cosmicality_F1E2B032-3B8E-4400-A732-5D86C227FBEA
+#+BEGIN_SRC emacs-lisp
+(setq bibtex-maintain-sorted-entries 'crossref)
+#+END_SRC
 
 ** Entry Format Definition
 :PROPERTIES:
@@ -90,12 +67,29 @@ from used fields."
 (add-to-list 'bibtex-entry-format 'required-fields)
 #+end_src
 
+"Delete delimiters around numeral fields." The lack of delimeters makes it
+obvious that is is a numerical field.
+
+#+NAME: org_gcr_2019-09-21T13-17-01-05-00_cosmicality_B05EC235-C463-4AEE-9D80-85CC71B21A74
+#+BEGIN_SRC emacs-lisp
+(add-to-list 'bibtex-entry-format 'numerical-fields)
+#+END_SRC
+
 "Delete whitespace at the beginning and end of fields."
 
 #+name: org_gcr_2018-09-19T12-32-27-05-00_cosmicality_A0A4865A-E855-463C-8F55-43C47199CAD8
 #+begin_src emacs-lisp
 (add-to-list 'bibtex-entry-format 'whitespace)
 #+end_src
+
+"If entry contains a crossref field and the booktitle field is empty, set the
+booktitle field to the content of the title field of the crossreferenced
+entry."
+
+#+NAME: org_gcr_2019-09-21T13-17-01-05-00_cosmicality_D45571E2-F5B7-4779-9042-DAAC0822511C
+#+BEGIN_SRC emacs-lisp
+(add-to-list 'bibtex-entry-format 'inherit-booktitle)
+#+END_SRC
 
 "Realign entries, so that field texts and perhaps equal signs begin in the
 same column. Also fill fields."
@@ -105,7 +99,8 @@ same column. Also fill fields."
 (add-to-list 'bibtex-entry-format 'realign)
 #+end_src
 
-"Change delimiters according to variables ‘bibtex-field-delimiters’ and ‘bibtex-entry-delimiters’."
+"Change delimiters according to variables ~bibtex-field-delimiters~ and
+~bibtex-entry-delimiters~." Essential when importing external entries.
 
 #+name: org_gcr_2018-09-19T12-32-27-05-00_cosmicality_B493A48E-FDE3-4B0B-B935-FBDF3BB99C35
 #+begin_src emacs-lisp
@@ -119,6 +114,8 @@ confirmation that they are present in order to get what you really want—the
 field value. In other words, eventually you quit reading the field
 definitions. Therefore they ought to be as inconspicuous as possible. In my
 setup that means they are in lower case.
+
+It is also essential when importing external entries.
 
 "Change case of entry types and field names." by lower-casing them.
 
@@ -147,8 +144,8 @@ combination of rules and best-practices should make this "just work".
 :ID:       org_gcr_2018-11-12T12-28-14-06-00_cosmicality:99541FA5-70D7-4FB8-82D6-1C880A9382CE
 :END:
 
-Separate them using a Hyphen-Minus sign. Theye easy to read, acceptable to
-operating systems, ASCII-safe, and don't take up much space.
+Separate key parts using a =HYPHEN-MINUS=. They are easy to read, acceptable to
+all operating systems, ASCII-safe, and don't take up much space.
 
 #+name: org_gcr_2018-11-12T12-28-14-06-00_cosmicality_48463172-68BE-4034-922F-50D0F572F73A
 #+begin_src emacs-lisp
@@ -162,11 +159,13 @@ operating systems, ASCII-safe, and don't take up much space.
 :ID:       org_gcr_2018-11-12T12-28-14-06-00_cosmicality:0BC72687-242E-45C9-8DF6-906E99F85220
 :END:
 
-When there are only one or two authors then include each of them, using their
-full names. Separate them using a Hyphen-Minus sign.
+When there are only one or two authors include each of them and use their full
+names.
 
-When there are more than two authors then only use the first author, using his
-full name, followed by "[[https://www.merriam-webster.com/dictionary/et%2520al.][et al]]".
+When there are more than two authors only use the first author, use her full
+name, followed by "[[https://www.merriam-webster.com/dictionary/et%2520al.][et al]]".
+
+Separate names using =HYPHEN-MINUS=.
 
 #+name: org_gcr_2018-11-12T12-28-14-06-00_cosmicality_9BDC47DE-78C9-460E-9333-3E8E79C51AFD
 #+begin_src emacs-lisp
@@ -181,7 +180,7 @@ full name, followed by "[[https://www.merriam-webster.com/dictionary/et%2520al.]
 :ID:       org_gcr_2018-11-12T12-28-14-06-00_cosmicality:4E9BF2AD-F298-4D3C-B46A-B873FFBC27FD
 :END:
 
-Use four digits for the year: it is easier to read.
+Use four digits for the year.
 
 #+name: org_gcr_2018-11-12T12-28-14-06-00_cosmicality_E1A42ADA-92E6-4479-9C21-87612AE656C4
 #+begin_src emacs-lisp
@@ -195,10 +194,13 @@ Use four digits for the year: it is easier to read.
 
 Include two title words.
 
-I don't want them to take up too much space to trim them to 5 characters.
 [[https://www.wolframalpha.com/input/?i=average+english+word+length][WolframAlpha]] says that the average word length in English 5.1 characters. What
-kind of words? All kinds. I looked at examples and it seems good enough to jog
-your memory of the publication.
+kind of words? All kinds.
+
+Trim the title words to 5 characters.
+
+I don't want them to take up too much space. I looked at examples and it seems
+good enough to jog your memory for the publication.
 
 #+name: org_gcr_2018-11-12T12-28-14-06-00_cosmicality_2C0EDDD9-13CB-4A6D-BB57-D4CDDC671106
 #+begin_src emacs-lisp
@@ -212,7 +214,7 @@ your memory of the publication.
 :ID:       org_gcr_2018-11-12T12-28-14-06-00_cosmicality:A10046EA-810A-46E0-ADDB-7A3B9A89AC4B
 :END:
 
-To reinforce this automated approach: disallow the user from editing the
+To reinforce this automated approach disallow the user from editing the
 generated key before it is used. The idea here is that when key naming issues
 appear that it is better to correct it in the algorithm instead of individual
 key name.
