@@ -61,6 +61,8 @@
     (gcr--ui-date-entry gcr-timestamp-jekyll "" "J" "ekyll")
     (widget-insert ".\n\n")
     (widget-insert "Time: ")
+    (gcr--ui-date-entry gcr-timestamp-12-hour-minute "" "1" "2h Clock")
+    (widget-insert ", ")
     (gcr--ui-date-entry gcr-timestamp-24-hour-minute "" "2" "4h Clock")
     (widget-insert ".\n\n")
     (widget-insert "Org-Mode: ")

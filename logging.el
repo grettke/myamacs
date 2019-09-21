@@ -52,6 +52,11 @@
   (interactive)
   (gcr--kill (format-time-string "%H:%M")))
 
+(defun gcr-timestamp-12-hour-minute ()
+  "24hour Hour:Minute timestamp"
+  (interactive)
+  (gcr--kill (format-time-string "%I:%M%p")))
+
 (defun gcr-timestamp-org-datestamp ()
   "Org-Mode timestamp."
   (interactive)
