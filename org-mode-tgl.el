@@ -397,7 +397,7 @@
 (define-key org-mode-map (kbd "C-c C-k") nil)
 (define-key org-mode-map (kbd "H-h") #'org-babel-tangle)
 (define-key org-mode-map (kbd "H-j") #'org-babel-next-src-block)
-(define-key org-mode-map (kbd "H-k") #'org-babel-previouH-src-block)
+(define-key org-mode-map (kbd "H-k") #'org-babel-previous-src-block)
 (define-key org-mode-map (kbd "H-l") #'org-edit-src-code)
 (define-key org-mode-map (kbd "H-;") #'gcr-safb-gcr-org-babel-demarcate-block)
 (define-key org-mode-map (kbd "C->") #'(lambda () (interactive) (insert "\\rarr{}")))
