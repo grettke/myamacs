@@ -47,8 +47,8 @@
   (interactive)
   (gcr--kill (format-time-string "%A %B %d, %Y")))
 
-(defun gcr-timestamp-hour-seconds ()
-  "Hour:Minute timestamp"
+(defun gcr-timestamp-24-hour-minute ()
+  "24hour Hour:Minute timestamp"
   (interactive)
   (gcr--kill (format-time-string "%H:%M")))
 
