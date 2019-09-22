@@ -5,18 +5,17 @@
     `(progn
        (defun ,uifun ()
          (interactive)
-         (kill-buffer buf)
-         (let ((origin-exists (get-buffer origin))
-               (value (gcr-kill-identity (,fun))))
-           (cond (origin-exists
-                  (with-current-buffer origin
+         (let ((value (gcr-kill-identity (,fun)))
+               (origin-buf-exists (buffer-live-p origin-buf)))
+           (cond (origin-buf-exists
+                  (with-current-buffer origin-buf
                     (insert-before-markers value))
-                  (let ((minibuf (active-minibuffer-window)))
-                    (if minibuf
-                        (select-window minibuf)
-                      (pop-to-buffer-same-window origin))))
-                 (t (message "Can't insert %s: source buffer %s is closed."
-                             value origin)))))
+                  (let ((win (active-minibuffer-window)))
+                    (if win
+                        (select-window win)
+                      (pop-to-buffer-same-window origin-buf))))
+                 (t (message "Sorry that buffer no longer exists."))))
+         (kill-buffer ui-buf))
        (widget-insert ,keybefore)
        (widget-create
         'push-button
@@ -25,21 +24,37 @@
        (widget-insert ,keyafter)
        (define-key ui-keymap ,key ',uifun))))
 
+(defun gcr--ui-date-quit ()
+  (interactive)
+  "Quit date UI."
+  (kill-this-buffer)
+  (let ((win (active-minibuffer-window)))
+    (when win
+      (select-window win))))
+
 (defun gcr-ui-date ()
   (interactive)
-  (let* ((origin (buffer-name))
+  (let* ((origin-buf (current-buffer))
+         ;; When you return to an active minibuffer's buffer using
+         ;; a function like 'pop-to-buffer-same the minibuffer's height becomes
+         ;; the same as the buffer from which you came, gigantic, while it
+         ;; continues to work correctly. By selecting the window the
+         ;; minibuffer regains focus with the correct height.
+         (origin-window-active-minibuffer
+          (let ((it (selected-window)))
+            (if (minibuffer-window-active-p it) it nil)))
          (ui-keymap (make-sparse-keymap))
          (title "Date Insert & Kill")
-         (buf (format "*%s*" title)))
+         (ui-buf (format "*%s*" title)))
     (set-keymap-parent ui-keymap widget-keymap)
-    (pop-to-buffer-same-window buf)
+    (pop-to-buffer-same-window ui-buf)
     (let ((inhibit-read-only t))
       (erase-buffer))
     (remove-overlays)
     (widget-insert "╔════════════════════╗\n")
     (widget-insert (format "║ %s ║\n" title))
     (widget-insert "╚════════════════════╝")
-    (widget-insert "\n\n")
+    (widget-insert "\n\n\n")
     (widget-insert "Date: ")
     (gcr--ui-date-entry gcr-timestamp-datestamp "" "I" "SO")
     (widget-insert ", ")
@@ -66,8 +81,13 @@
     (gcr--ui-date-entry gcr-timestamp-24-hour-minute "" "2" "4h Clock")
     (widget-insert ".\n\n")
     (widget-insert "Org-Mode: ")
-    (gcr--ui-date-entry gcr-timestamp-org-datestamp "" "T" "oday")
-    (widget-insert "\n\nHit (q) to quit.")
-    (define-key ui-keymap "q" 'kill-this-buffer)
+    (gcr--ui-date-entry gcr-timestamp-org-datestamp "" "T" "oday.")
+    (widget-insert "\n\n\n")
+    (widget-create
+     'push-button
+     :notify 'gcr--ui-date-quit
+     "q")
+    (widget-insert "uit")
+    (define-key ui-keymap "q" 'gcr--ui-date-quit)
     (use-local-map ui-keymap)
     (widget-setup)))
