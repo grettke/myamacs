@@ -6,9 +6,9 @@
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/") t)
 (setq package-archive-priorities
-      '(("melpa-stable" . 100)
+      '(("melpa-stable" . 0)
         ("gnu" . 50)
-        ("melpa" . 0)))
+        ("melpa" . 100)))
 (setq package-menu-hide-low-priority t)
 (setq package-enable-at-startup nil)
 (unless gcr-org2blog-local
