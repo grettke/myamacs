@@ -1,5 +1,23 @@
 ;; -*- lexical-binding: t; no-byte-compile: t; coding: utf-8 -*-
 
+;;;; Date UI
+
+;;; Assumes that if you reached the Date UI and there is an active minibuffer
+;;; that you reached the Date UI from that minibuffer. For example if you are
+;;; creating a file with the date appended you can insert the date using the
+;;; Date UI. This is how I will be using it.
+
+;;; Every button has a unique function handler attached. The handler was
+;;; created with 'defun. It is not visible within the namespace though. I'm
+;;; not even sure what it could be called other then something perhaps like
+;;; 'uifun combined some kind of unique identifier.
+
+;;; Implementation could also have
+;;; - Copied the Hydra approach
+;;; - Copied the 'menu-bar-open approach
+;;; - Somehow used the completion framework
+;;; - Created a menu
+
 (defmacro gcr--ui-date-entry (fun keybefore key keyafter)
   (let ((uifun (make-symbol "uifun")))
     `(progn
