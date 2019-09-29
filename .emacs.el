@@ -30,6 +30,8 @@
 (add-to-list 'find-file-not-found-functions
              #'gcr-create-non-existent-directory)
 
+(define-key global-map [remap replace-string] 'gcr-replace-string)
+
 ;;; Content
 
 (defun gcr-warn-if-utf-8-bom ()
