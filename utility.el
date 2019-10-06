@@ -46,8 +46,10 @@ condition."
 (defun gcr-replace-string ()
   (interactive)
   (save-excursion
-    (goto-char (point-min))
-    (call-interactively 'replace-string)))
+    (unless (region-active-p)
+      (mark-whole-buffer))
+    (call-interactively 'replace-string)
+    (call-interactively 'gcr-indent-buffer)))
 
 (defun zone-choose (pgm)
   "Choose a PGM to run for `zone'."
@@ -77,8 +79,8 @@ condition."
   (let ((old-location (buffer-file-name)))
     (write-file new-location t)
     (when (and old-location
-               (file-exists-p new-location)
-               (not (string-equal old-location new-location)))
+             (file-exists-p new-location)
+             (not (string-equal old-location new-location)))
       (delete-file old-location))))
 
 (defun gcr-rename-current-buffer-file ()
