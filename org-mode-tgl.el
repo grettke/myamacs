@@ -557,7 +557,7 @@
 ;; [[file:~/src/myamacs/org-mode.org::org_gcr_2019-01-14T09-58-00-06-00_cosmicality_9D450653-5C54-48DB-B0A9-24E8408B0CF2][org_gcr_2019-01-14T09-58-00-06-00_cosmicality_9D450653-5C54-48DB-B0A9-24E8408B0CF2]]
 (defun gcr-org-mode-hook-fun ()
   (local-unset-key (kbd "C-j")))
-(add-hook 'org-mode-hook #'owp-maybe-start)
+(add-hook 'org-mode-hook #'org2blog-maybe-start)
 ;; org_gcr_2019-01-14T09-58-00-06-00_cosmicality_9D450653-5C54-48DB-B0A9-24E8408B0CF2 ends here
 
 ;; [[file:~/src/myamacs/org-mode.org::org_gcr_2017-05-12_mara_C74104AA-A25C-4BE8-A7DD-99DEA240FF73][org_gcr_2017-05-12_mara_C74104AA-A25C-4BE8-A7DD-99DEA240FF73]]

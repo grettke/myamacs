@@ -1120,7 +1120,7 @@ Doctype—use the default.
 #+begin_src emacs-lisp
 (defun gcr-org-mode-hook-fun ()
   (local-unset-key (kbd "C-j")))
-(add-hook 'org-mode-hook #'owp-maybe-start)
+(add-hook 'org-mode-hook #'org2blog-maybe-start)
 #+end_src
 ** Publishing
 :PROPERTIES:
