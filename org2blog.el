@@ -18,7 +18,9 @@
   (add-to-list 'load-path "~/src/dash")
   (require 'dash)
   (add-to-list 'load-path "~/src/org-make-toc")
-  (require 'org-make-toc))
+  (require 'org-make-toc)
+  (add-to-list 'load-path "~/src/package-lint")
+  (require 'package-lint))
 
 (setq org2blog/wp-use-wp-latex nil)
 
@@ -30,7 +32,7 @@
   (lambda (p) (pp p)))
 (add-hook 'org2blog/wp-after-new-post-or-page-functions #'gcr-owp-pp-post-result)
 
-(add-hook 'org-mode-hook #'owp-maybe-start)
+(add-hook 'org-mode-hook #'org2blog-maybe-start)
 
 (require 'auth-source)
 (let* ((credentials (auth-source-user-and-password "wisdomandwonder"))

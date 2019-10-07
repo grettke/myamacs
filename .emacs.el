@@ -71,8 +71,8 @@
 
 ;;; Row 4: 1...
 
-(global-set-key [(alt ?9)] #'owp-complete)
-(global-set-key [(alt ?0)] #'owp-user-interface)
+(global-set-key [(alt ?9)] #'org2blog-complete)
+(global-set-key [(alt ?0)] #'org2blog-user-interface)
 (global-set-key [(alt ?-)] #'gcr-open-in-textedit)
 (global-set-key [(alt ?=)] #'say-mode)
 
