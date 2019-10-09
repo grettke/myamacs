@@ -20,7 +20,9 @@
           ("or" . ?∨)
           ("sqrt" . ?√)
           ("throw" . ?🠩)
-          ("catch" . ?👋))))
+          ("catch" . ?👋)
+          ("condition-case-unless-debug" . ?☡)
+          ("error" . ?✖))))
 
 (defun gcr-general-lisp-mode-hook-fn ()
   (gcr-general-lisp-prettify))
