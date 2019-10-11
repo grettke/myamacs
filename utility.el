@@ -290,6 +290,28 @@ Attribution: Udyant Wig <udyantw@gmail.com>"
   (interactive)
   (occur "[^[:ascii:]]"))
 
+(defun gcr-real-insert (char)
+  (cl-flet ((do-insert
+             () (if (bound-and-true-p org-mode)
+                    (org-self-insert-command 1)
+                  (self-insert-command 1))))
+    (setq last-command-event char)
+    (do-insert)))
+
+(defun gcr-insert-hyphen ()
+  "Insert a HYPHEN
+
+- \"For most writers, the hyphen’s primary function is the
+   formation of certain compound terms. The hyphen is also
+   used for word division [in typesetting].
+- \"Compound terms are those that consist of more than one
+   word but represent a single item or idea.\"
+
+Source: URL `https://www.thepunctuationguide.com/hyphen.html'"
+
+  (interactive)
+  (gcr-real-insert ?-))
+
 (defun gcr-insert-em-dash ()
   "Insert a EM-DASH.
 
@@ -341,25 +363,3 @@ Source: URL `https://www.thepunctuationguide.com/em-dash.html'"
 Source: URL `https://www.thepunctuationguide.com/en-dash.html'"
   (interactive)
   (gcr-real-insert ?–))
-
-(defun gcr-insert-hyphen ()
-  "Insert a HYPHEN
-
-- \"For most writers, the hyphen’s primary function is the
-   formation of certain compound terms. The hyphen is also
-   used for word division [in typesetting].
-- \"Compound terms are those that consist of more than one
-   word but represent a single item or idea.\"
-
-Source: URL `https://www.thepunctuationguide.com/hyphen.html'"
-
-  (interactive)
-  (gcr-real-insert ?-))
-
-(defun gcr-real-insert (char)
-  (cl-flet ((do-insert
-             () (if (bound-and-true-p org-mode)
-                    (org-self-insert-command 1)
-                  (self-insert-command 1))))
-    (setq last-command-event char)
-    (do-insert)))
