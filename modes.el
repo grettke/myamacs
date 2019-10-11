@@ -14,7 +14,8 @@
           ("/" . ?÷)
           ("<=" . ?≤)
           (">=" . ?≥)
-          ("sqrt" . ?√))))
+          ("sqrt" . ?√)
+          ("throw" . ?🡅))))
 
 (defun gcr-general-lisp-mode-hook-fn ()
   (gcr-general-lisp-prettify))
