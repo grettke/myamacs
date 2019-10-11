@@ -308,7 +308,6 @@ Attribution: Udyant Wig <udyantw@gmail.com>"
    word but represent a single item or idea.\"
 
 Source: URL `https://www.thepunctuationguide.com/hyphen.html'"
-
   (interactive)
   (gcr-real-insert ?-))
 
