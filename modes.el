@@ -47,6 +47,3 @@
 ;;;; Htmlize
 
 (setq htmlize-output-type 'inline-css)
-
-;;;; Say
-
