@@ -25,7 +25,7 @@
 (defun gcr-create-non-existent-directory ()
   (let ((parent-directory (file-name-directory buffer-file-name)))
     (when (and (not (file-exists-p parent-directory))
-             (y-or-n-p (format "Directory `%s' does not exist. Create it?" parent-directory)))
+               (y-or-n-p (format "Directory `%s' does not exist. Create it?" parent-directory)))
       (make-directory parent-directory t))))
 (add-to-list 'find-file-not-found-functions
              #'gcr-create-non-existent-directory)
@@ -71,8 +71,8 @@
 
 ;;; Row 4: 1...
 
-(global-set-key [(alt ?9)] #'org2blog-complete)
-(global-set-key [(alt ?0)] #'org2blog-user-interface)
+(global-set-key [(alt ?9)] #'org2blog-user-interface)
+(global-set-key [(alt ?0)] #'org2blog-complete)
 (global-set-key [(alt ?-)] #'gcr-insert-em-dash)
 (global-set-key (kbd "C-A--") #'gcr-insert-en-dash)
 (global-set-key [(alt ?=)] #'gcr-insert-)
