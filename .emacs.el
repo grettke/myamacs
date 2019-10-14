@@ -80,7 +80,8 @@
 
 ;;; Row 3: Q...
 
-(global-set-key (kbd "A-q") #'gcr-unfill-paragraph)
+(global-set-key (kbd "A-q") #'fill-paragraph)
+(global-set-key (kbd "C-A-q") #'gcr-unfill-paragraph)
 
 (global-set-key (kbd "A-w") #'kill-ring-save)
 
@@ -100,6 +101,8 @@
 
 (global-set-key (kbd "A-a") #'gcr-beginning-of-line-dwim)
 
+(global-set-key (kbd "A-d") #'kill-word)
+
 (global-set-key (kbd "A-s") #'shell)
 
 (global-set-key (kbd "A-f") #'forward-word)
@@ -116,8 +119,14 @@
 
 ;;; Row 1: Z...
 
-(global-set-key (kbd "A-c") 'Control-X-prefix)
+(global-set-key (kbd "A-v") 'Control-X-prefix)
+
+(global-set-key (kbd "A-c") (kbd "C-c C-c"))
 
 (global-set-key (kbd "A-b") #'backward-word)
 
 (global-set-key (kbd "A-n") #'other-window)
+
+(global-set-key (kbd "A-<") #'beginning-of-buffer)
+
+(global-set-key (kbd "A->") #'end-of-buffer
