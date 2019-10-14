@@ -119,7 +119,9 @@
 
 ;;; Row 1: Z...
 
-(global-set-key (kbd "A-v") 'Control-X-prefix)
+(global-set-key (kbd "A-z") (kbd "C-c C-k"))
+
+(global-set-key (kbd "A-b") 'Control-X-prefix)
 
 (global-set-key (kbd "A-c") (kbd "C-c C-c"))
 
@@ -129,4 +131,8 @@
 
 (global-set-key (kbd "A-<") #'beginning-of-buffer)
 
-(global-set-key (kbd "A->") #'end-of-buffer
+(global-set-key (kbd "A->") #'end-of-buffer)
+
+;;; Row 0: Ctrl...
+
+(global-set-key (kbd "A-SPC") #'set-mark-command)
