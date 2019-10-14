@@ -82,6 +82,8 @@
 
 (global-set-key (kbd "A-q") #'gcr-unfill-paragraph)
 
+(global-set-key (kbd "A-w") #'kill-ring-save)
+
 (global-set-key (kbd "A-e") #'kmacro-end-or-call-macro)
 
 (global-set-key (kbd "A-r") #'gcr-replace-string)
@@ -100,7 +102,7 @@
 
 (global-set-key (kbd "A-s") #'shell)
 
-(global-set-key (kbd "A-f") 'Control-X-prefix)
+(global-set-key (kbd "A-f") #'forward-word)
 
 (global-set-key (kbd "A-g") #'gcr-occur-dwim)
 
@@ -114,8 +116,8 @@
 
 ;;; Row 1: Z...
 
-(global-set-key (kbd "A-c") (kbd "C-c C-c"))
+(global-set-key (kbd "A-c") 'Control-X-prefix)
 
-(global-set-key (kbd "A-b") #'keyboard-quit)
+(global-set-key (kbd "A-b") #'backward-word)
 
 (global-set-key (kbd "A-n") #'other-window)
