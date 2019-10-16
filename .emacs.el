@@ -2,7 +2,7 @@
 
 ;; (package-initialize)
 
-(load-file "~/src/amacs/.emacs.el")
+(load-file "~/src/auroramacs/.emacs.el")
 (load-file "~/src/myamacs/projects.el")
 (load-file "~/src/myamacs/org.el")
 (load-file "~/src/myamacs/org2blog.el")
