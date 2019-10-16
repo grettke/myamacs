@@ -133,6 +133,10 @@
 
 (global-set-key (kbd "A->") #'end-of-buffer)
 
+(global-set-key (kbd "A-/") #'winner-undo)
+
+(global-set-key (kbd "C-A-/") #'winner-redo)
+
 ;;; Row 0: Ctrl...
 
 (global-set-key (kbd "A-SPC") #'set-mark-command)
