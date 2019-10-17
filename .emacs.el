@@ -50,8 +50,8 @@
 
 ;; Occur
 
-(define-key occur-mode-map (kbd "n") #'next-logical-line)
-(define-key occur-mode-map (kbd "p") #'previous-logical-line)
+(define-key occur-mode-map (kbd "n") #'next-line)
+(define-key occur-mode-map (kbd "p") #'previous-line)
 (add-hook 'occur-mode-find-occurrence-hook #'gcr-recenter-line-near-top)
 
 (defun gcr-occur-dwim ()
