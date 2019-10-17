@@ -71,12 +71,11 @@
 
 ;;; Row 4: 1...
 
-(global-set-key [(alt ?9)] #'org2blog-user-interface)
-(global-set-key [(alt ?0)] #'org2blog-complete)
-(global-set-key [(alt ?-)] #'gcr-insert-em-dash)
+(global-set-key (kbd "A-9") #'org2blog-user-interface)
+(global-set-key (kbd "A-0") #'org2blog-complete)
+(global-set-key (kbd "A--") #'gcr-insert-em-dash)
 (global-set-key (kbd "C-A--") #'gcr-insert-en-dash)
-(global-set-key [(alt ?=)] #'gcr-insert-)
-(global-set-key [(alt ?=)] #'gcr-open-in-textedit)
+(global-set-key (kbd "A--") #'gcr-open-in-textedit)
 
 ;;; Row 3: Q...
 
