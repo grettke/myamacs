@@ -75,7 +75,7 @@
 (global-set-key (kbd "A-0") #'org2blog-complete)
 (global-set-key (kbd "A--") #'gcr-insert-em-dash)
 (global-set-key (kbd "C-A--") #'gcr-insert-en-dash)
-(global-set-key (kbd "A--") #'gcr-open-in-textedit)
+(global-set-key (kbd "A-=") #'gcr-open-in-textedit)
 
 ;;; Row 3: Q...
 
