@@ -4,8 +4,9 @@
 
 ;;; Row 4: 1...
 
-(global-set-key (kbd "A-9") #'org2blog-user-interface)
-(global-set-key (kbd "A-0") #'org2blog-complete)
+;; Modes
+
+(global-set-key (kbd "A-4") #'org2blog-user-interface)
 (global-set-key (kbd "A--") #'gcr-insert-em-dash)
 (global-set-key (kbd "C-A--") #'gcr-insert-en-dash)
 (global-set-key (kbd "A-=") #'gcr-open-in-textedit)
