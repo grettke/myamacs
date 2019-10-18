@@ -31,6 +31,7 @@
              #'gcr-create-non-existent-directory)
 
 (define-key global-map [remap replace-string] 'gcr-replace-string)
+(define-key global-map [remap move-beginning-of-line] 'gcr-beginning-of-line-dwim)
 
 ;;; Content
 
