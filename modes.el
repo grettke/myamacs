@@ -47,3 +47,7 @@
 ;;;; Htmlize
 
 (setq htmlize-output-type 'inline-css)
+
+;;;; Window
+
+(winner-mode)
