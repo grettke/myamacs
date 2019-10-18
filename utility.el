@@ -285,6 +285,11 @@ Attribution: Udyant Wig <udyantw@gmail.com>"
     (when file
       (start-process "TextEdit" nil "open" "-e" file))))
 
+(defun gcr-git-difftool ()
+  "Shell out to git's difftool."
+  (interactive)
+  (start-process "Git" nil "git" "difftool"))
+
 (defun gcr-occur-non-ascii ()
   "Find any non-ascii characters in the current buffer."
   (interactive)
