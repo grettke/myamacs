@@ -17,7 +17,7 @@
 (global-set-key (kbd "A-q") #'gcr-unfill-paragraph)
 
 (global-set-key (kbd "A-y") #'kmacro-end-or-call-macro)
-(global-set-key (kbd "A-u") #'eval-expression)
+(global-set-key (kbd "A-u") #'find-file)
 (global-set-key (kbd "A-i") #'isearch-backward)
 (global-set-key (kbd "A-o") #'isearch-forward)
 (global-set-key (kbd "A-p") #'pop-to-mark-command)
@@ -29,6 +29,7 @@
 (global-set-key (kbd "A-j") #'switch-to-buffer)
 (global-set-key (kbd "A-k") #'execute-extended-command)
 (global-set-key (kbd "A-l") #'gcr-switch-to-previous-buffer)
+(global-set-key (kbd "A-;") #'eval-expression)
 
 ;;; Row 1: Z...
 
@@ -40,4 +41,3 @@
 (global-set-key (kbd "A-m") #'other-window)
 (defun gcr-previous-window () (interactive) (other-window -1))
 (global-set-key (kbd "A-,") #'gcr-previous-window)
-(global-set-key (kbd "A-.") #'find-file)
