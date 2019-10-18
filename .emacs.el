@@ -30,8 +30,8 @@
 (add-to-list 'find-file-not-found-functions
              #'gcr-create-non-existent-directory)
 
-(define-key global-map [remap replace-string] 'gcr-replace-string)
 (define-key global-map [remap move-beginning-of-line] 'gcr-beginning-of-line-dwim)
+(define-key global-map [remap occur] 'gcr-occur-dwim)
 
 ;;; Content
 
