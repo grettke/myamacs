@@ -367,3 +367,7 @@ Source: URL `https://www.thepunctuationguide.com/em-dash.html'"
 Source: URL `https://www.thepunctuationguide.com/en-dash.html'"
   (interactive)
   (gcr-real-insert ?–))
+
+(defun gcr-previous-window ()
+  (interactive)
+  (other-window -1))

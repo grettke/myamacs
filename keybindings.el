@@ -45,6 +45,5 @@
 ;; right
 (global-set-key (kbd "A-n") #'gcr-replace-string)
 (global-set-key (kbd "A-m") #'other-window)
-(defun gcr-previous-window () (interactive) (other-window -1))
 (global-set-key (kbd "A-,") #'gcr-previous-window)
 (global-set-key (kbd "A-.") #'other-window)
