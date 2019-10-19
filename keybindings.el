@@ -28,6 +28,9 @@
 ;;; Row 2: A
 
 ;;left
+(global-set-key (kbd "A-a") (kbd "C-c C-k"))
+(global-set-key (kbd "A-s") 'Control-X-prefix)
+(global-set-key (kbd "A-d") (kbd "C-c C-c"))
 (global-set-key (kbd "A-f") #'vc-next-action)
 ;;right
 (global-set-key (kbd "A-j") #'switch-to-buffer)
@@ -39,9 +42,6 @@
 ;;; Row 1: Z...
 
 ;; left
-(global-set-key (kbd "A-z") (kbd "C-c C-k"))
-(global-set-key (kbd "A-x") 'Control-X-prefix)
-(global-set-key (kbd "A-c") (kbd "C-c C-c"))
 ;; right
 (global-set-key (kbd "A-n") #'gcr-replace-string)
 (global-set-key (kbd "A-m") #'other-window)
