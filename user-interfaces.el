@@ -111,12 +111,10 @@
     (widget-setup)))
 
 
-;; dvvescribe-bindings
-;; describe-bindings-internal
+;; describe-bindings
 ;; describe-buffer-bindings
 ;; describe-buffer-case-table
 ;; describe-categories
-;; describe-char
 ;; describe-char-after
 ;; describe-char-categories
 ;; describe-char-display
@@ -126,43 +124,25 @@
 ;; describe-char-padded-string
 ;; describe-char-unicode-data
 ;; describe-character-set
-;; describe-chinese-environment-map
 ;; describe-coding-system
-;; describe-copying
 ;; describe-current-coding-system
 ;; describe-current-coding-system-briefly
 ;; describe-current-display-table
 ;; describe-current-input-method
-;; describe-cyrillic-environment-map
 ;; describe-display-table
-;; describe-distribution
-;; describe-european-environment-map
 ;; describe-face
 ;; describe-font
 ;; describe-fontset
-;; describe-function
-;; describe-function-1
-;; describe-gnu-project
-;; describe-indian-environment-map
 ;; describe-input-method
-;; describe-key
-;; describe-key-briefly
 ;; describe-language-environment
-;; describe-minor-mode
 ;; describe-minor-mode-completion-table-for-indicator
 ;; describe-minor-mode-completion-table-for-symbol
 ;; describe-minor-mode-from-indicator
 ;; describe-minor-mode-from-symbol
-;; describe-mode
-;; describe-no-warranty
-;; describe-package
-;; describe-package-1
 ;; describe-prefix-bindings
-;; describe-project
 ;; describe-property-list
 ;; describe-register-1
 ;; describe-specified-language-support
-;; describe-symbol
 ;; describe-syntax
 ;; describe-text-category
 ;; describe-text-properties
@@ -170,7 +150,14 @@
 ;; describe-text-sexp
 ;; describe-text-widget
 ;; describe-theme
-;; describe-theme-1
+
+
+;; describe-char
+;; describe-symbol
+;; describe-key
+;; describe-key-briefly
+;; describe-minor-mode
+;; describe-mode
 ;; describe-variable
-;; describe-variable-custom-version-info
-;; describe-vector
+;; describe-package
+;; describe-function
