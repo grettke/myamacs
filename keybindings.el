@@ -27,6 +27,8 @@
 
 ;;; Row 2: A
 
+;;left
+(global-set-key (kbd "A-f") #'vc-next-action)
 ;;right
 (global-set-key (kbd "A-j") #'switch-to-buffer)
 (global-set-key (kbd "A-k") #'execute-extended-command)
@@ -45,3 +47,4 @@
 (global-set-key (kbd "A-m") #'other-window)
 (defun gcr-previous-window () (interactive) (other-window -1))
 (global-set-key (kbd "A-,") #'gcr-previous-window)
+(global-set-key (kbd "A-.") #'other-window)
