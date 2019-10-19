@@ -110,54 +110,33 @@
     (use-local-map ui-keymap)
     (widget-setup)))
 
-
-;; describe-bindings
-;; describe-buffer-bindings
-;; describe-buffer-case-table
-;; describe-categories
-;; describe-char-after
-;; describe-char-categories
-;; describe-char-display
-;; describe-char-eldoc
-;; describe-char-eldoc--format
-;; describe-char-eldoc--truncate
-;; describe-char-padded-string
-;; describe-char-unicode-data
-;; describe-character-set
+;;;; Helpers
+;;; Characters
+;; describe-char
+;; what-cursor-position
+;;; Objects
+;; describe-symbol
+;; describe-variable
+;; describe-function
+;;; Keys
+;; describe-key
+;; describe-key-briefly
+;;; Modes
+;; describe-minor-mode
+;; describe-mode
+;; describe-minor-mode-from-indicator
+;; describe-minor-mode-from-symbol
+;;; Coding
 ;; describe-coding-system
 ;; describe-current-coding-system
 ;; describe-current-coding-system-briefly
-;; describe-current-display-table
-;; describe-current-input-method
-;; describe-display-table
-;; describe-face
-;; describe-font
-;; describe-fontset
+;; Language
 ;; describe-input-method
 ;; describe-language-environment
-;; describe-minor-mode-completion-table-for-indicator
-;; describe-minor-mode-completion-table-for-symbol
-;; describe-minor-mode-from-indicator
-;; describe-minor-mode-from-symbol
-;; describe-prefix-bindings
-;; describe-property-list
-;; describe-register-1
-;; describe-specified-language-support
-;; describe-syntax
-;; describe-text-category
-;; describe-text-properties
-;; describe-text-properties-1
-;; describe-text-sexp
-;; describe-text-widget
-;; describe-theme
-
-
-;; describe-char
-;; describe-symbol
-;; describe-key
-;; describe-key-briefly
-;; describe-minor-mode
-;; describe-mode
-;; describe-variable
+;;; Other
 ;; describe-package
-;; describe-function
+;; describe-current-input-method
+;; describe-face
+
+
+
