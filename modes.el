@@ -51,3 +51,9 @@
 ;;;; Window
 
 (winner-mode)
+
+;;;; ccrypt
+
+(when-let ((path (getenv "CCRYPT")))
+  (add-to-list 'load-path path)
+  (require 'ps-ccrypt "ps-ccrypt.el"))
