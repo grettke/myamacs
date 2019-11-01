@@ -17,6 +17,7 @@
 
 ;; left
 (global-set-key (kbd "A-q") #'gcr-unfill-paragraph)
+(global-set-key (kbd "A-e") #'goto-line)
 (global-set-key (kbd "A-r") #'gcr-occur-dwim)
 ;;right
 (global-set-key (kbd "A-y") #'kmacro-end-or-call-macro)
