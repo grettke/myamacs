@@ -1,6 +1,6 @@
 ;; -*- lexical-binding: t; no-byte-compile: t; coding: utf-8 -*-
 
-;;;; Key Bindings
+;;;; Global Key Bindings
 
 ;;; Row 4: 1...
 
