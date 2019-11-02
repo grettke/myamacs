@@ -49,3 +49,10 @@
 (global-set-key (kbd "A-m") #'other-window)
 (global-set-key (kbd "A-,") #'gcr-previous-window)
 (global-set-key (kbd "A-.") #'other-window)
+
+;;;; Org mode
+
+(define-key org-mode-map (kbd "A-J") #'org-shiftmetaleft)
+(define-key org-mode-map (kbd "A-I") #'org-shiftmetaup)
+(define-key org-mode-map (kbd "A-L") #'org-shiftmetaright)
+(define-key org-mode-map (kbd "A-K") #'org-shiftmetadown)
