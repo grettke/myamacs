@@ -52,7 +52,7 @@
 
 ;;;; Org mode
 
-(define-key org-mode-map (kbd "A-J") #'org-shiftmetaleft)
-(define-key org-mode-map (kbd "A-I") #'org-shiftmetaup)
-(define-key org-mode-map (kbd "A-L") #'org-shiftmetaright)
-(define-key org-mode-map (kbd "A-K") #'org-shiftmetadown)
+(define-key org-mode-map (kbd "H-A-j") #'org-shiftmetaleft)
+(define-key org-mode-map (kbd "H-A-i") #'org-shiftmetaup)
+(define-key org-mode-map (kbd "H-A-l") #'org-shiftmetaright)
+(define-key org-mode-map (kbd "H-A-k") #'org-shiftmetadown)
