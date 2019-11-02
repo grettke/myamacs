@@ -1,6 +1,6 @@
 ;; -*- lexical-binding: t; no-byte-compile: t; coding: utf-8 -*-
 
-(when nil
+(when t
   (add-to-list 'load-path "~/src/pretty-mode")
   (require 'pretty-mode)
 
