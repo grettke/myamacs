@@ -17,6 +17,7 @@
 
 ;; left
 (global-set-key (kbd "A-q") #'gcr-unfill-paragraph)
+(global-set-key (kbd "A-w") #'widen)
 (global-set-key (kbd "A-e") #'goto-line)
 (global-set-key (kbd "A-r") #'gcr-occur-dwim)
 ;;right
@@ -52,9 +53,14 @@
 
 ;;;; Org mode
 
+;;; Right
+;; Row 3
 (define-key org-mode-map (kbd "H-A-u") #'org-archive-subtree-default)
 (define-key org-mode-map (kbd "H-A-i") #'org-shiftmetaup)
 (define-key org-mode-map (kbd "H-A-o") #'org-sort)
+;; Row 2
 (define-key org-mode-map (kbd "H-A-j") #'org-shiftmetaleft)
 (define-key org-mode-map (kbd "H-A-k") #'org-shiftmetadown)
 (define-key org-mode-map (kbd "H-A-l") #'org-shiftmetaright)
+;; Row 1
+(define-key org-mode-map (kbd "H-A-n") #'org-narrow-to-element)
