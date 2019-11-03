@@ -52,7 +52,9 @@
 
 ;;;; Org mode
 
-(define-key org-mode-map (kbd "H-A-j") #'org-shiftmetaleft)
+(define-key org-mode-map (kbd "H-A-u") #'org-archive-subtree-default)
 (define-key org-mode-map (kbd "H-A-i") #'org-shiftmetaup)
-(define-key org-mode-map (kbd "H-A-l") #'org-shiftmetaright)
+(define-key org-mode-map (kbd "H-A-o") #'org-sort)
+(define-key org-mode-map (kbd "H-A-j") #'org-shiftmetaleft)
 (define-key org-mode-map (kbd "H-A-k") #'org-shiftmetadown)
+(define-key org-mode-map (kbd "H-A-l") #'org-shiftmetaright)
