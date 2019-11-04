@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# -*- mode: sh; coding: utf-8; -*-
+
+function amacs {
+  emacs \
+    --no-site-file \
+    --no-site-lisp \
+    --no-splash \
+    --debug-init \
+    --font='Hack 19' \
+    --basic-display \
+    "$@"
+}

@@ -1,5 +1,29 @@
 ;; -*- lexical-binding: t; no-byte-compile: t; coding: utf-8 -*-
 
+;;; Text
+
+(defun amacs-text-mode-hook-fn ()
+  (visual-line-mode))
+
+(add-hook 'text-mode-hook #'amacs-text-mode-hook-fn)
+
+;;; Prog
+
+(setq amacs-prog-modes '())
+(setq amacs-lisp-modes
+      '(emacs-lisp-mode-hook
+        ielm-mode-hook
+        lisp-interaction-mode-hook))
+(setq amacs-prog-modes (append amacs-prog-modes amacs-lisp-modes))
+
+(defun amacs-prog-mode-hook-fn ()
+  (interactive)
+  (auto-fill-mode))
+
+;; Implementation
+
+(add-hook 'prog-mode-hook #'amacs-prog-mode-hook-fn)
+
 ;;;; Checkdoc
 
 (require 'checkdoc)
@@ -23,6 +47,8 @@
 (mapcar
  (lambda (mode) (add-hook mode #'gcr-general-lisp-mode-hook-fn))
  amacs-lisp-modes)
+
+(global-eldoc-mode -1)
 
 ;;;; Shell-script
 

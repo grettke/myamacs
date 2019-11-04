@@ -2,7 +2,8 @@
 
 ;; (package-initialize)
 
-(load-file "~/src/auroramacs/.emacs.el")
+(and (load-file "~/src/lolsmacs/lolsmacs.el")
+     (lolsmacs-init))
 (load-file "~/src/myamacs/projects.el")
 (load-file "~/src/myamacs/org.el")
 (load-file "~/src/myamacs/org2blog.el")
@@ -49,6 +50,8 @@
 (add-hook 'before-save-hook #'gcr-indent-buffer)
 (add-hook 'before-save-hook #'gcr-delete-trailing-whitespace)
 
+(winner-mode)
+
 ;; Occur
 
 (define-key occur-mode-map (kbd "n") #'next-line)
@@ -69,3 +72,7 @@
   (other-window 1))
 
 (load-file "~/src/myamacs/keybindings.el")
+
+(load-theme 'tsdh-light)
+(setq blink-matching-paren nil)
+
