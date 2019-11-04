@@ -371,3 +371,7 @@ Source: URL `https://www.thepunctuationguide.com/en-dash.html'"
 (defun gcr-previous-window ()
   (interactive)
   (other-window -1))
+
+(defun gcr-make-new-file-header-template ()
+  (interactive)
+  (auto-insert))
