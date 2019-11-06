@@ -20,6 +20,7 @@
 (global-set-key (kbd "A-w") #'widen)
 (global-set-key (kbd "A-e") #'goto-line)
 (global-set-key (kbd "A-r") #'gcr-occur-dwim)
+(global-set-key (kbd "A-t") (lambda () (interactive) (insert "~/")))
 ;;right
 (global-set-key (kbd "A-y") #'kmacro-end-or-call-macro)
 (global-set-key (kbd "A-u") #'find-file)
