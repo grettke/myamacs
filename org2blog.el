@@ -44,8 +44,3 @@
                   :password ,password
                   :confirm t))))
   (setq org2blog/wp-blog-alist config))
-
-(defun gcr-org2blog-keybindings ()
-  (local-set-key (kbd "H-j") #'org2blog-user-interface)
-  (local-set-key (kbd "H-k") #'org2blog-complete))
-(add-hook 'org2blog/wp-mode-hook #'gcr-org2blog-keybindings)
