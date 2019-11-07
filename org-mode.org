@@ -325,26 +325,26 @@ Because <90% I'm moving headings to level zero I want to
   because your eyes go there first (even know you /are/ the one refiling)
   #+NAME: org_gcr_2017-05-12_mara_29930A09-6462-4BE7-9AE2-18DC1858666C
   #+BEGIN_SRC emacs-lisp
-  (setq org-reverse-note-order t)
+(setq org-reverse-note-order t)
   #+END_SRC
 - Select headings with the full path immediately instead of with clunky
   depth-first navigation
   #+NAME: org_gcr_2017-05-12_mara_E0E01F45-C01E-4F6E-AE8D-1B0073ECB377
   #+BEGIN_SRC emacs-lisp
-  (setq org-outline-path-complete-in-steps nil)
+(setq org-outline-path-complete-in-steps nil)
   #+END_SRC
 - Create a new parent heading destination first instead of using this GUI to
   do it because it is error prone to do it in the naviation GUI despite the
   available confirmation message
   #+NAME: org_gcr_2017-05-12_mara_07650079-9AE1-4291-97A3-BCFD0628C95D
   #+BEGIN_SRC emacs-lisp
-  (setq org-refile-allow-creating-parent-nodes nil)
+(setq org-refile-allow-creating-parent-nodes nil)
   #+END_SRC
 - Track refile operations to make sense of why the =Refile= occurred in the same
   spirit of how the workflow state changes are recorded
   #+NAME: org_gcr_2017-05-12_mara_7E513EE1-3EF9-415B-BB94-2135CBFB0E74
   #+BEGIN_SRC emacs-lisp
-  (setq org-log-refile 'note)
+(setq org-log-refile 'note)
   #+END_SRC
 
 ** Properties
@@ -361,8 +361,8 @@ and set it's value to the killed text.
   "Read a property name from the current entry."
   (let ((completion-ignore-case t)
         (default-prop (or (and (org-at-property-p)
-                            (org-match-string-no-properties 2))
-                         org-last-set-property)))
+                               (org-match-string-no-properties 2))
+                          org-last-set-property)))
     (org-completing-read
      (format "Property [%s]: " (if default-prop default-prop ""))
      (org-entry-properties nil nil)
@@ -384,10 +384,9 @@ and set it's value to the killed text.
                  )
             ;; if none was stated by user, read property from user
             (prop (or property
-                     (org-read-entry-property-name))))
+                      (org-read-entry-property-name))))
         ;; set property
         (org-set-property prop val))))
-
 #+END_SRC
 ** Tables
 :PROPERTIES:
@@ -855,7 +854,6 @@ Easily manipulate lists and headlines staying close to home.
 ;; (progn
 ;;   (key-chord-define org-mode-map "o0" #'org-shiftright)
 ;;   (key-chord-define org-mode-map "O)" #'org-shiftdown))
-
 #+END_SRC
 
 *** Row 3, Q...
@@ -1058,15 +1056,15 @@ Prettifications.
   (setq prettify-symbols-alist (gcr-alist-set "#+begin_src" ?├ prettify-symbols-alist))
   (setq prettify-symbols-alist (gcr-alist-set "#+END_SRC" ?╰ prettify-symbols-alist))
   (setq prettify-symbols-alist (gcr-alist-set "#+end_src" ?╰
-                                               prettify-symbols-alist))
+                                              prettify-symbols-alist))
   (setq prettify-symbols-alist (gcr-alist-set "#+BEGIN_EXAMPLE" ?💡
-                                               prettify-symbols-alist))
+                                              prettify-symbols-alist))
   (setq prettify-symbols-alist (gcr-alist-set "#+begin_example" ?💡
-                                               prettify-symbols-alist))
+                                              prettify-symbols-alist))
   (setq prettify-symbols-alist (gcr-alist-set "#+END_EXAMPLE" ?💡
-                                               prettify-symbols-alist))
+                                              prettify-symbols-alist))
   (setq prettify-symbols-alist (gcr-alist-set "#+end_example" ?💡
-                                               prettify-symbols-alist))
+                                              prettify-symbols-alist))
   (setq prettify-symbols-alist (gcr-alist-set "#+BEGIN_QUOTE" ?🗣 prettify-symbols-alist))
   (setq prettify-symbols-alist (gcr-alist-set "#+begin_quote" ?🗣 prettify-symbols-alist))
   (setq prettify-symbols-alist (gcr-alist-set "#+END_QUOTE" ?🗣 prettify-symbols-alist))
@@ -1096,7 +1094,6 @@ Custom font lock
  'org-mode
  '(("^[[:space:]]*\\(-\\) "
     0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "—")))))
-
   #+end_src
 
 ** HTML Exporter
