@@ -47,6 +47,7 @@
 ;;; Row 1: Z...
 
 ;; left
+(global-set-key (kbd "A-z") #'kill-buffer)
 ;; right
 (global-set-key (kbd "A-n") #'gcr-replace-string)
 (global-set-key (kbd "A-m") #'other-window)
