@@ -146,9 +146,15 @@
 ;; org_gcr_2018-03-07_mara_D89CE4CB-12B1-47A6-9B0B-EA544343BA85 ends here
 
 ;; [[file:~/src/myamacs/org-mode.org::org_gcr_2018-03-07_mara_C60306B4-7FB0-45AB-B39F-2BF47FA39604][org_gcr_2018-03-07_mara_C60306B4-7FB0-45AB-B39F-2BF47FA39604]]
-(setq org-latex-default-packages-alist
-      (delq (rassoc '("hyperref" nil) org-latex-default-packages-alist)
-            org-latex-default-packages-alist))
+(let* ((package "hyperref")
+       (length-before (length org-latex-default-packages-alist))
+       (new (seq-remove (lambda (elt) (equal (cadr elt) package))
+                        org-latex-default-packages-alist))
+       (length-after (length new))
+       (worked (= length-after (- length-before 1))))
+  (if worked
+      (setq org-latex-default-packages-alist new)
+    (error "Couldn't remove %s from org-latex-default-packages-alist." package)))
 (defconst gcr-org-latex-packages-alist-pre-hyperref
   '(("letterpaper,margin=1.0in" "geometry")
     ("" "float")))
