@@ -423,13 +423,10 @@ Use XeTeX.
 :ID:       org_gcr_2018-04-28T19-58-14-05-00_mara:B51D7F56-0F8F-4206-8775-E6871618E28C
 :END:
 
-Packages sometimes require that they are loaded either before or after other packages. =hyperref= is one of them. It has to be loaded before every other package but for =letterpaper=. You can see in this source block the two lists named painfully verbosely to support this fact: ~gcr-org-latex-packages-alist-pre-hyperref~ for what must come before =hyperref= and
-~gcr-org-latex-packages-alist-post-hyperref~ for what must come after. For that to work you have to remove =hyperref= from the default package list (which is only recommended if you really know what you are doing) then add it back in later.
+Remove packages helper.
 
-Used code from [[https://github.com/kaushalmodi/.emacs.d/blob/master/setup-files/setup-org.el][here]].
-
-#+name: org_gcr_2018-03-07_mara_C60306B4-7FB0-45AB-B39F-2BF47FA39604
-#+begin_src emacs-lisp
+#+NAME: org_gcr_2019-11-06T22-09-45-06-00_host1.org_C73482D2-DD9C-4C4E-A864-511B8FD9D83F
+#+BEGIN_SRC emacs-lisp
 (defun gcr-org-latex-remove-package (package)
   "Remove package PACKAGE from `org-latex-default-packages-alist' or error out."
   (interactive)
@@ -442,6 +439,22 @@ Used code from [[https://github.com/kaushalmodi/.emacs.d/blob/master/setup-files
         (setq org-latex-default-packages-alist new)
       (error "Couldn't remove %s from org-latex-default-packages-alist."
              package))))
+#+END_SRC
+
+When I upgraded from MacTex-2018 to MacTex-2019 my signature wasn't included in OX-Koma letters anymore. Images loaded fine elsewhere but not in Koma letter. Bisecting the ~usepackage~ calls revealed that the issue appeard when =grffile= was included. Ironically that wast the last package loaded (the first being =graphicx=). The signature is important so I will remove =grffile= for now and pay attention to how any TeX builds go. It might be as easy as avoiding file names with spaces in them.
+
+#+NAME: org_gcr_2019-11-06T22-09-45-06-00_host1.org_A1C5ABFF-B43A-4BF8-B78C-EFF6C40A3C20
+#+BEGIN_SRC emacs-lisp
+(gcr-org-latex-remove-package "grffile")
+#+END_SRC
+
+Packages sometimes require that they are loaded either before or after other packages. =hyperref= is one of them. It has to be loaded before every other package but for =letterpaper=. You can see in this source block the two lists named painfully verbosely to support this fact: ~gcr-org-latex-packages-alist-pre-hyperref~ for what must come before =hyperref= and
+~gcr-org-latex-packages-alist-post-hyperref~ for what must come after. For that to work you have to remove =hyperref= from the default package list (which is only recommended if you really know what you are doing) then add it back in later.
+
+Used code from [[https://github.com/kaushalmodi/.emacs.d/blob/master/setup-files/setup-org.el][here]].
+
+#+name: org_gcr_2018-03-07_mara_C60306B4-7FB0-45AB-B39F-2BF47FA39604
+#+begin_src emacs-lisp
 (gcr-org-latex-remove-package "hyperref")
 (defconst gcr-org-latex-packages-alist-pre-hyperref
   '(("letterpaper,margin=1.0in" "geometry")

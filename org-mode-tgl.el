@@ -145,7 +145,7 @@
 (setq org-latex-pdf-process '("latexmk -xelatex -quiet -shell-escape -f %f"))
 ;; org_gcr_2018-03-07_mara_D89CE4CB-12B1-47A6-9B0B-EA544343BA85 ends here
 
-;; [[file:~/src/myamacs/org-mode.org::org_gcr_2018-03-07_mara_C60306B4-7FB0-45AB-B39F-2BF47FA39604][org_gcr_2018-03-07_mara_C60306B4-7FB0-45AB-B39F-2BF47FA39604]]
+;; [[file:~/src/myamacs/org-mode.org::org_gcr_2019-11-06T22-09-45-06-00_host1.org_C73482D2-DD9C-4C4E-A864-511B8FD9D83F][org_gcr_2019-11-06T22-09-45-06-00_host1.org_C73482D2-DD9C-4C4E-A864-511B8FD9D83F]]
 (defun gcr-org-latex-remove-package (package)
   "Remove package PACKAGE from `org-latex-default-packages-alist' or error out."
   (interactive)
@@ -158,6 +158,13 @@
         (setq org-latex-default-packages-alist new)
       (error "Couldn't remove %s from org-latex-default-packages-alist."
              package))))
+;; org_gcr_2019-11-06T22-09-45-06-00_host1.org_C73482D2-DD9C-4C4E-A864-511B8FD9D83F ends here
+
+;; [[file:~/src/myamacs/org-mode.org::org_gcr_2019-11-06T22-09-45-06-00_host1.org_A1C5ABFF-B43A-4BF8-B78C-EFF6C40A3C20][org_gcr_2019-11-06T22-09-45-06-00_host1.org_A1C5ABFF-B43A-4BF8-B78C-EFF6C40A3C20]]
+(gcr-org-latex-remove-package "grffile")
+;; org_gcr_2019-11-06T22-09-45-06-00_host1.org_A1C5ABFF-B43A-4BF8-B78C-EFF6C40A3C20 ends here
+
+;; [[file:~/src/myamacs/org-mode.org::org_gcr_2018-03-07_mara_C60306B4-7FB0-45AB-B39F-2BF47FA39604][org_gcr_2018-03-07_mara_C60306B4-7FB0-45AB-B39F-2BF47FA39604]]
 (gcr-org-latex-remove-package "hyperref")
 (defconst gcr-org-latex-packages-alist-pre-hyperref
   '(("letterpaper,margin=1.0in" "geometry")
