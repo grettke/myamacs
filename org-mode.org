@@ -425,7 +425,7 @@ Use XeTeX.
 :END:
 
 Packages sometimes require that they are loaded either before or after other packages. =hyperref= is one of them. It has to be loaded before every other package but for =letterpaper=. You can see in this source block the two lists named painfully verbosely to support this fact: ~gcr-org-latex-packages-alist-pre-hyperref~ for what must come before =hyperref= and
-~gcr-org-latex-packages-alist-post-hyperref~ for what must come after. For that to work you have to remove =hyperref= from the default package list which is only recommended if you really know what you are doing.
+~gcr-org-latex-packages-alist-post-hyperref~ for what must come after. For that to work you have to remove =hyperref= from the default package list (which is only recommended if you really know what you are doing) then add it back in later.
 
 Used code from [[https://github.com/kaushalmodi/.emacs.d/blob/master/setup-files/setup-org.el][here]].
 
