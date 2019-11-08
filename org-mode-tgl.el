@@ -179,7 +179,6 @@
     ("" "listings")
     ("" "color")
     ("" "fancyvrb")
-    ("" "fancyhdr")
     ("" "scrlayer-scrpage")
     ("" "lastpage")
     ("" "polyglossia")

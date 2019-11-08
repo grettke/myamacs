@@ -469,7 +469,6 @@ Used code from [[https://github.com/kaushalmodi/.emacs.d/blob/master/setup-files
     ("" "listings")
     ("" "color")
     ("" "fancyvrb")
-    ("" "fancyhdr")
     ("" "scrlayer-scrpage")
     ("" "lastpage")
     ("" "polyglossia")
