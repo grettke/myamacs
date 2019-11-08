@@ -173,7 +173,7 @@
   '(("" "fontspec")
     ("section" "placeins")
     ("" "tikz")
-    ("" "caption")
+    ("style=base" "caption")
     ("" "latexsym")
     ("" "lettrine")
     ("" "listings")

@@ -463,7 +463,7 @@ Used code from [[https://github.com/kaushalmodi/.emacs.d/blob/master/setup-files
   '(("" "fontspec")
     ("section" "placeins")
     ("" "tikz")
-    ("" "caption")
+    ("style=base" "caption")
     ("" "latexsym")
     ("" "lettrine")
     ("" "listings")
