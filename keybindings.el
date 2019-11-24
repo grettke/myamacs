@@ -60,13 +60,17 @@
 ;; Row 3
 (define-key org-mode-map (kbd "H-A-y") #'org-archive-subtree-default)
 (define-key org-mode-map (kbd "H-A-u") #'gcr-org-refile)
-(define-key org-mode-map (kbd "H-A-i") #'org-shiftmetaup)
+(define-key org-mode-map (kbd "H-A-i") #'org-metaup)
+(define-key org-mode-map (kbd "H-M-i") #'org-shiftmetaup)
 (define-key org-mode-map (kbd "H-A-o") #'org-sort)
 ;; Row 2
 (define-key org-mode-map (kbd "H-A-h") #'org-todo)
-(define-key org-mode-map (kbd "H-A-j") #'org-shiftmetaleft)
-(define-key org-mode-map (kbd "H-A-k") #'org-shiftmetadown)
-(define-key org-mode-map (kbd "H-A-l") #'org-shiftmetaright)
+(define-key org-mode-map (kbd "H-A-j") #'org-metaleft)
+(define-key org-mode-map (kbd "H-M-j") #'org-shiftmetaleft)
+(define-key org-mode-map (kbd "H-A-k") #'org-metadown)
+(define-key org-mode-map (kbd "H-M-k") #'org-shiftmetadown)
+(define-key org-mode-map (kbd "H-A-l") #'org-metaright)
+(define-key org-mode-map (kbd "H-M-l") #'org-shiftmetaright)
 ;; Row 1
 (define-key org-mode-map (kbd "H-A-n") #'org-narrow-to-element)
 (define-key org-mode-map (kbd "H-A-m") #'org-mark-element)
