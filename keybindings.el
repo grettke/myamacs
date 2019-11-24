@@ -11,7 +11,7 @@
 (global-set-key (kbd "H-A-3") #'org2blog-complete)
 (global-set-key (kbd "A-4") #'gcr-ui-date)
 ;; right
-p(global-set-key (kbd "A--") #'gcr-insert-em-dash)
+(global-set-key (kbd "A--") #'gcr-insert-em-dash)
 (global-set-key (kbd "C-A--") #'gcr-insert-en-dash)
 
 ;;; Row 3: Q...
