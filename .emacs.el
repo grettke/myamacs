@@ -12,6 +12,7 @@
 (require 'thingatpt)
 (require 'zone)
 (require 'subr-x)
+(require 'seq)
 
 (load-file "~/src/myamacs/logging.el")
 (load-file "~/src/myamacs/utility.el")
