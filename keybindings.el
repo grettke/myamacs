@@ -69,3 +69,4 @@
 (define-key org-mode-map (kbd "H-A-l") #'org-shiftmetaright)
 ;; Row 1
 (define-key org-mode-map (kbd "H-A-n") #'org-narrow-to-element)
+(define-key org-mode-map (kbd "H-A-m") #'org-mark-element)
