@@ -59,6 +59,7 @@
 
 ;;; Right
 ;; Row 3
+(define-key org-mode-map (kbd "H-A-w") #'org-id-new)
 (define-key org-mode-map (kbd "H-A-y") #'org-archive-subtree-default)
 (define-key org-mode-map (kbd "H-A-u") #'gcr-org-refile)
 (define-key org-mode-map (kbd "H-A-i") #'org-metaup)
