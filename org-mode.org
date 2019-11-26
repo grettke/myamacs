@@ -554,6 +554,127 @@ Don't float images.
 #+begin_src emacs-lisp
 (setq org-latex-default-figure-position "H")
 #+end_src
+** Grammar
+*** Spell Checking
+:PROPERTIES:
+:ID:       org_gcr_2017-05-12_mara:44909368-2D9A-40B9-A3F4-DF297A0EE570
+:END:
+
+Ispell is simple and powerful.
+
+**** Org-Mode
+:PROPERTIES:
+:ID:       org_gcr_2017-05-12_mara:4892BEB5-C0B5-4506-BBB3-40E41F9E25FF
+:END:
+
+Never ispell the following objects.
+
+Block regex helper.
+
+#+NAME: org_gcr_2017-05-12_mara_5EDEEFA9-7DED-41D9-AD9D-5C48BA580AC5
+#+BEGIN_SRC emacs-lisp
+(defun gcr-org-ispell-skip-make (special)
+  "Make an ispell skip-region alist for a SPECIAL block."
+  (interactive)
+  `(,(concat help/org-special-pre "BEGIN_" special)
+    .
+    ,(concat help/org-special-pre "END_" special)))
+#+END_SRC
+
+Source-Blocks.
+
+#+NAME: org_gcr_2017-05-12_mara_D15F7E3E-9D35-4AB3-A043-67154E3D588A
+#+BEGIN_SRC emacs-lisp
+(add-to-list 'ispell-skip-region-alist (gcr-org-ispell-skip-make "SRC"))
+#+END_SRC
+
+Example-Blocks. This system often uses Source-Blocks to edit content and
+Example-Blocks to make it easily renderable when it is not for running.
+
+#+NAME: org_gcr_2017-05-12_mara_EB14B834-8486-4750-96C5-E5E3CFB4C19B
+#+BEGIN_SRC emacs-lisp
+(add-to-list 'ispell-skip-region-alist (gcr-org-ispell-skip-make "EXAMPLE"))
+#+END_SRC
+
+Properties.
+
+#+NAME: org_gcr_2017-05-12_mara_F7E77F03-5A3E-4DC1-A345-4BE8E4C7FF11
+#+BEGIN_SRC emacs-lisp
+(add-to-list 'ispell-skip-region-alist '("^\s*:PROPERTIES\:$" . "^\s*:END\:$"))
+#+END_SRC
+
+Footnotes.
+
+#+NAME: org_gcr_2017-05-12_mara_5459C549-E938-4899-827D-D03707983E52
+#+BEGIN_SRC emacs-lisp
+(add-to-list 'ispell-skip-region-alist '("\\[fn:.+:" . "\\]"))
+#+END_SRC
+
+Footnotes with URLs that contain line-breaks.
+
+#+NAME: org_gcr_2017-05-12_mara_ECD4198B-7335-4141-8256-971748EE4D22
+#+BEGIN_SRC emacs-lisp
+(add-to-list 'ispell-skip-region-alist '("^http" . "\\]"))
+#+END_SRC
+
+Bold text list items.
+
+#+NAME: org_gcr_2017-05-12_mara_1048E593-5E66-4F70-A591-B17A18634D8F
+#+BEGIN_SRC emacs-lisp
+(add-to-list 'ispell-skip-region-alist '("- \\*.+" . ".*\\*: "))
+#+END_SRC
+
+Right arrows.
+
+#+NAME: org_gcr_2017-05-12_mara_5DB6D56D-1C05-4816-8BB6-8F3E936E5EFC
+#+BEGIN_SRC emacs-lisp
+(add-to-list 'ispell-skip-region-alist '("\\rarr"))
+#+END_SRC
+
+Check =SPECIAL LINE= definitions, ignoring their type.
+
+#+NAME: org_gcr_2017-05-12_mara_5C415ECB-91FC-44C2-9886-29704EF74836
+#+BEGIN_SRC emacs-lisp
+(let ()
+  (--each
+      '(("ATTR_LATEX" nil)
+        ("AUTHOR" nil)
+        ("BLOG" nil)
+        ("CREATOR" nil)
+        ("DATE" nil)
+        ("DESCRIPTION" nil)
+        ("EMAIL" nil)
+        ("EXCLUDE_TAGS" nil)
+        ("HTML_CONTAINER" nil)
+        ("HTML_DOCTYPE" nil)
+        ("HTML_HEAD" nil)
+        ("HTML_HEAD_EXTRA" nil)
+        ("HTML_LINK_HOME" nil)
+        ("HTML_LINK_UP" nil)
+        ("HTML_MATHJAX" nil)
+        ("INFOJS_OPT" nil)
+        ("KEYWORDS" nil)
+        ("LANGUAGE" nil)
+        ("LATEX_CLASS" nil)
+        ("LATEX_CLASS_OPTIONS" nil)
+        ("LATEX_HEADER" nil)
+        ("LATEX_HEADER_EXTRA" nil)
+        ("NAME" t)
+        ("OPTIONS" t)
+        ("POSTID" nil)
+        ("RESULTS" t)
+        ("SELECT_TAGS" nil)
+        ("STARTUP" nil)
+        ("TITLE" nil))
+    (add-to-list
+     'ispell-skip-region-alist
+     (let ((special (concat "#[+]" (car it) ":")))
+       (if (cadr it)
+           (cons special "$")
+         (list special))))))
+#+END_SRC
+
+
 ** Unclassified
 :PROPERTIES:
 :ID:       org_gcr_2017-05-12_mara:FD7E89EA-72DC-4395-AE07-4CAA66B8BD28
