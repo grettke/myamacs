@@ -42,7 +42,6 @@
 (global-set-key (kbd "A-k") #'execute-extended-command)
 (global-set-key (kbd "A-l") #'gcr-switch-to-previous-buffer)
 (global-set-key (kbd "A-;") #'eval-expression)
-(global-set-key (kbd "A-'") #'goto-line)
 
 ;;; Row 1: Z...
 
