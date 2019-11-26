@@ -11,5 +11,5 @@
         ("melpa" . 100)))
 (setq package-menu-hide-low-priority t)
 (setq package-enable-at-startup nil)
-(unless gcr-org2blog-local
+(unless t
   (package-initialize))

@@ -84,3 +84,24 @@
 (let ((path (concat (getenv "CCRYPT") "/share/emacs/site-lisp/ccrypt")))
   (add-to-list 'load-path path)
   (require 'ps-ccrypt))
+
+;;;; flycheck
+
+(add-hook 'after-init-hook #'global-flycheck-mode)
+(defhydra gcr-hydra-flycheck (:color blue :hint nil)
+  "
+Flycheck: ⏼%(bound-and-true-p flycheck-mode)
+ Controls: _u_: checker/toggle _i_ checker/list
+  Navigate: _j_ next _k_ previous _f_irst _l_ast
+   Error: _d_escribe _e_xplain
+    _q_uit
+"
+  ("u" flycheck-mode :exit nil)
+  ("i" flycheck-list-errors)
+  ("j" flycheck-next-error :exit nil)
+  ("k" flycheck-previous-error :exit nil)
+  ("f" flycheck-first-error)
+  ("l" flycheck-last-error)
+  ("d" flycheck-display-error-at-point)
+  ("e" flycheck-explain-error-at-point)
+  ("q" nil))
