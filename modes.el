@@ -108,3 +108,7 @@ Flycheck: ⏼%(bound-and-true-p flycheck-mode)
   ("d" flycheck-display-error-at-point)
   ("e" flycheck-explain-error-at-point)
   ("q" nil))
+
+;;;; ispell
+
+(require 'ispell)
