@@ -34,6 +34,7 @@
 
 ;;left
 (global-set-key (kbd "A-a") (kbd "C-c C-k"))
+(global-set-key (kbd "C-s") (lambda () (interactive) (error "Nope!")))
 (global-set-key (kbd "A-s") 'Control-X-prefix)
 (global-set-key (kbd "A-d") (kbd "C-c C-c"))
 (global-set-key (kbd "A-f") #'vc-next-action)
