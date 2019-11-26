@@ -15,7 +15,4 @@
   (add-hook 'org-mode-hook #'org-utf-to-xetex-prettify)
 
   (add-to-list 'load-path "~/src/say")
-  (require 'say)
-
-  (add-to-list 'load-path "~/src/flymake-shellcheck")
-  (require 'flymake-shellcheck))
+  (require 'say))
