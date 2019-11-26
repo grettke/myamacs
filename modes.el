@@ -86,7 +86,6 @@
 
 ;;;; flycheck
 
-(add-hook 'after-init-hook #'global-flycheck-mode)
 (defhydra gcr-hydra-flycheck (:color blue :hint nil)
   "
 Flycheck: ⏼%(bound-and-true-p flycheck-mode)
