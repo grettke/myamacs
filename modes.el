@@ -54,8 +54,7 @@
 
 (defun gcr-shell-script-mode-hook-fn ()
   (interactive)
-  (setq sh-basic-offset 2)
-  (flymake-shellcheck-load))
+  (setq sh-basic-offset 2))
 
 (add-hook 'sh-mode-hook #'gcr-shell-script-mode-hook-fn)
 
