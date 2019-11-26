@@ -245,7 +245,7 @@
 ;; org_gcr_2018-03-07_mara_22B13787-67AA-4462-949B-3C1E6702EB7C ends here
 
 ;; [[file:~/src/myamacs/org-mode.org::org_gcr_2017-05-12_mara_5EDEEFA9-7DED-41D9-AD9D-5C48BA580AC5][org_gcr_2017-05-12_mara_5EDEEFA9-7DED-41D9-AD9D-5C48BA580AC5]]
-(defun help/block-regex (special)
+(defun gcr-org-block-regex (special)
   "Make an ispell skip-region alist for a SPECIAL block."
   (interactive)
   `(,(concat help/org-special-pre "BEGIN_" special)
@@ -254,11 +254,11 @@
 ;; org_gcr_2017-05-12_mara_5EDEEFA9-7DED-41D9-AD9D-5C48BA580AC5 ends here
 
 ;; [[file:~/src/myamacs/org-mode.org::org_gcr_2017-05-12_mara_D15F7E3E-9D35-4AB3-A043-67154E3D588A][org_gcr_2017-05-12_mara_D15F7E3E-9D35-4AB3-A043-67154E3D588A]]
-(add-to-list 'ispell-skip-region-alist (help/block-regex "SRC"))
+(add-to-list 'ispell-skip-region-alist (gcr-org-block-regex "SRC"))
 ;; org_gcr_2017-05-12_mara_D15F7E3E-9D35-4AB3-A043-67154E3D588A ends here
 
 ;; [[file:~/src/myamacs/org-mode.org::org_gcr_2017-05-12_mara_EB14B834-8486-4750-96C5-E5E3CFB4C19B][org_gcr_2017-05-12_mara_EB14B834-8486-4750-96C5-E5E3CFB4C19B]]
-(add-to-list 'ispell-skip-region-alist (help/block-regex "EXAMPLE"))
+(add-to-list 'ispell-skip-region-alist (gcr-org-block-regex "EXAMPLE"))
 ;; org_gcr_2017-05-12_mara_EB14B834-8486-4750-96C5-E5E3CFB4C19B ends here
 
 ;; [[file:~/src/myamacs/org-mode.org::org_gcr_2017-05-12_mara_F7E77F03-5A3E-4DC1-A345-4BE8E4C7FF11][org_gcr_2017-05-12_mara_F7E77F03-5A3E-4DC1-A345-4BE8E4C7FF11]]

@@ -576,7 +576,7 @@ Block regex helper.
 
 #+NAME: org_gcr_2017-05-12_mara_5EDEEFA9-7DED-41D9-AD9D-5C48BA580AC5
 #+BEGIN_SRC emacs-lisp
-(defun help/block-regex (special)
+(defun gcr-org-block-regex (special)
   "Make an ispell skip-region alist for a SPECIAL block."
   (interactive)
   `(,(concat help/org-special-pre "BEGIN_" special)
@@ -588,7 +588,7 @@ Source-Blocks.
 
 #+NAME: org_gcr_2017-05-12_mara_D15F7E3E-9D35-4AB3-A043-67154E3D588A
 #+BEGIN_SRC emacs-lisp
-(add-to-list 'ispell-skip-region-alist (help/block-regex "SRC"))
+(add-to-list 'ispell-skip-region-alist (gcr-org-block-regex "SRC"))
 #+END_SRC
 
 Example-Blocks. This system often uses Source-Blocks to edit content and
@@ -596,7 +596,7 @@ Example-Blocks to make it easily renderable when it is not for running.
 
 #+NAME: org_gcr_2017-05-12_mara_EB14B834-8486-4750-96C5-E5E3CFB4C19B
 #+BEGIN_SRC emacs-lisp
-(add-to-list 'ispell-skip-region-alist (help/block-regex "EXAMPLE"))
+(add-to-list 'ispell-skip-region-alist (gcr-org-block-regex "EXAMPLE"))
 #+END_SRC
 
 Properties.
