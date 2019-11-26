@@ -244,6 +244,83 @@
 (setq org-latex-default-figure-position "H")
 ;; org_gcr_2018-03-07_mara_22B13787-67AA-4462-949B-3C1E6702EB7C ends here
 
+;; [[file:~/src/myamacs/org-mode.org::org_gcr_2017-05-12_mara_5EDEEFA9-7DED-41D9-AD9D-5C48BA580AC5][org_gcr_2017-05-12_mara_5EDEEFA9-7DED-41D9-AD9D-5C48BA580AC5]]
+(defun help/block-regex (special)
+  "Make an ispell skip-region alist for a SPECIAL block."
+  (interactive)
+  `(,(concat help/org-special-pre "BEGIN_" special)
+    .
+    ,(concat help/org-special-pre "END_" special)))
+;; org_gcr_2017-05-12_mara_5EDEEFA9-7DED-41D9-AD9D-5C48BA580AC5 ends here
+
+;; [[file:~/src/myamacs/org-mode.org::org_gcr_2017-05-12_mara_D15F7E3E-9D35-4AB3-A043-67154E3D588A][org_gcr_2017-05-12_mara_D15F7E3E-9D35-4AB3-A043-67154E3D588A]]
+(add-to-list 'ispell-skip-region-alist (help/block-regex "SRC"))
+;; org_gcr_2017-05-12_mara_D15F7E3E-9D35-4AB3-A043-67154E3D588A ends here
+
+;; [[file:~/src/myamacs/org-mode.org::org_gcr_2017-05-12_mara_EB14B834-8486-4750-96C5-E5E3CFB4C19B][org_gcr_2017-05-12_mara_EB14B834-8486-4750-96C5-E5E3CFB4C19B]]
+(add-to-list 'ispell-skip-region-alist (help/block-regex "EXAMPLE"))
+;; org_gcr_2017-05-12_mara_EB14B834-8486-4750-96C5-E5E3CFB4C19B ends here
+
+;; [[file:~/src/myamacs/org-mode.org::org_gcr_2017-05-12_mara_F7E77F03-5A3E-4DC1-A345-4BE8E4C7FF11][org_gcr_2017-05-12_mara_F7E77F03-5A3E-4DC1-A345-4BE8E4C7FF11]]
+(add-to-list 'ispell-skip-region-alist '("^\s*:PROPERTIES\:$" . "^\s*:END\:$"))
+;; org_gcr_2017-05-12_mara_F7E77F03-5A3E-4DC1-A345-4BE8E4C7FF11 ends here
+
+;; [[file:~/src/myamacs/org-mode.org::org_gcr_2017-05-12_mara_5459C549-E938-4899-827D-D03707983E52][org_gcr_2017-05-12_mara_5459C549-E938-4899-827D-D03707983E52]]
+(add-to-list 'ispell-skip-region-alist '("\\[fn:.+:" . "\\]"))
+;; org_gcr_2017-05-12_mara_5459C549-E938-4899-827D-D03707983E52 ends here
+
+;; [[file:~/src/myamacs/org-mode.org::org_gcr_2017-05-12_mara_ECD4198B-7335-4141-8256-971748EE4D22][org_gcr_2017-05-12_mara_ECD4198B-7335-4141-8256-971748EE4D22]]
+(add-to-list 'ispell-skip-region-alist '("^http" . "\\]"))
+;; org_gcr_2017-05-12_mara_ECD4198B-7335-4141-8256-971748EE4D22 ends here
+
+;; [[file:~/src/myamacs/org-mode.org::org_gcr_2017-05-12_mara_1048E593-5E66-4F70-A591-B17A18634D8F][org_gcr_2017-05-12_mara_1048E593-5E66-4F70-A591-B17A18634D8F]]
+(add-to-list 'ispell-skip-region-alist '("- \\*.+" . ".*\\*: "))
+;; org_gcr_2017-05-12_mara_1048E593-5E66-4F70-A591-B17A18634D8F ends here
+
+;; [[file:~/src/myamacs/org-mode.org::org_gcr_2017-05-12_mara_5DB6D56D-1C05-4816-8BB6-8F3E936E5EFC][org_gcr_2017-05-12_mara_5DB6D56D-1C05-4816-8BB6-8F3E936E5EFC]]
+(add-to-list 'ispell-skip-region-alist '("\\rarr"))
+;; org_gcr_2017-05-12_mara_5DB6D56D-1C05-4816-8BB6-8F3E936E5EFC ends here
+
+;; [[file:~/src/myamacs/org-mode.org::org_gcr_2017-05-12_mara_5C415ECB-91FC-44C2-9886-29704EF74836][org_gcr_2017-05-12_mara_5C415ECB-91FC-44C2-9886-29704EF74836]]
+(let ()
+  (--each
+      '(("ATTR_LATEX" nil)
+        ("AUTHOR" nil)
+        ("BLOG" nil)
+        ("CREATOR" nil)
+        ("DATE" nil)
+        ("DESCRIPTION" nil)
+        ("EMAIL" nil)
+        ("EXCLUDE_TAGS" nil)
+        ("HTML_CONTAINER" nil)
+        ("HTML_DOCTYPE" nil)
+        ("HTML_HEAD" nil)
+        ("HTML_HEAD_EXTRA" nil)
+        ("HTML_LINK_HOME" nil)
+        ("HTML_LINK_UP" nil)
+        ("HTML_MATHJAX" nil)
+        ("INFOJS_OPT" nil)
+        ("KEYWORDS" nil)
+        ("LANGUAGE" nil)
+        ("LATEX_CLASS" nil)
+        ("LATEX_CLASS_OPTIONS" nil)
+        ("LATEX_HEADER" nil)
+        ("LATEX_HEADER_EXTRA" nil)
+        ("NAME" t)
+        ("OPTIONS" t)
+        ("POSTID" nil)
+        ("RESULTS" t)
+        ("SELECT_TAGS" nil)
+        ("STARTUP" nil)
+        ("TITLE" nil))
+    (add-to-list
+     'ispell-skip-region-alist
+     (let ((special (concat "#[+]" (car it) ":")))
+       (if (cadr it)
+           (cons special "$")
+         (list special))))))
+;; org_gcr_2017-05-12_mara_5C415ECB-91FC-44C2-9886-29704EF74836 ends here
+
 ;; [[file:~/src/myamacs/org-mode.org::org_gcr_2017-05-12_mara_9A50B1B6-9446-4CE2-AC58-5ED8878E9041][org_gcr_2017-05-12_mara_9A50B1B6-9446-4CE2-AC58-5ED8878E9041]]
 (setq org-startup-with-inline-images (display-graphic-p))
 ;; org_gcr_2017-05-12_mara_9A50B1B6-9446-4CE2-AC58-5ED8878E9041 ends here

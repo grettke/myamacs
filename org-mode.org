@@ -555,6 +555,9 @@ Don't float images.
 (setq org-latex-default-figure-position "H")
 #+end_src
 ** Grammar
+:PROPERTIES:
+:ID:       org_gcr_2019-11-25T21-24-14-06-00_gsmac:503C2866-FC2A-4902-B8DE-05FC76CCA514
+:END:
 *** Spell Checking
 :PROPERTIES:
 :ID:       org_gcr_2017-05-12_mara:44909368-2D9A-40B9-A3F4-DF297A0EE570
@@ -573,7 +576,7 @@ Block regex helper.
 
 #+NAME: org_gcr_2017-05-12_mara_5EDEEFA9-7DED-41D9-AD9D-5C48BA580AC5
 #+BEGIN_SRC emacs-lisp
-(defun gcr-org-ispell-skip-make (special)
+(defun help/block-regex (special)
   "Make an ispell skip-region alist for a SPECIAL block."
   (interactive)
   `(,(concat help/org-special-pre "BEGIN_" special)
@@ -585,7 +588,7 @@ Source-Blocks.
 
 #+NAME: org_gcr_2017-05-12_mara_D15F7E3E-9D35-4AB3-A043-67154E3D588A
 #+BEGIN_SRC emacs-lisp
-(add-to-list 'ispell-skip-region-alist (gcr-org-ispell-skip-make "SRC"))
+(add-to-list 'ispell-skip-region-alist (help/block-regex "SRC"))
 #+END_SRC
 
 Example-Blocks. This system often uses Source-Blocks to edit content and
@@ -593,7 +596,7 @@ Example-Blocks to make it easily renderable when it is not for running.
 
 #+NAME: org_gcr_2017-05-12_mara_EB14B834-8486-4750-96C5-E5E3CFB4C19B
 #+BEGIN_SRC emacs-lisp
-(add-to-list 'ispell-skip-region-alist (gcr-org-ispell-skip-make "EXAMPLE"))
+(add-to-list 'ispell-skip-region-alist (help/block-regex "EXAMPLE"))
 #+END_SRC
 
 Properties.
@@ -673,7 +676,6 @@ Check =SPECIAL LINE= definitions, ignoring their type.
            (cons special "$")
          (list special))))))
 #+END_SRC
-
 
 ** Unclassified
 :PROPERTIES:
