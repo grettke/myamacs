@@ -81,6 +81,6 @@
 
 ;;;; ccrypt
 
-(when-let ((path (getenv "CCRYPT")))
+(let ((path (concat (getenv "CCRYPT") "/share/emacs/site-lisp/ccrypt")))
   (add-to-list 'load-path path)
-  (require 'ps-ccrypt "ps-ccrypt.el"))
+  (require 'ps-ccrypt))
