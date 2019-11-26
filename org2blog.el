@@ -5,8 +5,6 @@
 (when gcr-org2blog-local
   (add-to-list 'load-path "~/src/htmlize")
   (require 'htmlize)
-  (add-to-list 'load-path "~/src/hydra")
-  (require 'hydra)
   (add-to-list 'load-path "~/src/xml-rpc")
   (require 'xml-rpc)
   (add-to-list 'load-path "~/src/org2blog")

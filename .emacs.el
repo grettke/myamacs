@@ -2,17 +2,19 @@
 
 ;; (package-initialize)
 
+(require 'thingatpt)
+(require 'zone)
+(require 'subr-x)
+(require 'seq)
+(and (add-to-list 'load-path "~/src/hydra")
+     (require 'hydra))
+
 (and (load-file "~/src/lolsmacs/lolsmacs.el")
      (lolsmacs-init))
 (load-file "~/src/myamacs/projects.el")
 (load-file "~/src/myamacs/org.el")
 (load-file "~/src/myamacs/org2blog.el")
 (load-file "~/src/maccadet/maccadet.el")
-
-(require 'thingatpt)
-(require 'zone)
-(require 'subr-x)
-(require 'seq)
 
 (load-file "~/src/myamacs/logging.el")
 (load-file "~/src/myamacs/utility.el")
