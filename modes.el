@@ -84,30 +84,44 @@
   (add-to-list 'load-path path)
   (require 'ps-ccrypt))
 
-;;;; flycheck
+;;;; Flycheck
 
 (defun gcr-flycheck-list-errors ()
-  "List then switch there."
+  "Show and switch to error list."
   (interactive)
   (flycheck-list-errors)
   (other-window 1))
 (defhydra gcr-hydra-flycheck (:color blue :hint nil)
   "
-Flycheck: ⏼%(bound-and-true-p flycheck-mode)
- Controls: _u_: checker/toggle _i_ checker/list
-  Navigate: _j_ next _k_ previous _f_irst _l_ast
-   Error: _d_escribe _e_xplain
-    _q_uit
+╔═^═════════╗
+║ ^Flycheck ║^ Enabled? => %(bound-and-true-p flycheck-mode)
+╠═^═════════╩^══════╦════════════^═^╦════════^════^╦═^══════^══^═╗
+║ ^Admin^           ║ ^Navigation^  ║ ^Action^     ║ ^List^    ^ ║
+╚═^═════^═══════════╩═^══════════^══╩═^══════^═════╩═^══════^══^═╝
+ [_c_] Check Buffer  [_n_] Next      [_h_] Display  [_l_] List
+ [_u_] Toggle Mode   [_p_] Previous  [_e_] Explain  [_f_] Filter
+ [_v_] Verify Setup  ^ ^             [_C_] Clear    [_F_] Reset
+ [_q_] Quit           ^ ^            [_w_] Copy
+                      ^ ^             ^ ^                    ^ ^
 "
+  ;; Admin
+  ("c" flycheck-buffer :exit nil)
   ("u" flycheck-mode :exit nil)
-  ("i" gcr-flycheck-list-errors)
-  ("j" flycheck-next-error :exit nil)
-  ("k" flycheck-previous-error :exit nil)
-  ("f" flycheck-first-error)
-  ("l" flycheck-last-error)
-  ("d" flycheck-display-error-at-point)
-  ("e" flycheck-explain-error-at-point)
-  ("q" nil))
+  ("v" flycheck-verify-setup :exit nil)
+  ("q" nil)
+  ;; Navigation
+  ("n" flycheck-next-error :exit nil)
+  ("p" flycheck-previous-error :exit nil)
+  ;; Action
+  ("h" flycheck-display-error-at-point :exit nil)
+  ("e" flycheck-explain-error-at-point :exit nil)
+  ("C" flycheck-clear :exit nil)
+  ("w" flycheck-copy-errors-as-kill :exit nil)
+  ;; List
+  ("l" gcr-flycheck-list-errors :exit nil)
+  ("f" flycheck-error-list-set-filter :exit nil)
+  ("F" flycheck-error-list-reset-filter :exit nil)
+  )
 
 ;;;; ispell
 
