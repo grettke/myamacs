@@ -26,8 +26,8 @@
 ;;right
 (global-set-key (kbd "A-y") #'kmacro-end-or-call-macro)
 (global-set-key (kbd "A-u") #'find-file)
-(global-set-key (kbd "A-i") #'isearch-backward)
-(global-set-key (kbd "A-o") #'isearch-forward)
+;; (global-set-key (kbd "A-i") #')
+;; (global-set-key (kbd "A-o") #')
 (global-set-key (kbd "A-p") #'pop-to-mark-command)
 (global-set-key (kbd "A-\\") #'gcr-indent-buffer)
 
@@ -35,7 +35,6 @@
 
 ;;left
 (global-set-key (kbd "A-a") (kbd "C-c C-k"))
-(global-set-key (kbd "C-s") nil)
 (global-set-key (kbd "A-s") 'Control-X-prefix)
 (global-set-key (kbd "A-d") (kbd "C-c C-c"))
 (global-set-key (kbd "A-f") #'vc-next-action)
