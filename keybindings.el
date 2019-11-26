@@ -11,7 +11,6 @@
 (global-set-key (kbd "H-A-3") #'org2blog-complete)
 (global-set-key (kbd "A-4") #'gcr-ui-date)
 ;; right
-(global-set-key (kbd "A-9") #'gcr-hydra-flycheck/body)
 (global-set-key (kbd "A--") #'gcr-insert-em-dash)
 (global-set-key (kbd "C-A--") #'gcr-insert-en-dash)
 
@@ -26,7 +25,7 @@
 ;;right
 (global-set-key (kbd "A-y") #'kmacro-end-or-call-macro)
 (global-set-key (kbd "A-u") #'find-file)
-;; (global-set-key (kbd "A-i") #')
+(global-set-key (kbd "A-i") #'gcr-hydra-flycheck/body)
 ;; (global-set-key (kbd "A-o") #')
 (global-set-key (kbd "A-p") #'pop-to-mark-command)
 (global-set-key (kbd "A-\\") #'gcr-indent-buffer)
