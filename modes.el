@@ -86,6 +86,11 @@
 
 ;;;; flycheck
 
+(defun gcr-flycheck-list-errors ()
+  "List then switch there."
+  (interactive)
+  (flycheck-list-errors)
+  (other-window 1))
 (defhydra gcr-hydra-flycheck (:color blue :hint nil)
   "
 Flycheck: ⏼%(bound-and-true-p flycheck-mode)
@@ -95,7 +100,7 @@ Flycheck: ⏼%(bound-and-true-p flycheck-mode)
     _q_uit
 "
   ("u" flycheck-mode :exit nil)
-  ("i" flycheck-list-errors)
+  ("i" gcr-flycheck-list-errors)
   ("j" flycheck-next-error :exit nil)
   ("k" flycheck-previous-error :exit nil)
   ("f" flycheck-first-error)
