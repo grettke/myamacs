@@ -95,23 +95,20 @@
   "
 ╔═^═════════╗
 ║ ^Flycheck ║^ Enabled? => %(bound-and-true-p flycheck-mode)
-╠═^═════════╩^══════╦════════════^═^╦════════^════^╦═^══════^══^═╗
-║ ^Admin^           ║ ^Navigation^  ║ ^Action^     ║ ^List^    ^ ║
-╚═^═════^═══════════╩═^══════════^══╩═^══════^═════╩═^══════^══^═╝
- [_c_] Check Buffer  [_n_] Next      [_h_] Display  [_l_] List
- [_u_] Toggle Mode   [_p_] Previous  [_e_] Explain  [_f_] Filter
- [_v_] Verify Setup  ^ ^             [_C_] Clear    [_F_] Reset
- [_q_] Quit           ^ ^            [_w_] Copy
-                      ^ ^             ^ ^                    ^ ^
+╠═^═════════╩^══════╦════════^════^╦═^══════^══^═╗
+║ ^Admin^           ║ ^Action^     ║ ^List^    ^ ║
+╚═^═════^═══════════╩═^══════^═════╩═^══════^══^═╝
+ [_c_] Check Buffer  [_h_] Display  [_l_] List
+ [_u_] Toggle Mode   [_e_] Explain  [_f_] Filter
+ [_v_] Verify Setup  [_C_] Clear    [_F_] Reset
+ [_q_] Quit          [_w_] Copy
+                      ^ ^                    ^ ^
 "
   ;; Admin
   ("c" flycheck-buffer :exit nil)
   ("u" flycheck-mode :exit nil)
   ("v" flycheck-verify-setup :exit nil)
   ("q" nil)
-  ;; Navigation
-  ("n" flycheck-next-error :exit nil)
-  ("p" flycheck-previous-error :exit nil)
   ;; Action
   ("h" flycheck-display-error-at-point :exit nil)
   ("e" flycheck-explain-error-at-point :exit nil)
