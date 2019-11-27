@@ -95,29 +95,25 @@
   "
 ╔═^═════════╗
 ║ ^Flycheck ║^ Enabled? => %(bound-and-true-p flycheck-mode)
-╠═^═════════╩^══════╦════════^════^╦═^══════^══^═╗
-║ ^Admin^           ║ ^Action^     ║ ^List^    ^ ║
-╚═^═════^═══════════╩═^══════^═════╩═^══════^══^═╝
- [_c_] Check Buffer  [_h_] Display  [_l_] List
- [_u_] Toggle Mode   [_e_] Explain  [_f_] Filter
- [_v_] Verify Setup  [_C_] Clear    [_F_] Reset
- [_q_] Quit          [_w_] Copy
-                      ^ ^                    ^ ^
+╠═^═════════╩^══════╦═^══════^══^═╗
+║ ^Admin^           ║ ^List^    ^ ║
+╚═^═════^═══════════╩═^══════^══^═╝
+ [_c_] Check Buffer  [_l_] List
+ [_C_] Clear Buffer  [_f_] Filter
+ [_t_] Toggle Mode   [_F_] Reset
+ [_v_] Verify Setup   ^ ^
+ [_q_] Quit
 "
   ;; Admin
   ("c" flycheck-buffer :exit nil)
-  ("u" flycheck-mode :exit nil)
-  ("v" flycheck-verify-setup :exit nil)
-  ("q" nil)
-  ;; Action
-  ("h" flycheck-display-error-at-point :exit nil)
-  ("e" flycheck-explain-error-at-point :exit nil)
   ("C" flycheck-clear :exit nil)
-  ("w" flycheck-copy-errors-as-kill :exit nil)
+  ("t" flycheck-mode :exit nil)
+  ("v" flycheck-verify-setup)
+  ("q" nil)
   ;; List
-  ("l" gcr-flycheck-list-errors :exit nil)
-  ("f" flycheck-error-list-set-filter :exit nil)
-  ("F" flycheck-error-list-reset-filter :exit nil)
+  ("l" gcr-flycheck-list-errors)
+  ("f" flycheck-error-list-set-filter)
+  ("F" flycheck-error-list-reset-filter)
   )
 
 ;;;; ispell
