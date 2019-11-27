@@ -148,14 +148,17 @@
   Other:
     _n_ close every other buffer _m_ close every buffer _q_ quit
 "
-  ("u" ag-dired-regexp)
-  ("i" ag-dired)
-  ("o" ag-project-dired-regexp)
-  ("p" ag-project-dired)
   ("j" ag-files)
   ("k" ag)
   ("l" ag-project-files)
   (";" ag-project)
+
+  ("u" ag-dired-regexp)
+  ("i" ag-dired)
+  ("o" ag-project-dired-regexp)
+  ("p" ag-project-dired)
+
   ("n" ag-kill-other-buffers)
   ("m" ag-kill-buffers)
+
   ("q" nil))
