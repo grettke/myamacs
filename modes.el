@@ -119,3 +119,43 @@
 ;;;; ispell
 
 (require 'ispell)
+
+;;;; Ag
+
+(setq ag-highlight-search t)
+(setq ag-reuse-window nil)
+(setq ag-reuse-buffers nil)
+(add-to-list 'ag-arguments "--hidden")
+(defun gcr-ag-mode-finished-hook-fn ()
+  "HELP ag finished hook function."
+  (interactive)
+  (let ((compilation-scroll-output 'first-error))
+    (pop-to-buffer next-error-last-buffer)))
+(add-hook 'ag-search-finished-hook #'gcr-ag-mode-finished-hook-fn)
+(defhydra gcr-hydra-ag (:color blue :hint nil)
+  "
+`ag', The Silver Searcher:
+  Present in window:
+    Search in folder:
+      _j_ limit search by file type _k_ search in everything
+    Search in project:
+      _l_ limit search by file type _;_ search in everything
+  Present in dired:
+    Search in folder:
+      _u_ limit search by file type _i_ search in everything
+    Search in project:
+      _o_ limit search by file type _p_ search in everything
+  Other:
+    _n_ close every other buffer _m_ close every buffer _q_ quit
+"
+  ("u" ag-dired-regexp)
+  ("i" ag-dired)
+  ("o" ag-project-dired-regexp)
+  ("p" ag-project-dired)
+  ("j" ag-files)
+  ("k" ag)
+  ("l" ag-project-files)
+  (";" ag-project)
+  ("n" ag-kill-other-buffers)
+  ("m" ag-kill-buffers)
+  ("q" nil))

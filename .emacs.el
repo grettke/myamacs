@@ -10,8 +10,6 @@
      (require 'hydra))
 (and (add-to-list 'load-path "~/src/htmlize")
      (require 'htmlize))
-(and (add-to-list 'load-path "~/src/ag")
-     (require 'ag))
 
 (and (load-file "~/src/lolsmacs/lolsmacs.el")
      (lolsmacs-init))
