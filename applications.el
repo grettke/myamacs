@@ -20,10 +20,10 @@
 
 (let () ; Ag
 
-	(and (add-to-list 'load-path "~/src/s")
-     (require 's))
-	
- (and (add-to-list 'load-path "~/src/ag")
-     (require 'ag)))
+  (and (add-to-list 'load-path "~/src/s")
+       (require 's))
+
+  (and (add-to-list 'load-path "~/src/ag")
+       (require 'ag)))
 
 (load-file "~/src/myamacs/org2blog.el")
