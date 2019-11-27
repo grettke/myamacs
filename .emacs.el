@@ -15,7 +15,7 @@
      (lolsmacs-init))
 (load-file "~/src/myamacs/projects.el")
 (load-file "~/src/myamacs/org.el")
-(load-file "~/src/myamacs/org2blog.el")
+(load-file "~/src/myamacs/applications.el")
 (load-file "~/src/maccadet/maccadet.el")
 
 (load-file "~/src/myamacs/logging.el")

@@ -16,9 +16,6 @@
 
   (add-to-list 'load-path "~/src/s")
   (require 's)
-
-  (add-to-list 'load-path "~/src/dash")
-  (require 'dash)
   )
 
 (when gcr-org2blog-local
