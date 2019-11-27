@@ -78,3 +78,5 @@
 ;; Row 1
 (define-key org-mode-map (kbd "H-A-n") #'org-narrow-to-element)
 (define-key org-mode-map (kbd "H-A-m") #'org-mark-element)
+(define-key org-mode-map (kbd "H-<") (lambda () (interactive) (insert "⟪")))
+(define-key org-mode-map (kbd "H->") (lambda () (interactive) (insert "⟫")))
