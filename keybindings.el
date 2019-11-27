@@ -29,6 +29,7 @@
 (global-set-key (kbd "A-i") #'gcr-hydra-flycheck/body)
 ;; (global-set-key (kbd "A-o") #')
 (global-set-key (kbd "A-p") #'pop-to-mark-command)
+(global-set-key (kbd "M-A-p") #'flycheck-previous-error)
 (global-set-key (kbd "A-\\") #'gcr-indent-buffer)
 
 ;;; Row 2: A
@@ -50,6 +51,7 @@
 (global-set-key (kbd "A-z") #'kill-this-buffer)
 ;; right
 (global-set-key (kbd "A-n") #'gcr-replace-string)
+(global-set-key (kbd "M-A-n") #'flycheck-next-error)
 (global-set-key (kbd "A-m") #'other-window)
 (global-set-key (kbd "A-,") #'gcr-previous-window)
 (global-set-key (kbd "A-.") #'other-window)
