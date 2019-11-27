@@ -140,7 +140,7 @@ ag: The Silver Searcher (_q_uit)
 
 S - In Scope:        (D)irectory or (P)roject
 F - For String:      (L)iteral String or (P)CRE
-I - Include Results: (A)ll Files or by (E)xtension
+I - Include Results: (A)ll Files or By (E)xtension
 
 | ^Key^ | S | F | I |
 |-^---^-+---+---|---+
