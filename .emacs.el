@@ -8,6 +8,8 @@
 (require 'seq)
 (and (add-to-list 'load-path "~/src/hydra")
      (require 'hydra))
+(and (add-to-list 'load-path "~/src/htmlize")
+     (require 'htmlize))
 
 (and (load-file "~/src/lolsmacs/lolsmacs.el")
      (lolsmacs-init))
