@@ -134,31 +134,27 @@
 (add-hook 'ag-search-finished-hook #'gcr-ag-mode-finished-hook-fn)
 (defhydra gcr-hydra-ag (:color blue :hint nil)
   "
-`ag', The Silver Searcher:
-  Present in window:
-    Search in folder:
-      _j_ limit search by file type _k_ search in everything
-    Search in project:
-      _l_ limit search by file type _;_ search in everything
-  Present in dired:
-    Search in folder:
-      _u_ limit search by file type _i_ search in everything
-    Search in project:
-      _o_ limit search by file type _p_ search in everything
-  Other:
-    _n_ close every other buffer _m_ close every buffer _q_ quit
+ag: The Silver Searcher (_q_uit)
+
+*** SEARCH ***
+
+S - In Scope:        (D)irectory or (P)roject
+F - For String:      (L)iteral String or (P)CRE
+I - Include Results: (A)ll Files or by (E)xtension
+
+| ^Key^ | S | F | I |
+|-^---^-+---+---|---+
+| [_f_] | D | L | A |
+| [_d_] | D | L | E |
+| [_s_] | D | P | A |
+| [_j_] | P | L | A |
+| [_k_] | P | L | E |
+| [_l_] | P | P | A |
 "
-  ("j" ag-files)
-  ("k" ag)
-  ("l" ag-project-files)
-  (";" ag-project)
-
-  ("u" ag-dired-regexp)
-  ("i" ag-dired)
-  ("o" ag-project-dired-regexp)
-  ("p" ag-project-dired)
-
-  ("n" ag-kill-other-buffers)
-  ("m" ag-kill-buffers)
-
+  ("f" ag)
+  ("d" ag-files)
+  ("s" ag-regexp)
+  ("j" ag-project)
+  ("k" ag-project-files)
+  ("l" ag-project-regexp)
   ("q" nil))
