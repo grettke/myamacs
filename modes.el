@@ -127,7 +127,7 @@
 (setq ag-reuse-buffers nil)
 (add-to-list 'ag-arguments "--hidden")
 (defun gcr-ag-mode-finished-hook-fn ()
-  "HELP ag finished hook function."
+  "gcr ag finished hook function."
   (interactive)
   (let ((compilation-scroll-output 'first-error))
     (pop-to-buffer next-error-last-buffer)))
