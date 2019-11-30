@@ -158,3 +158,34 @@ I - Include Results: (A)ll Files or By (E)xtension
   ("k" ag-project-files)
   ("l" ag-project-regexp)
   ("q" nil))
+
+;;;; LanguageTool
+
+(setq langtool-language-tool-jar (getenv "LANGTOOL"))
+(let ((lang "en-US"))
+  (setq langtool-default-language lang)
+  (setq langtool-mother-tongue lang))
+(setq langtool-java-bin (concat (getenv "JAVA_HOME") "/bin/java"))
+(setq langtool-disabled-rules nil)
+(setq langtool-java-user-arguments
+      '("-Dfile.encoding=UTF-8"))
+(setq langtool-user-arguments nil)
+(defhydra gcr-hydra-langtool (:color blue :hint nil)
+  "
+ Langtool:^         ^|^                   ^|^
+-------------------^^+^-------------------^+^----------------------
+ _h_: check buffer   | _j_: next error     | _i_: brief message
+ _y_: correct buffer | _k_: previous error | _o_: detailed message
+ _n_: finished       | _q_: quit           |
+ "
+  ("h" langtool-check :exit nil)
+  ("y" langtool-correct-buffer :exit nil)
+  ("n" langtool-check-done)
+
+  ("j" langtool-goto-next-error :exit nil)
+  ("k" langtool-goto-previous-error :exit nil)
+
+  ("i" langtool-show-brief-message-at-point :exit nil)
+  ("o" langtool-show-message-at-point :exit nil)
+
+  ("q" nil))
