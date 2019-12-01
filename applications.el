@@ -1,31 +1,14 @@
 ;; -*- lexical-binding: t; no-byte-compile: t; coding: utf-8 -*-
 
-(let () ; Support Libraries More Than One Thing Not Myamacs
-  (add-to-list 'load-path "~/src/dash") ; Org make toc, Flycheck, Ag.
-  (require 'dash)
-  )
+(use-package org-make-toc :ensure t)
 
-(let () ; Flycheck
+(use-package package-lint :ensure t)
 
-  (add-to-list 'load-path "~/src/epl")
-  (require 'epl)
+(use-package flycheck :ensure t)
 
-  (add-to-list 'load-path "~/src/pkg-info")
-  (require 'pkg-info)
+(use-package ag :ensure t)
 
-  (add-to-list 'load-path "~/src/flycheck")
-  (require 'flycheck)
-
-  (setq flycheck-textlint-config "/Users/gcr/opt/textlintbin/.textlintrc")
-
-  )
-
-(let () ; Ag
-
-  (and (add-to-list 'load-path "~/src/s")
-       (require 's))
-
-  (and (add-to-list 'load-path "~/src/ag")
-       (require 'ag)))
-
-(load-file "~/src/myamacs/org2blog.el")
+;; FYI only controls installation: Package always
+;; loads Org2Blog
+(unless gcr-org2blog-local
+  (use-package org2blog :ensure t))

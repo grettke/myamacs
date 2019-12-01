@@ -6,23 +6,20 @@
 (require 'zone)
 (require 'subr-x)
 (require 'seq)
-(and (add-to-list 'load-path "~/src/hydra")
-     (require 'hydra))
-(and (add-to-list 'load-path "~/src/htmlize")
-     (require 'htmlize))
 
 (and (load-file "~/src/lolsmacs/lolsmacs.el")
      (lolsmacs-init))
 (load-file "~/src/myamacs/projects.el")
 (load-file "~/src/myamacs/org.el")
-(load-file "~/src/myamacs/applications.el")
 (load-file "~/src/maccadet/maccadet.el")
 
 (load-file "~/src/myamacs/logging.el")
 (load-file "~/src/myamacs/utility.el")
-(load-file "~/src/myamacs/modes.el")
 (load-file "~/src/myamacs/user-interfaces.el")
+(load-file "~/src/myamacs/org2blog.el")
 (load-file "~/src/myamacs/package.el")
+(load-file "~/src/myamacs/applications.el")
+(load-file "~/src/myamacs/modes.el")
 
 ;;;; Operations
 
