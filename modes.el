@@ -2,6 +2,13 @@
 
 ;;; Text
 
+(use-package visual-fill-column
+  :ensure t
+  :config
+  (add-hook 'visual-line-mode-hook #'visual-fill-column-mode)
+  (advice-add 'text-scale-adjust :after
+              #'visual-fill-column-adjust))
+
 (defun amacs-text-mode-hook-fn ()
   (visual-line-mode))
 
