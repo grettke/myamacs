@@ -16,6 +16,8 @@
   (add-to-list 'load-path "~/src/flycheck")
   (require 'flycheck)
 
+  (setq flycheck-textlint-config "/Users/gcr/opt/textlintbin/.textlintrc")
+
   )
 
 (let () ; Ag
