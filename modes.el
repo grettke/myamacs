@@ -127,7 +127,7 @@
 
 ;;; textlint
 
-(setq flycheck-textlint-config "~/opt/textlintbin/.textlintrc")
+(setq flycheck-textlint-config "~/opt/textlintbin/.textlintrc.json")
 
 ;;;; ispell
 
