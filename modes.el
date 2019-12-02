@@ -123,6 +123,10 @@
   ("F" flycheck-error-list-reset-filter)
   )
 
+;;; textlint
+
+(setq flycheck-textlint-config "~/opt/textlintbin/.textlintrc")
+
 ;;;; ispell
 
 (require 'ispell)
