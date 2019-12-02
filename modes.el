@@ -107,13 +107,15 @@
 ╚═^═════^═══════════╩═^══════^══^═╝
  [_c_] Check Buffer  [_l_] List
  [_C_] Clear Buffer  [_f_] Filter
- [_t_] Toggle Mode   [_F_] Reset
+ [_r_] ⚙ Checker    [_F_] Reset
+ [_t_] Toggle Mode
  [_v_] Verify Setup   ^ ^
  [_q_] Quit
 "
   ;; Admin
   ("c" flycheck-buffer :exit nil)
   ("C" flycheck-clear :exit nil)
+  ("r" flycheck-select-checker :exit nil)
   ("t" flycheck-mode :exit nil)
   ("v" flycheck-verify-setup)
   ("q" nil)
