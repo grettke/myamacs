@@ -202,3 +202,30 @@ I - Include Results: (A)ll Files or By (E)xtension
   ("o" langtool-show-message-at-point :exit nil)
 
   ("q" nil))
+
+;;;; JSON
+
+(use-package json-mode
+  :ensure t
+  :mode (("\\.jshintrc$" . json-mode))
+  :config
+  (defhydra gcr-hydra-json (:color blue
+                                   :hint nil)
+    "
+JSON: (q to quit)
+_b_eautify
+ _s_how-path _k_ill-path
+  _t_oggle boolean _n_ullify sexp
+   _i_ncrement number _d_ecrement number
+"
+    ("b" json-mode-beautify)
+    ("s" json-mode-show-path)
+    ("k" json-mode-kill-path)
+    ("t" json-toggle-boolean)
+    ("n" json-nullify-sexp)
+    ("i" json-increment-number-at-point :exit nil)
+    ("d" json-decrement-number-at-point :exit nil)
+    ("q" nil))
+  (setq js-indent-level 2)
+  (define-key json-mode-map (kbd "RET") #'newline)
+  (define-key json-mode-map (kbd "A-h") #'gcr-hydra-json/body))
