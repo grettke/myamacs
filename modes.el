@@ -104,11 +104,11 @@
 ║ ^Flycheck ║^ Enabled? => %(bound-and-true-p flycheck-mode)
 ╠═^═════════╩^══════╦═^══════^══^═╗
 ║ ^Admin^           ║ ^List^    ^ ║
-╚═^═════^═══════════╩═^══════^══^═╝
+╚═^═════^═══════════╩═^═^════^══^═╝
  [_c_] Check Buffer  [_l_] List
  [_C_] Clear Buffer  [_f_] Filter
- [_r_] ⚙ Checker    [_F_] Reset
- [_t_] Toggle Mode
+ [_r_] Checker       [_F_] Reset
+ [_t_] Toggle Mode    ^ ^
  [_v_] Verify Setup   ^ ^
  [_q_] Quit
 "
