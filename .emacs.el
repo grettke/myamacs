@@ -75,6 +75,6 @@
 
 (load-file "~/src/myamacs/keybindings.el")
 
-(load-theme 'tsdh-light)
+(load-theme 'leuven)
 (setq blink-matching-paren nil)
 
