@@ -6,7 +6,7 @@
   (let* ((stamp (format-time-string "%Y%m%dT%H%M"))
          (msg (s-trim (read-string "Log message? (hit return to leave blank): ")))
          (str (or (and (s-blank? msg) stamp)
-                 (s-concat stamp "-" (s-replace " " "-" msg)))))
+                  (s-concat stamp "-" (s-replace " " "-" msg)))))
     (gcr-kill-identity str)))
 
 (defun gcr-timestamp-make ()
@@ -45,7 +45,7 @@
 (defun gcr-timestamp-datestamp-us-words ()
   "US datestamp using words."
   (interactive)
-  (gcr-kill-identity (format-time-string "%A %B %d, %Y")))
+  (gcr-kill-identity (format-time-string "%A, %B %d, %Y")))
 
 (defun gcr-timestamp-24-hour-minute ()
   "24hour Hour:Minute timestamp"
