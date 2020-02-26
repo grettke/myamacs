@@ -33,5 +33,9 @@
                   :url "https://www.wisdomandwonder.com/xmlrpc.php"
                   :username ,username
                   :password ,password
-                  :confirm t))))
+                  :confirm t
+                  :default-categories ("Entry")
+                  :default-categories-sub ("Entry")
+                  :default-tags ("TBD")
+                  :default-tags-sub ("TBD")))))
   (setq org2blog/wp-blog-alist config))
