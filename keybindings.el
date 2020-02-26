@@ -69,10 +69,12 @@
 (define-key org-mode-map (kbd "H-M-i") #'org-shiftmetaup)
 (define-key org-mode-map (kbd "H-A-o") #'org-sort)
 ;; Row 2
-(define-key org-mode-map (kbd "H-A-j") #'org-metaleft)
-(define-key org-mode-map (kbd "H-M-j") #'org-shiftmetaleft)
-(define-key org-mode-map (kbd "H-A-k") #'org-metadown)
-(define-key org-mode-map (kbd "H-M-k") #'org-shiftmetadown)
+(define-key org-mode-map (kbd "H-A-h") #'org-metaleft)
+(define-key org-mode-map (kbd "H-M-h") #'org-shiftmetaleft)
+(define-key org-mode-map (kbd "H-A-j") #'org-metadown)
+(define-key org-mode-map (kbd "H-M-j") #'org-shiftmetadown)
+(define-key org-mode-map (kbd "H-A-k") #'org-metaup)
+(define-key org-mode-map (kbd "H-M-k") #'org-shiftmetaup)
 (define-key org-mode-map (kbd "H-A-l") #'org-metaright)
 (define-key org-mode-map (kbd "H-M-l") #'org-shiftmetaright)
 ;; Row 1
