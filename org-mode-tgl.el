@@ -649,7 +649,8 @@
 
 ;; [[file:~/src/myamacs/org-mode.org::org_gcr_2019-01-14T09-58-00-06-00_cosmicality_9D450653-5C54-48DB-B0A9-24E8408B0CF2][org_gcr_2019-01-14T09-58-00-06-00_cosmicality_9D450653-5C54-48DB-B0A9-24E8408B0CF2]]
 (defun gcr-org-mode-hook-fun ()
-  (local-unset-key (kbd "C-j")))
+  (local-unset-key (kbd "C-j"))
+  (hl-line-mode))
 (add-hook 'org-mode-hook #'org2blog-maybe-start)
 ;; org_gcr_2019-01-14T09-58-00-06-00_cosmicality_9D450653-5C54-48DB-B0A9-24E8408B0CF2 ends here
 
