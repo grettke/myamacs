@@ -29,13 +29,18 @@
 (let* ((credentials (auth-source-user-and-password "wisdomandwonder"))
        (username (nth 0 credentials))
        (password (nth 1 credentials))
+       (title "TBD")
+       (cats '("Entry"))
+       (tags '("TBD"))
        (config `(("wisdomandwonder"
                   :url "https://www.wisdomandwonder.com/xmlrpc.php"
                   :username ,username
                   :password ,password
                   :confirm t
-                  :default-categories ("Entry")
-                  :default-categories-sub ("Entry")
-                  :default-tags ("TBD")
-                  :default-tags-sub ("TBD")))))
-  (setq org2blog/wp-blog-alist config))
+                  :default-title ,title
+                  :default-title-sub ,title
+                  :default-categories ,cats
+                  :default-categories-sub ,cats
+                  :default-tags ,tags
+                  :default-tags-sub ,tags)))
+       (setq org2blog/wp-blog-alist config))
