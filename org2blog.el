@@ -25,6 +25,15 @@
 
 (add-hook 'org-mode-hook #'org2blog-maybe-start)
 
+(setq org2blog/wp-buffer-template
+      "#+ORG2BLOG:
+#+DATE: %s
+#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil
+#+CATEGORY: %s
+#+TAGS: %s
+#+TITLE: %s
+\n")
+
 (require 'auth-source)
 (let* ((credentials (auth-source-user-and-password "wisdomandwonder"))
        (username (nth 0 credentials))
@@ -43,4 +52,4 @@
                   :default-categories-sub ,cats
                   :default-tags ,tags
                   :default-tags-sub ,tags))))
-       (setq org2blog/wp-blog-alist config))
+  (setq org2blog/wp-blog-alist config))
