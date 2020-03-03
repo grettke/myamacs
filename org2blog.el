@@ -42,5 +42,5 @@
                   :default-categories ,cats
                   :default-categories-sub ,cats
                   :default-tags ,tags
-                  :default-tags-sub ,tags)))
+                  :default-tags-sub ,tags))))
        (setq org2blog/wp-blog-alist config))
