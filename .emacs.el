@@ -36,6 +36,11 @@
 (define-key global-map [remap move-beginning-of-line] 'gcr-beginning-of-line-dwim)
 (define-key global-map [remap occur] 'gcr-occur-dwim)
 
+;;;; Aliases
+
+(defun swh () (interactive) (split-window-horizontally))
+(defun swv () (interactive) (split-window-vertically))
+
 ;;; Content
 
 (defun gcr-warn-if-utf-8-bom ()
