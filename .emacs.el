@@ -41,6 +41,7 @@
 (defun swh () (interactive) (split-window-horizontally))
 (defun swv () (interactive) (split-window-vertically))
 (defun os () (interactive) (org-sort))
+(defalias 'rs 'replace-string)
 
 ;;; Content
 
