@@ -26,8 +26,8 @@
 ;;right
 (global-set-key (kbd "A-y") #'kmacro-end-or-call-macro)
 (global-set-key (kbd "A-u") #'find-file)
-(global-set-key (kbd "A-i") #'gcr-hydra-flycheck/body)
-;; (global-set-key (kbd "A-o") #')
+(global-set-key (kbd "A-i") #'other-window)
+(global-set-key (kbd "A-o") #'narrow-to-region)
 (global-set-key (kbd "A-p") #'pop-to-mark-command)
 (global-set-key (kbd "M-A-p") #'flycheck-previous-error)
 (global-set-key (kbd "A-\\") #'gcr-indent-buffer)
@@ -53,7 +53,7 @@
 ;; right
 (global-set-key (kbd "A-n") #'gcr-replace-string)
 (global-set-key (kbd "M-A-n") #'flycheck-next-error)
-(global-set-key (kbd "A-m") #'other-window)
+(global-set-key (kbd "A-m") #'gcr-hydra-flycheck/body)
 (global-set-key (kbd "A-,") #'gcr-previous-window)
 (global-set-key (kbd "A-.") #'other-window)
 
@@ -62,6 +62,7 @@
 ;;; Right
 ;; Row 3
 (define-key org-mode-map (kbd "H-w") #'org-id-new)
+(define-key org-mode-map (kbd "H-A-r") #'org-archive-subtree)
 (define-key org-mode-map (kbd "H-A-t") #'org-todo)
 (define-key org-mode-map (kbd "H-A-y") #'org-archive-subtree-default)
 (define-key org-mode-map (kbd "H-A-u") #'gcr-org-refile)

@@ -1213,7 +1213,9 @@ Prettifications.
   (setq prettify-symbols-alist (gcr-alist-set "#+BEGIN_QUOTE" ?🗣 prettify-symbols-alist))
   (setq prettify-symbols-alist (gcr-alist-set "#+begin_quote" ?🗣 prettify-symbols-alist))
   (setq prettify-symbols-alist (gcr-alist-set "#+END_QUOTE" ?🗣 prettify-symbols-alist))
-  (setq prettify-symbols-alist (gcr-alist-set "#+end_quote" ?🗣 prettify-symbols-alist))
+  (setq prettify-symbols-alist (gcr-alist-set "#+end_quote" ?🗣
+                                              prettify-symbols-alist))
+  (setq prettify-symbols-alist (gcr-alist-set ":LOGBOOK:" ?🕮 prettify-symbols-alist))
   (gcr-prettify-org-mode-names))
 (add-hook 'org-mode-hook #'gcr-prettify-org-mode)
 
