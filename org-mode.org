@@ -127,15 +127,15 @@ source-blocks outside of that place.
     #+BEGIN_SRC emacs-lisp
 (setq org-todo-keywords
       '((sequence
-         "TODO(t!)"
-         "GO(g@)"
-         "WAIT(w@)"
-         "BLOCKED(b@)"
-         "REVIEW(r!)"
-         "|"
-         "DONE(d@)"
-         "CANCELED(c@)"
-         "DUPLICATE(p@)"
+         "TODO(t!)" ; Initial creation
+         "GO(g@)"; Work in progress
+         "WAIT(w@)" ; My choice to pause task
+         "BLOCKED(b@)" ; Not my choice to pause task
+         "REVIEW(r!)" ; Inspect or Share Time
+         "|" ; Remaining close task
+         "DONE(d@)" ; Normal completion
+         "CANCELED(c@)" ; Not going to od it
+         "DUPLICATE(p@)" ; Already did it
          )))
     #+END_SRC
 
