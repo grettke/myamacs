@@ -375,3 +375,9 @@ Source: URL `https://www.thepunctuationguide.com/en-dash.html'"
 (defun gcr-make-new-file-header-template ()
   (interactive)
   (auto-insert))
+
+(defun gcr-kill-other-buffers ()
+  (interactive)
+  (mapc 'kill-buffer 
+        (delq (current-buffer)
+              (remove-if-not 'buffer-file-name (buffer-list)))))
