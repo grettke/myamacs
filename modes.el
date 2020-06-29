@@ -270,7 +270,6 @@ Graphviz
    graphviz-dot-auto-indent-on-semi nil
    graphviz-dot-delete-completions t
    graphviz-dot-auto-preview-on-save t)
-  (key-chord-define-local "hh" #'help/hydra/graphviz-dot-mode/body)
   (local-set-key (kbd "H-i") #'compile)
   (local-set-key (kbd "H-o") #'graphviz-dot-complete-word)
   (local-set-key (kbd "H-k") #'help/hydra/graphviz-dot-mode/body)
