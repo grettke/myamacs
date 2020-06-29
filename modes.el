@@ -272,6 +272,5 @@ Graphviz
    graphviz-dot-auto-preview-on-save t)
   (local-set-key (kbd "H-i") #'compile)
   (local-set-key (kbd "H-o") #'graphviz-dot-complete-word)
-  (local-set-key (kbd "H-k") #'help/hydra/graphviz-dot-mode/body)
-  (smartparens-global-strict-mode))
+  (local-set-key (kbd "H-k") #'help/hydra/graphviz-dot-mode/body))
 (add-hook 'graphviz-dot-mode-hook #'help/graphviz-dot-mode-hook-fun)
