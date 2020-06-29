@@ -271,7 +271,8 @@ Graphviz
    graphviz-dot-delete-completions t
    graphviz-dot-auto-preview-on-save t)
   (key-chord-define-local "hh" #'help/hydra/graphviz-dot-mode/body)
-  (local-set-key (kbd "M-9") #'compile)
-  (local-set-key (kbd "M-0") #'graphviz-dot-complete-word)
+  (local-set-key (kbd "H-i") #'compile)
+  (local-set-key (kbd "H-o") #'graphviz-dot-complete-word)
+  (local-set-key (kbd "H-k") #'help/hydra/graphviz-dot-mode/body)
   (smartparens-global-strict-mode))
 (add-hook 'graphviz-dot-mode-hook #'help/graphviz-dot-mode-hook-fun)
