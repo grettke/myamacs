@@ -95,8 +95,9 @@
   (call-interactively 'occur)
   (other-window 1))
 
-(load-file "~/src/myamacs/keybindings.el")
-
 (load-theme 'leuven)
 (setq blink-matching-paren nil)
 
+;;;; Key Bindings
+
+(load-file "~/src/myamacs/keybindings.el")
