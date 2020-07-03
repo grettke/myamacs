@@ -76,6 +76,14 @@
         "════════════════════════════════════════════════════════════════════════════════")
   (global-set-key (kbd "M-y") #'browse-kill-ring))
 
+(use-package undo-tree
+  :ensure t
+  :config
+  (global-undo-tree-mode 1)
+  (global-set-key (kbd "M-/") #'undo-tree-redo)
+  (global-set-key (kbd "C-M-/") #'undo-tree-visualize)
+  :diminish undo-tree-mode)
+
 ;; Occur
 
 (define-key occur-mode-map (kbd "n") #'next-line)
