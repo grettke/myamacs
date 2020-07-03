@@ -65,6 +65,17 @@
 
 (winner-mode)
 
+(use-package browse-kill-ring
+  :ensure t
+  :config
+  (browse-kill-ring-default-keybindings)
+  (setq browse-kill-ring-highlight-current-entry t)
+  (setq browse-kill-ring-highlight-inserted-item t)
+  (setq browse-kill-ring-show-preview nil)
+  (setq browse-kill-ring-separator
+        "════════════════════════════════════════════════════════════════════════════════")
+  (global-set-key (kbd "M-y") #'browse-kill-ring))
+
 ;; Occur
 
 (define-key occur-mode-map (kbd "n") #'next-line)
