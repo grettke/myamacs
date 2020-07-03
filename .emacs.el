@@ -95,6 +95,8 @@
   (call-interactively 'occur)
   (other-window 1))
 
+;;;; Appearance
+
 (load-theme 'leuven)
 (setq blink-matching-paren nil)
 
