@@ -100,6 +100,11 @@
 (load-theme 'leuven)
 (setq blink-matching-paren nil)
 
+(use-package default-text-scale
+  :ensure t
+  :config
+  (default-text-scale-mode))
+
 ;;;; Key Bindings
 
 (load-file "~/src/myamacs/keybindings.el")
