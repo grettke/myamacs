@@ -46,6 +46,7 @@
 (defalias 'otdc 'org-table-delete-column)
 (defalias 'vfcm 'visual-fill-column-mode)
 (defalias 'eb 'eval-buffer)
+(defalias 'rf 'org-refile)
 
 ;;; Content
 
