@@ -117,6 +117,8 @@
   :config
   (default-text-scale-mode))
 
+(setq frame-resize-pixelwise t)
+
 ;;;; Key Bindings
 
 (load-file "~/src/myamacs/keybindings.el")
