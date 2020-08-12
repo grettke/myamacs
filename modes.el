@@ -274,3 +274,18 @@ Graphviz
   (local-set-key (kbd "H-i") #'compile)
   (local-set-key (kbd "H-o") #'graphviz-dot-complete-word))
 (add-hook 'graphviz-dot-mode-hook #'help/graphviz-dot-mode-hook-fun)
+
+;;;; Markdown
+
+(use-package markdown-mode
+  :ensure t
+  :config
+  (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+  (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+  (use-package ox-gfm
+    :ensure t
+    :config
+    (add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode)))
+  (help/on-mac-os
+   (setq markdown-open-command "/Users/gcr/util/mark")))
+
