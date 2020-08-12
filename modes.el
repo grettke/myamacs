@@ -286,6 +286,4 @@ Graphviz
     :ensure t
     :config
     (add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode)))
-  (help/on-mac-os
-   (setq markdown-open-command "/Users/gcr/util/mark")))
-
+  (setq markdown-open-command "/Users/gcr/util/mark"))
