@@ -41,7 +41,7 @@
 (defun swh () (interactive) (split-window-horizontally))
 (defun swv () (interactive) (split-window-vertically))
 (defun os () (interactive) (org-sort))
-(defalias 'rs 'replace-string)
+(defalias 'rs 'gcr-replace-string)
 (defalias 'otic 'org-table-insert-column)
 (defalias 'otdc 'org-table-delete-column)
 (defalias 'vfcm 'visual-fill-column-mode)
