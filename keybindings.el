@@ -59,14 +59,12 @@
 (global-set-key (kbd "A-.") #'other-window)
 
 ;;;; Org mode
-
+;;; Left
+(define-key org-mode-map (kbd "H-q") #'org-archive-subtree-default)
+(define-key org-mode-map (kbd "H-r") #'gcr-org-refile)
+(define-key org-mode-map (kbd "H-t") #'org-todo)
 ;;; Right
 ;; Row 3
-(define-key org-mode-map (kbd "H-w") #'org-id-new)
-(define-key org-mode-map (kbd "H-A-r") #'org-archive-subtree)
-(define-key org-mode-map (kbd "H-A-t") #'org-todo)
-(define-key org-mode-map (kbd "H-A-y") #'org-archive-subtree-default)
-(define-key org-mode-map (kbd "H-A-u") #'gcr-org-refile)
 (define-key org-mode-map (kbd "H-A-i") #'org-metaup)
 (define-key org-mode-map (kbd "H-M-i") #'org-shiftmetaup)
 (define-key org-mode-map (kbd "H-A-t") #'org-sort)
