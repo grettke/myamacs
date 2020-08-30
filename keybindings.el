@@ -61,8 +61,8 @@
 ;;;; Org mode
 ;;; Left
 (define-key org-mode-map (kbd "H-q") #'org-archive-subtree-default)
-(define-key org-mode-map (kbd "H-e") #'org-sort)
-(define-key org-mode-map (kbd "H-r") #'gcr-org-refile)
+(define-key org-mode-map (kbd "H-e") #'gcr-org-refile)
+(define-key org-mode-map (kbd "H-r") #'org-sort)
 (define-key org-mode-map (kbd "H-t") #'org-todo)
 ;;; Right
 ;; Row 3
