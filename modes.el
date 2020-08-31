@@ -286,4 +286,5 @@ Graphviz
     :ensure t
     :config
     (add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode)))
-  (setq markdown-open-command "/Users/gcr/util/mark"))
+  (setq markdown-open-command "/Users/gcr/util/mark")
+  (setq markdown-header-scaling t))
