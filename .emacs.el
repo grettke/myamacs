@@ -50,6 +50,7 @@
 (defalias 'oeh 'org-entities-help)
 (defalias 'oet 'org-toggle-pretty-entities)
 (defalias 'tdoe 'toggle-debug-on-error)
+(defalias 'rpb 'regexp-builder)
 
 ;;; Content
 
