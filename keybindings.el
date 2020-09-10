@@ -64,7 +64,7 @@
 (define-key org-mode-map (kbd "H-e") #'gcr-org-refile)
 (define-key org-mode-map (kbd "H-r") #'org-sort)
 (define-key org-mode-map (kbd "H-t") #'org-todo)
-(define-key org-mode-map (kbd "H-v") #'org-narrow-to-element)
+(define-key org-mode-map (kbd "H-o") #'org-narrow-to-element)
 ;;; Right
 ;; Row 3
 (define-key org-mode-map (kbd "H-A-i") #'org-metaup)
