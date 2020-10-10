@@ -14,6 +14,7 @@
 (global-set-key (kbd "A-8") #'ispell)
 (global-set-key (kbd "A-9") #'gcr-hydra-flycheck/body)
 (global-set-key (kbd "A--") #'gcr-insert-em-dash)
+(global-set-key (kbd "A-_") #'gcr-toggle-copy-region)
 (global-set-key (kbd "C-A--") #'gcr-insert-en-dash)
 
 ;;; Row 3: Q...
