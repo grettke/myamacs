@@ -53,7 +53,7 @@
 ;; left
 (global-set-key (kbd "A-z") #'kill-this-buffer)
 ;; right
-(global-set-key (kbd "A-n") #'isearch-backward)
+(global-set-key (kbd "A-n") #'dabbrev-expand)
 (global-set-key (kbd "M-A-n") #'flycheck-next-error)
 (global-set-key (kbd "A-m") #'isearch-forward)
 (global-set-key (kbd "A-,") #'gcr-previous-window)
