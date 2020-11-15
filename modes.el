@@ -286,5 +286,10 @@ Graphviz
     :ensure t
     :config
     (add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode)))
+  (use-package markdown-toc :ensure t)
   (setq markdown-open-command "/Users/gcr/util/mark")
-  (setq markdown-header-scaling t))
+  (setq markdown-header-scaling t)
+  (defun gcr-markdown-mode-hook-fn ()
+    (interactive)
+    (remove-hook 'before-save-hook #'gcr-indent-buffer))
+  (add-hook 'markdown-mode-hook #'gcr-markdown-mode-hook-fn))
