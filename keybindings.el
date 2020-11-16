@@ -43,6 +43,7 @@
 (global-set-key (kbd "A-f") #'vc-next-action)
 (global-set-key (kbd "A-g") #'gcr-hydra-ag/body)
 ;;right
+(global-set-key (kbd "A-h") #'org-mark-element)
 (global-set-key (kbd "A-j") #'switch-to-buffer)
 (global-set-key (kbd "A-k") #'execute-extended-command)
 (global-set-key (kbd "A-l") #'gcr-switch-to-previous-buffer)
