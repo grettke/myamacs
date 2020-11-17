@@ -16,7 +16,7 @@
 
 ;;; Prog
 
-(setq amacs-prog-modes '(sh-mode json-mode))
+(setq amacs-prog-modes '(sh-mode json-mode graphviz-dot-mode))
 (setq amacs-lisp-modes
       '(emacs-lisp-mode-hook
         ielm-mode-hook
