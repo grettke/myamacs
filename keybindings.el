@@ -68,6 +68,9 @@
 (define-key org-mode-map (kbd "H-t") #'org-todo)
 (define-key org-mode-map (kbd "H-o") #'org-narrow-to-element)
 ;;; Right
+;; Row 4
+(define-key org-mode-map (kbd "H-8") #'org-babel-remove-result)
+(define-key org-mode-map (kbd "H-9") #'org-babel-remove-inline-result)
 ;; Row 3
 (define-key org-mode-map (kbd "H-A-i") #'org-metaup)
 (define-key org-mode-map (kbd "H-M-i") #'org-shiftmetaup)
