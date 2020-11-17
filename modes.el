@@ -16,7 +16,7 @@
 
 ;;; Prog
 
-(setq amacs-prog-modes '())
+(setq amacs-prog-modes '(sh-mode))
 (setq amacs-lisp-modes
       '(emacs-lisp-mode-hook
         ielm-mode-hook
@@ -59,11 +59,11 @@
 
 ;;;; Shell-script
 
-(defun gcr-shell-script-mode-hook-fn ()
+(defun gcr-sh-mode-hook-fn ()
   (interactive)
   (setq sh-basic-offset 2))
 
-(add-hook 'sh-mode-hook #'gcr-shell-script-mode-hook-fn)
+(add-hook 'sh-mode-hook #'gcr-sh-mode-hook-fn)
 
 ;;;; Conf
 
