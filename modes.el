@@ -293,3 +293,17 @@ Graphviz
     (interactive)
     (remove-hook 'before-save-hook #'gcr-indent-buffer))
   (add-hook 'markdown-mode-hook #'gcr-markdown-mode-hook-fn))
+
+;;;; YAML
+
+(use-package yaml-mode
+  :ensure t
+  :config
+  (use-package indent-guide
+    :ensure t)
+  (defun gcr-yaml-mode-hook-fn ()
+    (remove-hook 'before-save-hook #'gcr-indent-buffer)
+    (turn-off-auto-fill)
+    (indent-guide-mode))
+  (add-hook 'yaml-mode-hook #'gcr-yaml-mode-hook-fn)
+  (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode)))
