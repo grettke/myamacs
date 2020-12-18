@@ -53,6 +53,7 @@
 
 ;; left
 (global-set-key (kbd "A-z") #'kill-this-buffer)
+(global-set-key (kbd "A-c") #'capitalize-word)
 ;; right
 (global-set-key (kbd "A-n") #'dabbrev-expand)
 (global-set-key (kbd "M-A-n") #'flycheck-next-error)
