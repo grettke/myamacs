@@ -88,3 +88,8 @@
 (define-key org-mode-map (kbd "H-A-m") #'org-mark-element)
 (define-key org-mode-map (kbd "H-<") (lambda () (interactive) (insert "⟪")))
 (define-key org-mode-map (kbd "H->") (lambda () (interactive) (insert "⟫")))
+
+;;;; emacs-lisp-mode
+;;; Row 3: Q...
+;;right
+(define-key emacs-lisp-mode-map (kbd "H-o") #'narrow-to-defun)
