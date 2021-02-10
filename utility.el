@@ -41,7 +41,8 @@ condition."
 (defun gcr-unfill-paragraph (&optional region)
   (interactive (progn (barf-if-buffer-read-only) (list t)))
   (let ((fill-column (point-max)))
-    (fill-paragraph nil region)))
+    (fill-paragraph nil region))
+  (message "Unfilled paragraph."))
 
 (defun gcr-replace-string ()
   (interactive)
@@ -378,6 +379,6 @@ Source: URL `https://www.thepunctuationguide.com/en-dash.html'"
 
 (defun gcr-kill-other-buffers ()
   (interactive)
-  (mapc 'kill-buffer 
+  (mapc 'kill-buffer
         (delq (current-buffer)
               (remove-if-not 'buffer-file-name (buffer-list)))))
