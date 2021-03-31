@@ -139,5 +139,5 @@
            (if mouse-drag-copy-region "ON" "OFF")))
 ;;;; Server
 
-(setq server-name "/Users/gcr/server-sockets/emacs.sock")
+(setq server-name (getenv "EMACSSOCKET"))
 (server-start)
