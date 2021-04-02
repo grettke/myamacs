@@ -137,3 +137,8 @@
   (setq mouse-drag-copy-region (not mouse-drag-copy-region))
   (message "mouse-drag-copy-region is: %s."
            (if mouse-drag-copy-region "ON" "OFF")))
+
+;;;; Server
+
+(setq server-name (getenv "MOSHEMALSOCKET"))
+(server-start)
