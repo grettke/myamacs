@@ -140,5 +140,5 @@
 
 ;;;; Server
 
-(setq server-name (getenv "BE2SOCKET"))
+(setq server-name (getenv "EBSESOCKET"))
 (server-start)
