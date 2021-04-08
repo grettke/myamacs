@@ -838,12 +838,13 @@ export will be stated explicitly. Override this by setting
 (setq org-image-actual-width t)
 #+END_SRC
 
-Hide the delimeter for emphasized text. Unicode characters break table
-alignment.
+For emphasized text options is:Options is either to:
+- Hide the delimeter. Otherwise Unicode characters break table alignment.
+- Show the delimeter. Easy to evalute embedded Elisp.
 
 #+NAME: org_gcr_2017-05-12_mara_2DD6E6FC-375C-4FA5-BFA4-C6C9B0EAB483
 #+BEGIN_SRC emacs-lisp
-(setq org-hide-emphasis-markers t)
+(setq org-hide-emphasis-markers nil)
 #+END_SRC
 
 Realign tables automatically.
