@@ -20,6 +20,7 @@
 (load-file "~/src/myamacs/package.el")
 (load-file "~/src/myamacs/applications.el")
 (load-file "~/src/myamacs/modes.el")
+(load-file "~/src/myamacs/keyboard-maestro.el")
 
 ;;;; Operations
 
