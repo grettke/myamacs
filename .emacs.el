@@ -21,6 +21,7 @@
 (load-file "~/src/myamacs/applications.el")
 (load-file "~/src/myamacs/modes.el")
 (load-file "~/src/myamacs/keyboard-maestro.el")
+(load-file "~/src/myamacs/lisp.el")
 
 ;;;; Operations
 
