@@ -26,12 +26,12 @@
 (add-hook 'org-mode-hook #'org2blog-maybe-start)
 
 (setq org2blog/wp-buffer-template
-      "#+ORG2BLOG:
-#+DATE: %s
-#+OPTIONS: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil
-#+CATEGORY: %s
-#+TAGS: %s
-#+TITLE: %s
+      "#+org2blog:
+#+date: %s
+#+options: toc:nil num:nil todo:nil pri:nil tags:nil ^:nil
+#+category: %s
+#+tags: %s
+#+title: %s
 \n")
 
 (require 'auth-source)
