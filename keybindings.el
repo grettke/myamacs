@@ -90,6 +90,8 @@
 (define-key org-mode-map (kbd "H->") (lambda () (interactive) (insert "⟫")))
 
 ;;;; emacs-lisp-mode
-;;; Row 3: Q...
-;;right
-(define-key emacs-lisp-mode-map (kbd "H-o") #'narrow-to-defun)
+(define-key emacs-lisp-mode-map (kbd "H-i") #'eval-defun)
+(define-key emacs-lisp-mode-map (kbd "H-o") #'eval-buffer)
+(define-key emacs-lisp-mode-map (kbd "H-p") #'byte-compile-file)
+(define-key emacs-lisp-mode-map (kbd "H-j") #'edebug-defun)
+(define-key emacs-lisp-mode-map (kbd "H-k") #'narrow-to-defun)
