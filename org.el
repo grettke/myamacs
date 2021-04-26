@@ -1,5 +1,5 @@
 (load-file "~/src/myamacs/org-ecm.el")
-(let ((release "9.1.9"))
+(let ((release "9.4.4"))
   (when (not (version= release org-version))
     (display-warning
      'myamacs

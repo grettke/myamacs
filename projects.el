@@ -15,4 +15,7 @@
   (add-hook 'org-mode-hook #'org-utf-to-xetex-prettify)
 
   (add-to-list 'load-path "~/src/say")
-  (require 'say))
+  (require 'say)
+
+  (add-to-list 'load-path "~/src/xml-rpc")
+  (require 'xml-rpc))
