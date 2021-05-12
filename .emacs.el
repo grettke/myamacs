@@ -53,6 +53,7 @@
 (defalias 'oet 'org-toggle-pretty-entities)
 (defalias 'tdoe 'toggle-debug-on-error)
 (defalias 'rps 'regexp-builder)
+(defalias 'dr 'downcase-region)
 
 ;;; Content
 
