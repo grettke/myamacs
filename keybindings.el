@@ -8,7 +8,7 @@
 (global-set-key (kbd "A-1") #'gcr-open-in-textedit)
 (global-set-key (kbd "A-2") #'shell)
 (global-set-key (kbd "A-3") #'org2blog-user-interface)
-(global-set-key (kbd "H-A-3") #'org2blog-complete)
+(global-set-key (kbd "H-9") #'org2blog-complete)
 (global-set-key (kbd "A-4") #'gcr-ui-date)
 ;; right
 (global-set-key (kbd "A-8") #'ispell)
