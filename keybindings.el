@@ -27,7 +27,7 @@
 (global-set-key [(alt shift ?r)] #'multi-occur-in-matching-buffers)
 (global-set-key (kbd "A-t") (lambda () (interactive) (insert "~/")))
 ;;right
-(global-set-key (kbd "A-y") #'kmacro-end-or-call-macro)
+(global-set-key (kbd "A-y") #'browse-kill-ring)
 (global-set-key (kbd "A-u") #'find-file)
 (global-set-key (kbd "A-i") #'other-window)
 (global-set-key (kbd "A-o") #'narrow-to-region)
