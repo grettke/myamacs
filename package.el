@@ -12,4 +12,7 @@
 (setq package-menu-hide-low-priority t)
 (setq package-enable-at-startup nil)
 (package-initialize)
-(require 'use-package)
+(eval-when-compile
+  (add-to-list 'load-path "/Users/grant/src/use-package")
+  (require 'use-package))
+

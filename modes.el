@@ -87,9 +87,11 @@
 
 ;;;; ccrypt
 
-(let ((path (concat (getenv "CCRYPT") "/share/emacs/site-lisp/ccrypt")))
-  (add-to-list 'load-path path)
-  (require 'ps-ccrypt))
+;; TODO ccrypt
+(when (getenv "CCRYPT")
+  (let ((path (concat (getenv "CCRYPT") "/share/emacs/site-lisp/ccrypt")))
+    (add-to-list 'load-path path)
+    (require 'ps-ccrypt)))
 
 ;;;; Flycheck
 

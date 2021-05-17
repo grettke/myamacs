@@ -2,6 +2,8 @@
 
 ;; (package-initialize)
 
+(toggle-debug-on-error)
+
 (require 'thingatpt)
 (require 'zone)
 (require 'subr-x)
@@ -142,7 +144,8 @@
   (message "mouse-drag-copy-region is: %s."
            (if mouse-drag-copy-region "ON" "OFF")))
 
-;;;; Server
+;;;; Emacs Server
 
-(setq server-name (getenv "EBSESOCKET"))
-(server-start)
+;; TODO: Server Mode
+;; (setq server-name (getenv "EBSESOCKET"))
+;; (server-start)
