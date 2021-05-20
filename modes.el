@@ -135,45 +135,6 @@
 
 (require 'ispell)
 
-;;;; Ag
-
-(setq ag-highlight-search t)
-(setq ag-reuse-window nil)
-(setq ag-reuse-buffers nil)
-(add-to-list 'ag-arguments "--hidden")
-(defun gcr-ag-mode-finished-hook-fn ()
-  "gcr ag finished hook function."
-  (interactive)
-  (let ((compilation-scroll-output 'first-error))
-    (pop-to-buffer next-error-last-buffer)))
-(add-hook 'ag-search-finished-hook #'gcr-ag-mode-finished-hook-fn)
-(defhydra gcr-hydra-ag (:color blue :hint nil)
-  "
-ag: The Silver Searcher (_q_uit)
-
-*** SEARCH ***
-
-S - In Scope:        (D)irectory or (P)roject
-F - For String:      (L)iteral String or (P)CRE
-I - Include Results: (A)ll Files or By (E)xtension
-
-| ^Key^ | S | F | I |
-|-^---^-+---+---|---+
-| [_f_] | D | L | A |
-| [_d_] | D | L | E |
-| [_s_] | D | P | A |
-| [_j_] | P | L | A |
-| [_k_] | P | L | E |
-| [_l_] | P | P | A |
-"
-  ("f" ag)
-  ("d" ag-files)
-  ("s" ag-regexp)
-  ("j" ag-project)
-  ("k" ag-project-files)
-  ("l" ag-project-regexp)
-  ("q" nil))
-
 ;;;; LanguageTool
 
 (setq langtool-language-tool-jar (getenv "LANGTOOL"))
