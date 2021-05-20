@@ -54,4 +54,4 @@
                   :default-tags-sub ,tags))))
   (setq org2blog/wp-blog-alist config))
 
-(org2blog-structure-template-add)
+;; (org2blog-structure-template-add)
