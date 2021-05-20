@@ -2,8 +2,6 @@
 
 ;; (package-initialize)
 
-(toggle-debug-on-error)
-
 (require 'thingatpt)
 (require 'zone)
 (require 'subr-x)
@@ -75,6 +73,7 @@
 (add-hook 'before-save-hook #'gcr-delete-trailing-whitespace)
 
 (winner-mode)
+1
 
 (use-package browse-kill-ring
   :ensure t
