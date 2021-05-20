@@ -42,7 +42,8 @@
 (global-set-key (kbd "A-s") 'Control-X-prefix)
 (global-set-key (kbd "A-d") (kbd "C-c C-c"))
 (global-set-key (kbd "A-f") #'vc-next-action)
-(global-set-key (kbd "A-g") #'gcr-hydra-ag/body)
+;; deadgrep config
+;; (global-set-key (kbd "A-g") #'gcr-hydra-ag/body)
 ;;right
 (global-set-key (kbd "A-h") #'org-mark-element)
 (global-set-key (kbd "A-j") #'switch-to-buffer)

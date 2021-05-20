@@ -6,7 +6,11 @@
 
 (use-package flycheck :ensure t)
 
-(use-package ag :ensure t)
+(use-package deadgrep
+  :ensure t
+  :config
+  (global-set-key [(alt shift ?g)] #'deadgrep-kill-all-buffers)
+  (global-set-key (kbd "A-g") #'deadgrep))
 
 (use-package langtool :ensure t)
 
