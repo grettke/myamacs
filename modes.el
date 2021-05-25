@@ -270,3 +270,7 @@ Graphviz
     (indent-guide-mode))
   (add-hook 'yaml-mode-hook #'gcr-yaml-mode-hook-fn)
   (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode)))
+
+;;;; TeX, LaTeX, and SliTeX mode
+
+(add-to-list 'auto-mode-alist '("\\.lco\\'" . latex-mode))
