@@ -453,6 +453,13 @@ Packages sometimes require that they are loaded either before or after other pac
 
 Used code from [[https://github.com/kaushalmodi/.emacs.d/blob/master/setup-files/setup-org.el][here]].
 
+- 2021-05-24
+  - Removed due to inexplicable breakage of documents.
+  #+NAME: org_grant_2021-05-24T23-15-14-05-00_Sadie_406694C5-E2B4-4AD9-860E-97E6D772222F
+  #+begin_src emacs-lisp :tangle no
+("section" "placeins")
+  #+end_src
+
 #+name: org_gcr_2018-03-07_mara_C60306B4-7FB0-45AB-B39F-2BF47FA39604
 #+begin_src emacs-lisp
 (gcr-org-latex-remove-package "hyperref")
@@ -461,7 +468,6 @@ Used code from [[https://github.com/kaushalmodi/.emacs.d/blob/master/setup-files
     ("" "float")))
 (defconst gcr-org-latex-packages-alist-post-hyperref
   '(("" "fontspec")
-    ("section" "placeins")
     ("" "tikz")
     ("style=base" "caption")
     ("" "latexsym")

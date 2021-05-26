@@ -171,7 +171,6 @@
     ("" "float")))
 (defconst gcr-org-latex-packages-alist-post-hyperref
   '(("" "fontspec")
-    ("section" "placeins")
     ("" "tikz")
     ("style=base" "caption")
     ("" "latexsym")
