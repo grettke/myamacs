@@ -214,7 +214,7 @@
         ("numberstyle" "\\tiny")
         ("resetmargins" "false")
         ("showlines" "true")
-        ("showspaces" "false")
+        ("showspaces" "true")
         ("showstringspaces" "true")
         ("showtabs" "true")
         ("stepnumber" "1")
