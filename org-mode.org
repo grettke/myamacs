@@ -958,25 +958,25 @@ in mind, RETURN is bound to that now. Now HELP has four different kinds of
 "returns" in Org in order of likelihood of usage:
 
 - org-return-indent :: Make it really easy to work in existing list items,
-     headings, and tables
-     - This is listed first because I often go back to modify entries
-     - <return> because it is used the most
+  headings, and tables
+  - This is listed first because I often go back to modify entries
+  - <return> because it is used the most
 - org-meta-return :: Make it really easy to add new list items, headings, and
-     table contents
-     - M-<return> because the binding comes with Org
+  table contents
+  - M-<return> because the binding comes with Org
 - *newline* :: For when I want to break out of the default
-               Org indentation to start working at the beginning of the line for example when
-               I'm done working in a list or have just created a new heading
-               - C-M-<return> because it is next step "lower" in the binding
+  Org indentation to start working at the beginning of the line for example when
+  I'm done working in a list or have just created a new heading
+  - C-M-<return> because it is next step "lower" in the binding
 - gcr-smart-open-line :: When I want to insert a new line between the current
-     and next line then position the cursor correctly indented at the start of it.
-     - s-<return> because it is that is the last place in the modifier key chain
+  and next line then position the cursor correctly indented at the start of it.
+  - s-<return> because it is that is the last place in the modifier key chain
 
-     #+NAME: org_gcr_2017-05-12_mara_711B4205-DC28-4A35-B620-23AFD46E3973
-     #+BEGIN_SRC emacs-lisp
+    #+NAME: org_gcr_2017-05-12_mara_711B4205-DC28-4A35-B620-23AFD46E3973
+    #+BEGIN_SRC emacs-lisp
 (define-key org-mode-map (kbd "<return>") #'org-return-indent)
 (define-key org-mode-map (kbd "C-M-<return>") #'newline)
-     #+END_SRC
+    #+END_SRC
 
 *** Row 4, 1...
 :PROPERTIES:
