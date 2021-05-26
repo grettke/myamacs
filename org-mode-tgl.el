@@ -219,7 +219,7 @@
         ("showtabs" "true")
         ("stepnumber" "1")
         ("stringstyle" "\\ttfamily")
-        ("tab" "\rightarrowfill")
+        ("tab" "\\rightarrowfill")
         ("tabsize" "2")
         ("texcl" "false")
         ("upquote" "false")))
