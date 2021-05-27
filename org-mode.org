@@ -1265,17 +1265,6 @@ Doctype—use the default.
       (plist-put org-html-table-default-attributes :frame "border"))
 #+end_src
 
-** Hooks
-:PROPERTIES:
-:ID:       org_gcr_2019-01-14T09-58-00-06-00_cosmicality:A9834827-BB7D-4DA6-8AD0-F5733437C30F
-:END:
-
-#+name: org_gcr_2019-01-14T09-58-00-06-00_cosmicality_9D450653-5C54-48DB-B0A9-24E8408B0CF2
-#+begin_src emacs-lisp
-(defun gcr-org-mode-hook-fun ()
-  (local-unset-key (kbd "C-j")))
-(add-hook 'org-mode-hook #'org2blog-maybe-start)
-#+end_src
 ** Publishing
 :PROPERTIES:
 :ID:       org_gcr_2017-05-12_mara:0A4A1510-41F7-4469-87D1-156D44A06216

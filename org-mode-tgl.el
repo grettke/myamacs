@@ -647,12 +647,6 @@
     0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "—")))))
 ;; org_gcr_2018-06-14T14-15-42-05-00_mara_2F1F424E-F780-4D04-B582-7770987CC960 ends here
 
-;; [[file:org-mode.org::org_gcr_2019-01-14T09-58-00-06-00_cosmicality_9D450653-5C54-48DB-B0A9-24E8408B0CF2][org_gcr_2019-01-14T09-58-00-06-00_cosmicality_9D450653-5C54-48DB-B0A9-24E8408B0CF2]]
-(defun gcr-org-mode-hook-fun ()
-  (local-unset-key (kbd "C-j")))
-(add-hook 'org-mode-hook #'org2blog-maybe-start)
-;; org_gcr_2019-01-14T09-58-00-06-00_cosmicality_9D450653-5C54-48DB-B0A9-24E8408B0CF2 ends here
-
 ;; [[file:org-mode.org::org_gcr_2017-05-12_mara_C74104AA-A25C-4BE8-A7DD-99DEA240FF73][org_gcr_2017-05-12_mara_C74104AA-A25C-4BE8-A7DD-99DEA240FF73]]
 (eval-after-load "ox" '(require 'ox-koma-letter))
 ;; org_gcr_2017-05-12_mara_C74104AA-A25C-4BE8-A7DD-99DEA240FF73 ends here
