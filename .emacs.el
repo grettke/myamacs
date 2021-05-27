@@ -73,7 +73,6 @@
 (add-hook 'before-save-hook #'gcr-delete-trailing-whitespace)
 
 (winner-mode)
-1
 
 (use-package browse-kill-ring
   :ensure t
