@@ -73,10 +73,6 @@
 
 (add-hook 'conf-unix-mode-hook #'gcr-conf-unix-mode-hook-fn)
 
-;;;; BibTeX
-
-(load-file "~/src/myamacs/bibtex-tgl.el")
-
 ;;;; Htmlize
 
 (setq htmlize-output-type 'inline-css)
@@ -274,3 +270,8 @@ Graphviz
 ;;;; TeX, LaTeX, and SliTeX mode
 
 (add-to-list 'auto-mode-alist '("\\.lco\\'" . latex-mode))
+
+;;;;; BibTeX
+
+(load-file "~/src/myamacs/bibtex-tgl.el")
+
