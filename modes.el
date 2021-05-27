@@ -218,7 +218,7 @@ Graphviz
   ("i" graphviz-dot-indent-graph)
   ("s" graphviz-dot-set-layout)
   ("q" nil))
-(defun help/graphviz-dot-mode-hook-fun ()
+(defun help/graphviz-dot-mode-hook-fn ()
   (setq
    graphviz-dot-view-command "open %s"
    graphviz-dot-view-edit-command nil
@@ -232,7 +232,7 @@ Graphviz
   (local-set-key (kbd "H-j") #'help/hydra/graphviz-dot-mode/body)
   (local-set-key (kbd "H-i") #'compile)
   (local-set-key (kbd "H-o") #'graphviz-dot-complete-word))
-(add-hook 'graphviz-dot-mode-hook #'help/graphviz-dot-mode-hook-fun)
+(add-hook 'graphviz-dot-mode-hook #'help/graphviz-dot-mode-hook-fn)
 
 ;;;; Markdown
 
