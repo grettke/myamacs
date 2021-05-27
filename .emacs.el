@@ -55,6 +55,7 @@
 (defalias 'rps 'regexp-builder)
 (defalias 'dr 'downcase-region)
 (defalias 'dc 'describe-char)
+(defalias 'kob 'gcr-kill-other-buffers)
 
 ;;; Content
 
