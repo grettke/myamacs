@@ -72,8 +72,6 @@
 (add-hook 'before-save-hook #'gcr-indent-buffer)
 (add-hook 'before-save-hook #'gcr-delete-trailing-whitespace)
 
-(winner-mode)
-
 (use-package browse-kill-ring
   :ensure t
   :config
