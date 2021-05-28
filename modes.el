@@ -10,7 +10,8 @@
               #'visual-fill-column-adjust))
 
 (defun amacs-text-mode-hook-fn ()
-  (visual-line-mode))
+  (visual-line-mode
+   (add-hook 'before-save-hook #'gcr-delete-trailing-whitespace)))
 
 (add-hook 'text-mode-hook #'amacs-text-mode-hook-fn)
 
@@ -25,7 +26,8 @@
 
 (defun amacs-prog-mode-hook-fn ()
   (interactive)
-  (auto-fill-mode))
+  (auto-fill-mode)
+  (add-hook 'before-save-hook #'gcr-delete-trailing-whitespace t t))
 
 ;; Implementation
 
@@ -36,7 +38,7 @@
 (require 'checkdoc)
 (setq checkdoc-package-keywords-flag t)
 
-;;;; Emacs Lisp
+;;;; General Lisp
 
 (defun gcr-general-lisp-prettify ()
   (mapc (lambda (pair) (push pair prettify-symbols-alist))
@@ -55,6 +57,15 @@
  (lambda (mode) (add-hook mode #'gcr-general-lisp-mode-hook-fn))
  amacs-lisp-modes)
 
+;;;;; Emacs Lisp
+
+(defun emacs-lisp-mode-hook-fn ()
+  (interactive)
+  (add-hook 'before-save-hook #'gcr-untabify-buffer t t)
+  (add-hook 'before-save-hook #'gcr-indent-buffer t t))
+
+(add-hook 'emacs-lisp-mode-hook #'emacs-lisp-mode-hook-fn)
+
 (global-eldoc-mode -1)
 
 ;;;; Shell-script
@@ -64,14 +75,6 @@
   (setq sh-basic-offset 2))
 
 (add-hook 'sh-mode-hook #'gcr-sh-mode-hook-fn)
-
-;;;; Conf
-
-(defun gcr-conf-unix-mode-hook-fn ()
-  (interactive)
-  (remove-hook 'before-save-hook #'gcr-indent-buffer))
-
-(add-hook 'conf-unix-mode-hook #'gcr-conf-unix-mode-hook-fn)
 
 ;;;; Htmlize
 
@@ -248,9 +251,6 @@ Graphviz
   (use-package markdown-toc :ensure t)
   (setq markdown-open-command "/Users/gcr/util/mark")
   (setq markdown-header-scaling t)
-  (defun gcr-markdown-mode-hook-fn ()
-    (interactive)
-    (remove-hook 'before-save-hook #'gcr-indent-buffer))
   (add-hook 'markdown-mode-hook #'gcr-markdown-mode-hook-fn))
 
 ;;;; YAML
@@ -261,7 +261,6 @@ Graphviz
   (use-package indent-guide
     :ensure t)
   (defun gcr-yaml-mode-hook-fn ()
-    (remove-hook 'before-save-hook #'gcr-indent-buffer)
     (turn-off-auto-fill)
     (indent-guide-mode))
   (add-hook 'yaml-mode-hook #'gcr-yaml-mode-hook-fn)

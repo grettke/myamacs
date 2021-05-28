@@ -33,7 +33,10 @@
 (global-set-key (kbd "A-o") #'narrow-to-region)
 (global-set-key (kbd "A-p") #'pop-to-mark-command)
 (global-set-key (kbd "M-A-p") #'flycheck-previous-error)
+
 (global-set-key (kbd "A-\\") #'gcr-indent-buffer)
+(global-set-key (kbd "A-]") #'gcr-delete-trailing-whitespace)
+(global-set-key (kbd "A-C-M-]") #'gcr-untabify-buffer)
 
 ;;; Row 2: A
 

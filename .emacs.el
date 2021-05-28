@@ -69,10 +69,6 @@
 (setq-default indent-tabs-mode nil)
 (setq tab-width 4)
 
-(add-hook 'before-save-hook #'gcr-untabify-buffer)
-(add-hook 'before-save-hook #'gcr-indent-buffer)
-(add-hook 'before-save-hook #'gcr-delete-trailing-whitespace)
-
 (use-package browse-kill-ring
   :ensure t
   :config
