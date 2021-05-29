@@ -12,7 +12,6 @@
 (global-set-key (kbd "A-4") #'gcr-ui-date)
 ;; right
 (global-set-key (kbd "A-8") #'ispell)
-(global-set-key (kbd "A-9") #'gcr-hydra-flycheck/body)
 (global-set-key (kbd "A--") #'gcr-insert-em-dash)
 (global-set-key (kbd "A-_") #'gcr-toggle-copy-region)
 (global-set-key (kbd "C-A--") #'gcr-insert-en-dash)
@@ -100,3 +99,7 @@
 (define-key emacs-lisp-mode-map (kbd "H-p") #'byte-compile-file)
 (define-key emacs-lisp-mode-map (kbd "H-j") #'edebug-defun)
 (define-key emacs-lisp-mode-map (kbd "H-k") #'narrow-to-defun)
+
+;;;; shell mode
+
+(global-set-key (kbd "H-9") #'gcr-hydra-flycheck/body)
