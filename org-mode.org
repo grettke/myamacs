@@ -480,6 +480,7 @@ Used code from [[https://github.com/kaushalmodi/.emacs.d/blob/master/setup-files
     ("" "polyglossia")
     ("" "tabularx")
     ("" "tabu")
+    ("" "fontawesome5")
     ("" "grantcrettke")))
 (setq org-latex-packages-alist
       (append gcr-org-latex-packages-alist-pre-hyperref

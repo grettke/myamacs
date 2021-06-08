@@ -183,6 +183,7 @@
     ("" "polyglossia")
     ("" "tabularx")
     ("" "tabu")
+    ("" "fontawesome5")
     ("" "grantcrettke")))
 (setq org-latex-packages-alist
       (append gcr-org-latex-packages-alist-pre-hyperref
